@@ -1,0 +1,253 @@
+Created At: 2026-09-29T03:18:02+05:30
+Completed At: 2026-09-29T03:18:30+05:30
+
+The command exited with code 0.
+Output:
+<truncated 83 lines>
+  "localPath": "D:/tn-enforcement-system/tn-forest-monitoring/server/storage/raster_temp/6aa679012b4fe5808c7e8ec7/ZONE-260913-7787_6aa679012b4fe5808c7e8ec7_BASELINE_Landsat8_20150106.tif"
+}
+{
+  "id": "6ab51cf0f979afc8c8714b41",
+  "zoneId": "6aa676d32b4fe5808c7e8ded",
+  "sensor": "OPTICAL",
+  "date": "2026-09-09T05:25:57.347Z",
+  "metadataId": "6aa6798c2b4fe5808c7e9038",
+  "localPath": "D:\\tn-enforcement-system\\tn-forest-monitoring\\server\\storage\\raster_temp\\6aa6798c2b4fe5808c7e9038\\ZONE-260913-7787_6aa6798c2b4fe5808c7e9038_CURRENT_Sentinel2_20260909.tif"
+}
+{
+  "id": "6ab5c957f979afc8c8714fb4",
+  "zoneId": "6ab5c434f979afc8c8714e25",
+  "sensor": "OPTICAL",
+  "date": "2026-09-06T05:26:14.942Z",
+  "active": true,
+  "metadataId": "6ab5c628f979afc8c8714eba",
+  "localPath": "D:\\tn-enforcement-system\\tn-forest-monitoring\\server\\storage\\raster_temp\\6ab5c957f979afc8c8714fb4\\ZONE-260925-8986_6ab5c957f979afc8c8714fb4_BASELINE_Sentinel2_20260906.tif"
+}
+{
+  "id": "6ab7eb8e6358176818476cbc",
+  "zoneId": "6ab5c434f979afc8c8714e25",
+  "sensor": "SAR",
+  "platform": "Sentinel-1A",
+  "date": "2026-01-06T00:32:33.000Z",
+  "metadataId": "6ab7e7e46358176818476c24",
+  "localPath": "D:\\tn-enforcement-system\\tn-forest-monitoring\\server\\storage\\raster_temp\\6ab7eb8e6358176818476cbc\\ZONE-260925-8986_6ab7eb8e6358176818476cbc_BASELINE_Sentinel1_20260106.tif"
+}
+{
+  "id": "6ab8a9ba667c98f4208d8d32",
+  "zoneId": "6ab5c434f979afc8c8714e25",
+  "sensor": "SAR",
+  "platform": "Sentinel-1A",
+  "date": "2021-01-01T00:41:01.000Z",
+  "metadataId": "6ab8a897667c98f4208d8bc0",
+  "localPath": "D:\\tn-enforcement-system\\tn-forest-monitoring\\server\\storage\\raster_temp\\6ab8a9ba667c98f4208d8d32\\ZONE-260925-8986_6ab8a9ba667c98f4208d8d32_BASELINE_Sentinel1_20210101.tif"
+}
+{
+  "id": "6ab8dab06f0c75ad0b423200",
+  "zoneId": "6ab5c434f979afc8c8714e25",
+  "sensor": "SAR",
+  "platform": "Sentinel-1A",
+  "date": "2020-01-02T00:32:40.000Z",
+  "active": true,
+  "metadataId": "6ab8a736667c98f4208d8b05",
+  "localPath": "D:\\tn-enforcement-system\\tn-forest-monitoring\\server\\storage\\raster_temp\\6ab8a736667c98f4208d8b05\\ZONE-260925-8986_6ab8a736667c98f4208d8b05_CURRENT_Sentinel1_20200102.tif"
+}
+{
+  "id": "6ab9074f65d99f53e6ce732f",
+  "zoneId": "6ab5c434f979afc8c8714e25",
+  "sensor": "OPTICAL",
+  "date": "2026-09-26T05:26:13.842Z",
+  "metadataId": "6ab8abf5667c98f4208d8f6a",
+  "localPath": "D:\\tn-enforcement-system\\tn-forest-monitoring\\server\\storage\\raster_temp\\6ab9074f65d99f53e6ce732f\\ZONE-260925-8986_6ab9074f65d99f53e6ce732f_BASELINE_Sentinel2_20260926.tif"
+}
+=== CHANGE DETECTIONS ===
+{
+  "id": "6aa679af2b4fe5808c7e910d",
+  "changeId": "CHG-1789295023854-2895",
+  "zoneId": "6aa676d32b4fe5808c7e8ded",
+  "sensorType": "OPTICAL",
+  "source": "SENTINEL_2",
+  "baselineId": "6aa679012b4fe5808c7e8ec7",
+  "observationId": "6aa6798c2b4fe5808c7e9038",
+  "detectedAt": "2026-09-13T10:23:42.405Z",
+  "affectedAreaPercentage": 4.5,
+  "changedArea": 4.5,
+  "evidenceStrength": 57,
+  "severity": "LOW",
+  "calculationMode": "REAL"
+}
+{
+  "id": "6ab5c26cf979afc8c8714cfe",
+  "changeId": "CHG-1790296684819-7147",
+  "zoneId": "6aa676d32b4fe5808c7e8ded",
+  "sensorType": "OPTICAL",
+  "source": "SENTINEL_2",
+  "observationId": "6aa6798c2b4fe5808c7e9038",
+  "detectedAt": "2026-09-09T05:25:57.347Z",
+  "affectedAreaPercentage": 0.01,
+  "changedArea": 0.01,
+  "evidenceStrength": 29,
+  "severity": "NONE",
+  "calculationMode": "REAL"
+}
+{
+  "id": "6ab63c2d5437ad453a51d97e",
+  "changeId": "CHG-1790327853567-2332",
+  "zoneId": "6ab5c434f979afc8c8714e25",
+  "sensorType": "OPTICAL",
+  "source": "SENTINEL_2",
+  "baselineId": "6ab5c957f979afc8c8714fb4",
+  "observationId": "6aa6798c2b4fe5808c7e9038",
+  "detectedAt": "2026-09-09T05:25:57.347Z",
+  "affectedAreaPercentage": 0.89,
+  "changedArea": 0.89,
+  "evidenceStrength": 39,
+  "severity": "NONE",
+  "calculationMode": "REAL"
+}
+{
+  "id": "6ab70049d8260a30adf61a6a",
+  "changeId": "CHG-1790378057185-2192",
+  "zoneId": "6ab70043d8260a30adf61a06",
+  "sensorType": "OPTICAL",
+  "source": "SENTINEL_2",
+  "baselineId": "6ab70044d8260a30adf61a1f",
+  "observationId": "6aa6798c2b4fe5808c7e9038",
+  "detectedAt": "2026-09-09T05:25:57.347Z",
+  "affectedAreaPercentage": 0.97,
+  "changedArea": 0.97,
+  "evidenceStrength": 39,
+  "severity": "NONE",
+  "calculationMode": "REAL"
+}
+{
+  "id": "6ab70070d8260a30adf61ace",
+  "changeId": "CHG-1790378096022-8089",
+  "zoneId": "6ab70043d8260a30adf61a06",
+  "sensorType": "SAR",
+  "source": "SENTINEL_1",
+  "baselineId": "6ab70049d8260a30adf61a71",
+  "observationId": "6ab70049d8260a30adf61a91",
+  "detectedAt": "2026-09-22T00:32:16.000Z",
+  "affectedAreaPercentage": 2.12,
+  "changedArea": 2.12,
+  "evidenceStrength": 60,
+  "severity": "LOW",
+  "alertId": "6ab70070d8260a30adf61acf",
+  "calculationMode": "REAL"
+}
+{
+  "id": "6ab8ac90667c98f4208d8f9b",
+  "changeId": "CHG-1790487696743-2109",
+  "zoneId": "6ab5c434f979afc8c8714e25",
+  "sensorType": "OPTICAL",
+  "source": "SENTINEL_2",
+  "baselineId": "6ab5c957f979afc8c8714fb4",
+  "observationId": "6ab8abf5667c98f4208d8f6a",
+  "detectedAt": "2026-09-26T05:26:13.842Z",
+  "affectedAreaPercentage": 0.98,
+  "changedArea": 0.98,
+  "evidenceStrength": 51,
+  "severity": "NONE",
+  "calculationMode": "REAL"
+}
+{
+  "id": "6ab905ec65d99f53e6ce728c",
+  "changeId": "CHG-1790510572230-4759",
+  "zoneId": "6aa676d32b4fe5808c7e8ded",
+  "sensorType": "OPTICAL",
+  "source": "SENTINEL_2",
+  "baselineId": "6aa679012b4fe5808c7e8ec7",
+  "observationId": "6ab8abf5667c98f4208d8f6a",
+  "detectedAt": "2026-09-26T05:26:13.842Z",
+  "affectedAreaPercentage": 16.022,
+  "changedArea": 16.02,
+  "evidenceStrength": 69,
+  "severity": "HIGH",
+  "alertId": "6ab905ec65d99f53e6ce728d",
+  "auditStatus": "INVALID_FOR_PRODUCTION_CROSS_SENSOR",
+  "calculationMode": "REAL"
+}
+{
+  "id": "6ab90a0a65d99f53e6ce7555",
+  "changeId": "CHG-1790511626250-4641",
+  "zoneId": "6ab5c434f979afc8c8714e25",
+  "sensorType": "SAR",
+  "source": "SENTINEL_1",
+  "baselineId": "6ab8dab06f0c75ad0b423200",
+  "observationId": "6ab8a897667c98f4208d8bc0",
+  "detectedAt": "2021-01-01T00:41:01.000Z",
+  "affectedAreaPercentage": 1.06,
+  "changedArea": 1.06,
+  "evidenceStrength": 54,
+  "severity": "NONE",
+  "calculationMode": "REAL"
+}
+{
+  "id": "6ab93f85b3450b3f69802ec4",
+  "changeId": "CHG-1790525317279-8405",
+  "zoneId": "6ab5c434f979afc8c8714e25",
+  "sensorType": "SAR",
+  "source": "SENTINEL_1",
+  "baselineId": "6ab8dab06f0c75ad0b423200",
+  "observationId": "6ab8a897667c98f4208d8bc0",
+  "detectedAt": "2021-01-01T00:41:01.000Z",
+  "affectedAreaPercentage": 77.3,
+  "changedArea": 20450.57,
+  "evidenceStrength": 74,
+  "severity": "HIGH",
+  "alertId": "6ab93f85b3450b3f69802ec5",
+  "auditStatus": "INVALID_FOR_PRODUCTION_GEOMETRY",
+  "calculationMode": "REAL"
+}
+=== ALERTS ===
+{
+  "id": "6aa679af2b4fe5808c7e910e",
+  "alertId": "ALT-1789295023854-8239",
+  "zoneId": "6aa676d32b4fe5808c7e8ded",
+  "changeDetectionId": "6aa679af2b4fe5808c7e910d",
+  "severity": "LOW",
+  "status": "OPEN",
+  "evidenceStrength": 57,
+  "createdAt": "2026-09-24T12:33:10.327Z"
+}
+{
+  "id": "6ab70070d8260a30adf61acf",
+  "alertId": "ALT-1790378096022-8414",
+  "zoneId": "6ab70043d8260a30adf61a06",
+  "changeDetectionId": "6ab70070d8260a30adf61ace",
+  "severity": "LOW",
+  "status": "OPEN",
+  "evidenceStrength": 60,
+  "createdAt": "2026-09-25T23:14:56.027Z"
+}
+{
+  "id": "6ab905ec65d99f53e6ce728d",
+  "alertId": "ALT-1790510572230-8843",
+  "zoneId": "6aa676d32b4fe5808c7e8ded",
+  "changeDetectionId": "6ab905ec65d99f53e6ce728c",
+  "severity": "HIGH",
+  "status": "OPEN",
+  "evidenceStrength": 69,
+  "createdAt": "2026-09-27T12:02:52.235Z"
+}
+{
+  "id": "6ab93ee14530a158b39fb1bd",
+  "alertId": "ALT-1790525153580-2350",
+  "zoneId": "6ab5c434f979afc8c8714e25",
+  "changeDetectionId": "6ab93ee14530a158b39fb1bc",
+  "severity": "HIGH",
+  "status": "OPEN",
+  "evidenceStrength": 74,
+  "createdAt": "2026-09-27T16:05:53.587Z"
+}
+{
+  "id": "6ab93f85b3450b3f69802ec5",
+  "alertId": "ALT-1790525317279-3924",
+  "zoneId": "6ab5c434f979afc8c8714e25",
+  "changeDetectionId": "6ab93f85b3450b3f69802ec4",
+  "severity": "HIGH",
+  "status": "OPEN",
+  "evidenceStrength": 74,
+  "createdAt": "2026-09-27T16:08:37.289Z"
+}
+

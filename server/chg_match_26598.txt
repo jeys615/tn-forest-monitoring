@@ -1,0 +1,178 @@
+Created At: 2026-09-28T20:40:38+05:30
+Completed At: 2026-09-28T20:41:58+05:30
+
+The command exited with code 0.
+Output:
+<truncated 1 lines>
+  calculationMode: REAL
+  spatialSource: RASTER
+  calculationMethod: undefined
+  spatialCalculation: undefined
+  zoneArea: 100 ha | changedArea: 0.01 ha | affectedAreaPercentage: 0.01%
+  changedPixels: undefined | validPixels: undefined
+  severity: NONE | evidenceStrength: 29
+  categories: ["UNKNOWN_CHANGE"]
+  changeIndicators: {
+  "ndviDelta": 0,
+  "ndwiDelta": 0,
+  "ndbiDelta": 0,
+  "bsiDelta": 0,
+  "saviDelta": 0,
+  "eviDelta": 0
+}
+  analysisGrid: undefined
+  rasterStatistics: undefined
+  thresholdConfig: undefined
+  explanation: Observation evaluated for zone vadipatti (ZONE-260913-7787). Detected change of 0.01% is below the minimum alert threshold (2%). No alert generated. Confirmed via real satellite raster analysis. Evidence Strength: 29/100 [Magnitude: 0.1/40, Data Quality: 14/20, Temporal: 5/20, Cross-Sensor: 10/20]
+  auditStatus: undefined
+
+ChangeDetection ID: 6ab63c2d5437ad453a51d97e (CHG-1790327853567-2332)
+  zoneId: 6ab5c434f979afc8c8714e25
+  observationId: 6aa6798c2b4fe5808c7e9038
+  baselineId: 6ab5c957f979afc8c8714fb4
+  referenceObservationId: undefined
+  sensorType: OPTICAL | source: SENTINEL_2
+  detectedAt: 2026-09-09T05:25:57.347Z
+  calculationMode: REAL
+  spatialSource: RASTER
+  calculationMethod: undefined
+  spatialCalculation: undefined
+  zoneArea: 100 ha | changedArea: 0.89 ha | affectedAreaPercentage: 0.89%
+  changedPixels: undefined | validPixels: undefined
+  severity: NONE | evidenceStrength: 39
+  categories: ["SURFACE_CHANGE"]
+  changeIndicators: {
+  "ndviDelta": -0.029,
+  "ndwiDelta": -0.008,
+  "ndbiDelta": 0.008,
+  "bsiDelta": 0.013,
+  "saviDelta": -0.025,
+  "eviDelta": -0.024
+}
+  analysisGrid: undefined
+  rasterStatistics: undefined
+  thresholdConfig: undefined
+  explanation: Observation evaluated for zone Sirumalai (ZONE-260925-8986). Detected change of 0.89% is below the minimum alert threshold (2%). No alert generated. Confirmed via real satellite raster analysis. Evidence Strength: 39/100 [Magnitude: 4.5/40, Data Quality: 14/20, Temporal: 10/20, Cross-Sensor: 10/20]
+  auditStatus: undefined
+
+ChangeDetection ID: 6ab70049d8260a30adf61a6a (CHG-1790378057185-2192)
+  zoneId: 6ab70043d8260a30adf61a06
+  observationId: 6aa6798c2b4fe5808c7e9038
+  baselineId: 6ab70044d8260a30adf61a1f
+  referenceObservationId: undefined
+  sensorType: OPTICAL | source: SENTINEL_2
+  detectedAt: 2026-09-09T05:25:57.347Z
+  calculationMode: REAL
+  spatialSource: RASTER
+  calculationMethod: undefined
+  spatialCalculation: undefined
+  zoneArea: 100 ha | changedArea: 0.97 ha | affectedAreaPercentage: 0.97%
+  changedPixels: undefined | validPixels: undefined
+  severity: NONE | evidenceStrength: 39
+  categories: ["SURFACE_CHANGE"]
+  changeIndicators: {
+  "ndviDelta": -0.03,
+  "ndwiDelta": -0.01,
+  "ndbiDelta": 0.01,
+  "bsiDelta": 0.015,
+  "saviDelta": -0.025,
+  "eviDelta": -0.024
+}
+  analysisGrid: undefined
+  rasterStatistics: undefined
+  thresholdConfig: undefined
+  explanation: Observation evaluated for zone Test Sensor Cfg 1790378051952 (ZONE-TEST-CFG-1790378051952). Detected change of 0.97% is below the minimum alert threshold (2%). No alert generated. Confirmed via real satellite raster analysis. Evidence Strength: 39/100 [Magnitude: 4.8/40, Data Quality: 14/20, Temporal: 10/20, Cross-Sensor: 10/20]
+  auditStatus: undefined
+
+ChangeDetection ID: 6ab8ac90667c98f4208d8f9b (CHG-1790487696743-2109)
+  zoneId: 6ab5c434f979afc8c8714e25
+  observationId: 6ab8abf5667c98f4208d8f6a
+  baselineId: 6ab5c957f979afc8c8714fb4
+  referenceObservationId: undefined
+  sensorType: OPTICAL | source: SENTINEL_2
+  detectedAt: 2026-09-26T05:26:13.842Z
+  calculationMode: REAL
+  spatialSource: RASTER
+  calculationMethod: undefined
+  spatialCalculation: undefined
+  zoneArea: 100 ha | changedArea: 0.98 ha | affectedAreaPercentage: 0.98%
+  changedPixels: undefined | validPixels: undefined
+  severity: NONE | evidenceStrength: 51
+  categories: ["SURFACE_CHANGE"]
+  changeIndicators: {
+  "ndviDelta": -0.018,
+  "ndwiDelta": -0.021,
+  "ndbiDelta": 0.021,
+  "bsiDelta": 0.021,
+  "saviDelta": -0.015,
+  "eviDelta": -0.016
+}
+  analysisGrid: undefined
+  rasterStatistics: undefined
+  thresholdConfig: undefined
+  explanation: Observation evaluated for zone Sirumalai (ZONE-260925-8986). Detected change of 0.98% is below the minimum alert threshold (2%). No alert generated. Confirmed via real satellite raster analysis. Evidence Strength: 51/100 [Magnitude: 4.9/40, Data Quality: 16/20, Temporal: 20/20, Cross-Sensor: 10/20]
+  auditStatus: undefined
+
+ChangeDetection ID: 6ab905ec65d99f53e6ce728c (CHG-1790510572230-4759)
+  zoneId: 6aa676d32b4fe5808c7e8ded
+  observationId: 6ab8abf5667c98f4208d8f6a
+  baselineId: 6aa679012b4fe5808c7e8ec7
+  referenceObservationId: undefined
+  sensorType: OPTICAL | source: SENTINEL_2
+  detectedAt: 2026-09-26T05:26:13.842Z
+  calculationMode: REAL
+  spatialSource: RASTER
+  calculationMethod: undefined
+  spatialCalculation: undefined
+  zoneArea: 100 ha | changedArea: 16.02 ha | affectedAreaPercentage: 16.022%
+  changedPixels: undefined | validPixels: undefined
+  severity: HIGH | evidenceStrength: 69
+  categories: ["SURFACE_CHANGE"]
+  changeIndicators: {
+  "ndviDelta": -0.032,
+  "ndwiDelta": -0.039,
+  "ndbiDelta": 0.039,
+  "bsiDelta": 0.039,
+  "saviDelta": -0.027,
+  "eviDelta": -0.028
+}
+  analysisGrid: undefined
+  rasterStatistics: undefined
+  thresholdConfig: undefined
+  explanation: Change detected across approximately 16.022% of monitored zone vadipatti (ZONE-260913-7787). Primary evidence source: OPTICAL. Detected patterns: SURFACE CHANGE. Highest threshold crossed: 10% (Severity: HIGH). Confirmed via real satellite raster analysis. Evidence Strength: 69/100 [Magnitude: 38/40, Data Quality: 16/20, Temporal: 5/20, Cross-Sensor: 10/20]
+  auditStatus: undefined
+
+--- OPTICAL ALERTS ---
+Found 2 optical alert records.
+
+Alert ID: 6aa679af2b4fe5808c7e910e (ALT-1789295023854-8239)
+  zoneId: 6aa676d32b4fe5808c7e8ded
+  changeDetectionId: 6aa679af2b4fe5808c7e910d
+  sensorType: OPTICAL | source: undefined
+  severity: LOW | evidenceStrength: 57
+  affectedAreaPercentage: 4.5%
+  explanation: Vegetation loss detected in optical monitoring track (affected area: 4.5%, severity: LOW)
+
+Alert ID: 6ab905ec65d99f53e6ce728d (ALT-1790510572230-8843)
+  zoneId: 6aa676d32b4fe5808c7e8ded
+  changeDetectionId: 6ab905ec65d99f53e6ce728c
+  sensorType: OPTICAL | source: undefined
+  severity: HIGH | evidenceStrength: 69
+  affectedAreaPercentage: 16.022%
+  explanation: Change detected across approximately 16.022% of monitored zone vadipatti (ZONE-260913-7787). Primary evidence source: OPTICAL. Detected patterns: SURFACE CHANGE. Highest threshold crossed: 10% (Severity: HIGH). Confirmed via real satellite raster analysis. Evidence Strength: 69/100 [Magnitude: 38/40, Data Quality: 16/20, Temporal: 5/20, Cross-Sensor: 10/20]
+
+--- ALL CHANGE DETECTION RECORDS SUMMARY ---
+Change CHG-1789295023854-2895: sensorType=OPTICAL, source=SENTINEL_2, method=undefined, affectedArea=4.5%, auditStatus=undefined
+Change CHG-1790296684819-7147: sensorType=OPTICAL, source=SENTINEL_2, method=undefined, affectedArea=0.01%, auditStatus=undefined
+Change CHG-1790327853567-2332: sensorType=OPTICAL, source=SENTINEL_2, method=undefined, affectedArea=0.89%, auditStatus=undefined
+Change CHG-1790378057185-2192: sensorType=OPTICAL, source=SENTINEL_2, method=undefined, affectedArea=0.97%, auditStatus=undefined
+Change CHG-1790378096022-8089: sensorType=SAR, source=SENTINEL_1, method=undefined, affectedArea=2.12%, auditStatus=undefined
+Change CHG-1790487696743-2109: sensorType=OPTICAL, source=SENTINEL_2, method=undefined, affectedArea=0.98%, auditStatus=undefined
+Change CHG-1790510572230-4759: sensorType=OPTICAL, source=SENTINEL_2, method=undefined, affectedArea=16.022%, auditStatus=undefined
+Change CHG-1790511626250-4641: sensorType=SAR, source=SENTINEL_1, method=SAR_ZONAL_SUMMARY, affectedArea=1.06%, auditStatus=undefined
+Change CHG-1790525317279-8405: sensorType=SAR, source=SENTINEL_1, method=SAR_PIXEL_DIFFERENCE, affectedArea=77.3%, auditStatus=INVALID_FOR_PRODUCTION_GEOMETRY
+
+============================================================
+AUDIT SCRIPT COMPLETE
+============================================================
+

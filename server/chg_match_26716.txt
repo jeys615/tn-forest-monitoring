@@ -1,0 +1,685 @@
+# OPTICAL CHANGE DETECTION
+## SYSTEM-WIDE FORENSIC AUDIT REPORT
+**Environment:** Tamil Nadu Environmental & Forest Enforcement System  
+**Audit Type:** Read-Only Production Forensic Audit  
+**Date of Audit:** 2026-09-28  
+**Operating Mode:** STRICTLY READ-ONLY (Zero Database Modifications, Zero Code Edits, Zero Network Exports)
+
+---
+
+### A. EXECUTIVE SUMMARY
+
+A forensic audit of the optical satellite monitoring, image processing, change detection, and visualization subsystem was executed across the entire codebase (`server`, `client`, `shared`, database models, services, repositories, controllers, routes, providers, and test suites) and existing stored artifacts on disk and in MongoDB.
+
+#### Key Forensic Findings:
+1. **Optical Change Detection is Not Pixel-Level:**
+   In [`ChangeDetectionService.ts`](file:///d:/tn-enforcement-system/tn-forest-monitoring/server/src/services/ChangeDetectionService.ts#L347-L375) and [`OpticalChangeDetector.ts`](file:///d:/tn-enforcement-system/tn-forest-monitoring/server/src/services/changeDetection/OpticalChangeDetector.ts#L118-L129), optical change detection **never loads local raster files, never harmonizes spatial grids, and never compares pixel arrays**. Instead, it subtracts single scalar mean index values ($\Delta\text{NDVI}$, $\Delta\text{BSI}$, $\Delta\text{NDBI}$), computes a scalar composite delta, and synthesizes a synthetic changed pixel count using an arbitrary multiplier:
+   $$\text{changedPixels} = \text{Math.round}(\text{compositeDelta} \times 4000.0)$$
+   This heuristic calculation is stamped with `calculationMode: REAL` and `spatialSource: RASTER`, presenting a non-spatial heuristic estimate as genuine raster analysis.
+2. **Harmonization in Pipeline B is Image Resizing, Not Geospatial Reprojection:**
+   In [`RasterHarmonizationService.ts`](file:///d:/tn-enforcement-system/tn-forest-monitoring/server/src/services/raster/RasterHarmonizationService.ts#L28-L58), the function `harmonizeToBaselineGrid` performs continuous array stretching using scale ratios ($\text{scaleX} = \text{srcW} / \text{targetW}$, $\text{scaleY} = \text{srcH} / \text{targetH}$). It ignores geographic coordinates, bounding boxes, affine transforms, and CRS definitions. If the source image is in UTM Zone 43N and the target is in UTM Zone 44N, it stamps `crs: targetGrid.crs` onto the array without coordinate reprojection.
+3. **Cross-Sensor Comparison Without Normalization:**
+   [`ChangeDetectionService.ts`](file:///d:/tn-enforcement-system/tn-forest-monitoring/server/src/services/ChangeDetectionService.ts#L150) only checks `sensorType !== refSensorType` (`OPTICAL` vs `SAR`). It allows direct comparisons between **Landsat-8** ($30\text{ m}$, UTM 44N) and **Sentinel-2** ($10\text{ m}$, UTM 43N) without cross-sensor radiometric calibration or spatial alignment. In `CHG-1790510572230-4759` (Vadipatti), comparing an 11-year-old Landsat-8 baseline with a Sentinel-2 image produced a false-positive **16.022% affected area** and triggered a **HIGH severity alert** (`ALT-1790510572230-8843`).
+4. **Pixel-Level Cloud Masking is Inoperative:**
+   Although [`RasterPreprocessingService.ts`](file:///d:/tn-enforcement-system/tn-forest-monitoring/server/src/services/raster/RasterPreprocessingService.ts#L38-L47) contains an `if (raster.qa)` branch for Sentinel-2 SCL masking, [`GeeExportService.ts`](file:///d:/tn-enforcement-system/tn-forest-monitoring/server/src/services/gee/GeeExportService.ts#L80-L83) explicitly strips `SCL` and `QA_PIXEL` from export tasks to avoid GeoTIFF type errors. All optical GeoTIFFs on disk contain only 6 reflectance bands; `raster.qa` is always `undefined`, rendering pixel-level cloud masking inoperative.
+5. **Curtain Slider Visual Registration is an Illusion:**
+   [`SatelliteImageViewerModal.tsx`](file:///d:/tn-enforcement-system/tn-forest-monitoring/client/src/components/satellite/SatelliteImageViewerModal.tsx#L712-L749) renders raw, un-harmonized PNGs for optical comparisons. For cross-sensor cases like Vadipatti, it places a $314 \times 236$ Landsat PNG under a $2569 \times 2237$ (or $930 \times 717$) Sentinel-2 PNG. CSS `maxWidth: 100%` stretches both into the container, creating an illusion of alignment over fundamentally mismatched spatial footprints.
+
+---
+
+### B. ACTUAL OPTICAL PIPELINE
+
+Tracing execution through the optical pipeline reveals two parallel, disconnected implementations:
+
+```
+┌────────────────────────────────────────────────────────────────────────┐
+│ PIPELINE A (Active Production / ChangeDetectionService)               │
+│                                                                        │
+│ 1. ChangeDetectionController.detectChange()                            │
+│ 2. ChangeDetectionService.detectChange()                               │
+│ 3. ImageProcessingService.processImage()                               │
+│    ├── GeeReductionService.reduceOpticalImage()                        │
+│    │   └── Extracts zonal band means from GEE: B2, B3, B4, B8, B11     │
+│    └── OpticalImageProcessor.processOpticalImage()                     │
+│        └── Calculates scalar indices on zonal means:                   │
+│            NDVI = (meanNIR - meanRED) / (meanNIR + meanRED)            │
+│ 4. OpticalChangeDetector.detectChange()                                │
+│    ├── ndviDelta = curNDVI - baseNDVI                                  │
+│    ├── compositeDelta = (1.5*vegLoss + 1.2*soil + 1.0*builtUp) / 3     │
+│    ├── changedPixels = Math.round(compositeDelta * 4000.0)             │
+│    └── affectedAreaPercentage = (changedPixels / validPixels) * 100    │
+│ 5. EvidenceFusionEngine.evaluateFusion() -> Generates Alert            │
+│ 6. Persists to MongoDB ChangeDetectionModel                            │
+└────────────────────────────────────────────────────────────────────────┘
+
+┌────────────────────────────────────────────────────────────────────────┐
+│ PIPELINE B (Orphaned / MonitoringSchedulerService Job Path)           │
+│                                                                        │
+│ 1. MonitoringSchedulerService.executeJob()                             │
+│ 2. RasterReaderService.readOpticalRaster()                             │
+│    └── Reads 6 bands from GeoTIFF (qa is undefined)                    │
+│ 3. SensorNormalizationService.normalizeOpticalBands()                  │
+│    └── Scales DN to [0, 1] (Landsat: *0.0000275 - 0.2; S2: *0.0001)   │
+│ 4. RasterPreprocessingService.generateValidPixelMask()                 │
+│    └── Checks NaN; qa mask skipped because qa is undefined             │
+│ 5. RasterHarmonizationService.harmonizeToBaselineGrid()                │
+│    └── Continuous array resize via scaleX=srcW/dstW, scaleY=srcH/dstH │
+│ 6. PixelAnalysisService.calculateSpectralIndices()                     │
+│    └── Computes per-pixel NDVI, NDWI, NBR, BSI, EVI, SAVI arrays       │
+│ 7. PixelAnalysisService.detectPixelChange()                            │
+│    └── if (|curNdvi - baseNdvi| >= 0.05) changedMask[i] = 1            │
+│ 8. Logs metrics to Job Log only (NOT saved to ChangeDetection table)   │
+└────────────────────────────────────────────────────────────────────────┘
+```
+
+#### Detailed Execution Answers:
+- **A. Where are baseline and current rasters loaded?**
+  - **In Pipeline A (`ChangeDetectionService`):** Rasters are **not loaded**. Only scalar numbers stored in `ProcessedImageResult.opticalMetrics` are used.
+  - **In Pipeline B (`MonitoringSchedulerService`):** Loaded via [`RasterReaderService.readOpticalRaster`](file:///d:/tn-enforcement-system/tn-forest-monitoring/server/src/services/raster/RasterReaderService.ts#L38) using `GeoTiffService.readGeoTiff`.
+- **B. Are they loaded as actual raster arrays?**
+  - In Pipeline A: No.
+  - In Pipeline B: Yes (`Float32Array` band arrays).
+- **C. Which service performs spatial harmonization?**
+  - In Pipeline A: None.
+  - In Pipeline B: [`RasterHarmonizationService.ts`](file:///d:/tn-enforcement-system/tn-forest-monitoring/server/src/services/raster/RasterHarmonizationService.ts#L16).
+- **D. Is there an actual reprojection operation?**
+  - **No.** Neither pipeline calls coordinate transformations or geodetic reprojections for optical imagery.
+- **E. Is there actual resampling?**
+  - In Pipeline A: No.
+  - In Pipeline B: Bilinear interpolation is performed across raw array indices, but without georeferenced coordinate mapping.
+- **F. What CRS is used for the analysis?**
+  - In Pipeline A: None (the database field `analysisGrid` is `undefined`).
+  - In Pipeline B: It copies the string `baseRawRaster.metadata.crs` without transforming the coordinates.
+- **G. How is the analysis grid selected?**
+  - There is no analysis grid for optical change detection.
+- **H. How are origin, pixel size, width, height, and affine transform determined?**
+  - They are not determined for optical change detection.
+- **I. Is the grid deterministic?**
+  - Since no canonical analysis grid is constructed, determinism is absent.
+- **J. Are both rasters warped onto exactly the same grid?**
+  - **No.**
+- **K. Is the zone polygon rasterized against that grid?**
+  - **No.**
+- **L. Is the valid comparison mask `baselineValid AND currentValid AND zoneMask`?**
+  - **No.** In Pipeline A, `validPixels` is estimated from zone area: `validPixels = (zoneAreaHectares * 10000) / pixelAreaM2`. In Pipeline B, it is `baselineValidMask[i] === 1 && currentValidMask[i] === 1`.
+- **M. Are NoData values correctly excluded?**
+  - In Pipeline A: NoData pixels are not processed since raw rasters are bypassed.
+  - In Pipeline B: Checked via `isNaN` in unaligned coordinate spaces.
+- **N. Are pixels outside the intersection excluded?**
+  - **No.** Since the two rasters are not co-registered on a shared coordinate grid, no spatial intersection mask exists.
+- **N.1 Is the valid comparison area calculated from actual raster coverage?**
+  - **No.** It is derived from the nominal `zone.areaHectares` database attribute.
+
+---
+
+### C. DATABASE / REAL ARTIFACT INVENTORY
+
+#### 1. Optical SatelliteMetadata Records
+```
+1. ID: 6aa678502b4fe5808c7e8e2d
+   - Image ID: LANDSAT/LC08/C02/T1_L2/LC08_143053_20150106
+   - Platform: Landsat 8 | Sensor: OPTICAL | Source: LANDSAT_8
+   - Acquisition Date: 2015-01-06T05:05:32.318Z
+   - Cloud Cover: 0.0%
+   - Local Raster: storage/raster_temp/6aa679012b4fe5808c7e8ec7/ZONE-260913-7787_6aa679012b4fe5808c7e8ec7_BASELINE_Landsat8_20150106.tif
+   - File Status: EXISTS ON DISK (1.71 MB)
+   - GeoTIFF Native Geometry:
+     * Dimensions: 314 × 236
+     * Pixel Scale: [30, 30, 0] (30m)
+     * Native CRS: EPSG:32644 (UTM Zone 44N)
+     * Bounding Box: [171375, 1112565, 180795, 1119645]
+     * Bands: 6 (SR_B2, SR_B3, SR_B4, SR_B5, SR_B6, SR_B7)
+     * QA Band: ABSENT (Stripped during export)
+   - GEE Export Task ID: projects/monitoring-system-506515/operations/XO74HAF3GK336J76OADX2LWL
+   - Drive File ID: 1Sr78xDnoawa9kdVgFGy1D1xSi4_MG10G
+
+2. ID: 6aa6798c2b4fe5808c7e9038
+   - Image ID: COPERNICUS/S2_SR_HARMONIZED/20260909T050649_20260909T051600_T43PHM
+   - Platform: Sentinel-2A | Sensor: OPTICAL | Source: SENTINEL_2
+   - Acquisition Date: 2026-09-09T05:25:57.347Z
+   - Cloud Cover: 19.87%
+   - Local Raster: storage/raster_temp/6aa6798c2b4fe5808c7e9038/ZONE-260913-7787_6aa6798c2b4fe5808c7e9038_CURRENT_Sentinel2_20260909.tif
+   - File Status: EXISTS ON DISK (7.67 MB)
+   - GeoTIFF Native Geometry:
+     * Dimensions: 930 × 717
+     * Pixel Scale: [10, 10, 0] (10m)
+     * Native CRS: EPSG:32643 (UTM Zone 43N)
+     * Bounding Box: [829130, 1112620, 838430, 1119790]
+     * Bands: 6 (B2, B3, B4, B8, B11, B12)
+     * QA/SCL Band: ABSENT (Stripped during export)
+   - GEE Export Task ID: projects/monitoring-system-506515/operations/IOURBULPWG6MD2WKPH6VCLQE
+   - Drive File ID: 1-JHsxCLIGmpYdfB1AgvTQtUPcyzMui0B
+
+3. ID: 6ab5c628f979afc8c8714eba
+   - Image ID: COPERNICUS/S2_SR_HARMONIZED/20260906T051241_20260906T051802_T43PHM
+   - Platform: Sentinel-2A | Sensor: OPTICAL | Source: SENTINEL_2
+   - Acquisition Date: 2026-09-06T05:26:14.942Z
+   - Cloud Cover: 13.24%
+   - Local Raster: storage/raster_temp/6ab5c957f979afc8c8714fb4/ZONE-260925-8986_6ab5c957f979afc8c8714fb4_BASELINE_Sentinel2_20260906.tif
+   - File Status: EXISTS ON DISK (66.08 MB)
+   - GeoTIFF Native Geometry:
+     * Dimensions: 2569 × 2237
+     * Pixel Scale: [10, 10, 0] (10m)
+     * Native CRS: EPSG:32643 (UTM Zone 43N)
+     * Bounding Box: [818980, 1117840, 844670, 1140210]
+     * Bands: 6 (B2, B3, B4, B8, B11, B12)
+     * QA/SCL Band: ABSENT
+   - GEE Export Task ID: projects/monitoring-system-506515/operations/VPVQM3ZVLIRXMKX7IARXK7MX
+   - Drive File ID: 1jcIsmqX4KhmsflU_T6d2k8BHzSR-9A4F
+
+4. ID: 6ab8abf5667c98f4208d8f6a
+   - Image ID: COPERNICUS/S2_SR_HARMONIZED/20260926T051241_20260926T051801_T43PHM
+   - Platform: Sentinel-2A | Sensor: OPTICAL | Source: SENTINEL_2
+   - Acquisition Date: 2026-09-26T05:26:13.842Z
+   - Cloud Cover: 13.36%
+   - Local Raster: storage/raster_temp/6ab8abf5667c98f4208d8f6a/ZONE-260925-8986_6ab8abf5667c98f4208d8f6a_CURRENT_Sentinel2_20260926.tif
+   - File Status: EXISTS ON DISK (66.08 MB)
+   - GeoTIFF Native Geometry:
+     * Dimensions: 2569 × 2237
+     * Pixel Scale: [10, 10, 0] (10m)
+     * Native CRS: EPSG:32643 (UTM Zone 43N)
+     * Bounding Box: [818980, 1117840, 844670, 1140210]
+     * Bands: 6 (B2, B3, B4, B8, B11, B12)
+     * QA/SCL Band: ABSENT
+   - GEE Export Task ID: projects/monitoring-system-506515/operations/RO7KASBOVLHAYAQK6JWUHD7S
+   - Drive File ID: 13KEFnT6_mVzokEiwTwPVj-JBDuM8SPNx
+```
+
+#### 2. Optical Baselines
+```
+1. Baseline ID: 6aa679012b4fe5808c7e8ec7 (ACTIVE BASELINE - VADIPATTI)
+   - Zone: vadipatti (6aa676d32b4fe5808c7e8ded)
+   - Metadata Ref: 6aa678502b4fe5808c7e8e2d (Landsat 8, 2015-01-06)
+   - Status: ACTIVE | isActive: true
+   - Resolution: 30m | CRS: EPSG:32644 | Dimensions: 314 × 236
+
+2. Baseline ID: 6ab5c957f979afc8c8714fb4 (ACTIVE BASELINE - SIRUMALAI)
+   - Zone: Sirumalai (6ab5c434f979afc8c8714e25)
+   - Metadata Ref: 6ab5c628f979afc8c8714eba (Sentinel-2A, 2026-09-06)
+   - Status: ACTIVE | isActive: true
+   - Resolution: 10m | CRS: EPSG:32643 | Dimensions: 2569 × 2237
+
+3. Baseline ID: 6aa679012b4fe5808c7e8ec8 (RETIRED/CANDIDATE - VADIPATTI)
+   - Zone: vadipatti | Status: PROCESSED | isActive: false
+
+4. Baseline ID: 6ab70044d8260a30adf61a1f (ACTIVE BASELINE - TEST ZONE)
+   - Zone: Test Sensor Cfg | Status: ACTIVE | isActive: true
+
+5. Baseline ID: 6ab9074f65d99f53e6ce732f (CANDIDATE - SIRUMALAI)
+   - Zone: Sirumalai | Metadata Ref: 6ab8abf5667c98f4208d8f6a (2026-09-26)
+   - Status: PROCESSED | isActive: false
+```
+
+#### 3. Optical ChangeDetection Records
+```
+1. Change ID: CHG-1790510572230-4759 (CRITICAL CROSS-SENSOR FAILURE)
+   - Zone: vadipatti (6aa676d32b4fe5808c7e8ded)
+   - Baseline: 6aa679012b4fe5808c7e8ec7 (Landsat-8, 2015-01-06, 30m, EPSG:32644)
+   - Current: 6ab8abf5667c98f4208d8f6a (Sentinel-2A, 2026-09-26, 10m, EPSG:32643)
+   - Affected Area: 16.022% (16.02 ha / 100 ha)
+   - Severity: HIGH | Alert Generated: YES (ALT-1790510572230-8843)
+   - Calculation Method: undefined | Spatial Calculation: undefined
+   - Analysis Grid: undefined | Changed Pixels: undefined | Valid Pixels: undefined
+   - Indicators: ΔNDVI = -0.032, ΔNDWI = -0.039, ΔNDBI = 0.039, ΔBSI = 0.039
+
+2. Change ID: CHG-1790487696743-2109
+   - Zone: Sirumalai (6ab5c434f979afc8c8714e25)
+   - Baseline: 6ab5c957f979afc8c8714fb4 (Sentinel-2A, 2026-09-06)
+   - Current: 6ab8abf5667c98f4208d8f6a (Sentinel-2A, 2026-09-26)
+   - Affected Area: 0.98% | Severity: NONE | Alert: NO
+   - Calculation Method: undefined | Analysis Grid: undefined
+
+3. Change ID: CHG-1790378057185-2192
+   - Zone: Test Sensor Cfg | Affected Area: 0.97% | Severity: NONE
+
+4. Change ID: CHG-1790327853567-2332
+   - Zone: Sirumalai | Baseline: 6ab5c957f979afc8c8714fb4 (2026-09-06, 2569×2237)
+   - Current: 6aa6798c2b4fe5808c7e9038 (Vadipatti raster! 2026-09-09, 930×717)
+   - Affected Area: 0.89% | Severity: NONE
+
+5. Change ID: CHG-1790296684819-7147
+   - Zone: vadipatti | Affected Area: 0.01% | Severity: NONE
+
+6. Change ID: CHG-1789295023854-2895
+   - Zone: vadipatti | Affected Area: 4.50% | Severity: LOW | Alert: YES (ALT-1789295023854-8239)
+```
+
+---
+
+### D. SPATIAL HARMONIZATION AUDIT
+
+#### Detailed Check: True Geospatial Warp vs Image Resizing
+In [`RasterHarmonizationService.ts`](file:///d:/tn-enforcement-system/tn-forest-monitoring/server/src/services/raster/RasterHarmonizationService.ts#L28-L58):
+```typescript
+const scaleX = srcW / targetW;
+const scaleY = srcH / targetH;
+
+const resampleBilinear = (src: Float32Array): Float32Array => {
+  const dest = new Float32Array(targetW * targetH);
+  for (let y = 0; y < targetH; y++) {
+    for (let x = 0; x < targetW; x++) {
+      const srcX = x * scaleX;
+      const srcY = y * scaleY;
+      // standard pixel interpolation ...
+```
+
+#### Forensic Findings:
+1. **Zero Coordinate Grounding:**
+   The function calculates resampling coordinates using array indices:
+   $$x_{\text{src}} = x_{\text{dest}} \times \frac{W_{\text{src}}}{W_{\text{dest}}}, \quad y_{\text{src}} = y_{\text{dest}} \times \frac{H_{\text{src}}}{H_{\text{dest}}}$$
+   It **never converts array indices $(x, y)$ to geographic coordinates $(X_E, Y_N)$**.
+2. **Missing Affine Transforms:**
+   No geotransform or affine matrix ($\begin{bmatrix} a & b & c \\ d & e & f \end{bmatrix}$) is used. Differences in scene corners, pixel shifts, or spatial offsets are ignored.
+3. **No CRS Reprojection:**
+   There is no map projection transformation (such as Proj4 or GDAL warp). If `currentRaster` is in `EPSG:32643` (UTM 43N) and `targetGrid` is in `EPSG:32644` (UTM 44N), the function sets:
+   ```typescript
+   crs: targetGrid.crs,
+   normalizedCrs: targetGrid.crs,
+   ```
+   This is an invalid metadata re-labeling: it relabels an array from one coordinate reference system into another without moving or projecting any pixels.
+4. **Classification:**
+   This operation is **IMAGE RESIZE / DIMENSION MATCHING**. It is **not** a geospatial warp.
+
+---
+
+### E. COMMON ANALYSIS GRID AUDIT
+
+Comparison of baseline and current observations for the active optical change detection record `CHG-1790510572230-4759` (Vadipatti):
+
+| Parameter | Baseline (Landsat 8) | Current (Sentinel-2A) | Match? |
+| :--- | :--- | :--- | :--- |
+| **Native CRS** | `EPSG:32644` (UTM Zone 44N) | `EPSG:32643` (UTM Zone 43N) | ❌ **MISMATCH (Different UTM Zones)** |
+| **Resolution** | 30.0 m | 10.0 m | ❌ **MISMATCH (3× scale difference)** |
+| **Raster Width** | 314 pixels | 2569 pixels (Sirumalai) / 930 px | ❌ **MISMATCH** |
+| **Raster Height** | 236 pixels | 2237 pixels (Sirumalai) / 717 px | ❌ **MISMATCH** |
+| **Total Pixels** | 74,104 pixels | 5,746,853 pixels | ❌ **MISMATCH** |
+| **Origin X** | 171,375 m Easting (UTM 44N) | 818,980 m Easting (UTM 43N) | ❌ **MISMATCH (Incompatible coordinates)** |
+| **Origin Y** | 1,119,645 m Northing (UTM 44N) | 1,140,210 m Northing (UTM 43N) | ❌ **MISMATCH** |
+| **Bounding Box** | `[171375, 1112565, 180795, 1119645]` | `[818980, 1117840, 844670, 1140210]` | ❌ **MISMATCH** |
+| **Canonical Grid**| `undefined` in Change record | `undefined` in Change record | ❌ **NOT CONSTRUCTED** |
+
+**Conclusion:** Neither raster was transformed onto a common analysis grid. Pixel centers are not aligned.
+
+---
+
+### F. SENSOR COMPATIBILITY AUDIT
+
+Comparison matrix of supported optical sensors and current enforcement rules:
+
+| Sensor Pair | Allowed in Code? | Spatial Check | Spectral Normalization | Physical Validity |
+| :--- | :--- | :--- | :--- | :--- |
+| **Sentinel-2 vs Sentinel-2** | Yes | None in Pipeline A | Unnecessary (identical sensor) | Valid if same tile & resolution |
+| **Landsat-8 vs Landsat-8** | Yes | None in Pipeline A | Unnecessary | Valid if same path/row |
+| **Landsat-9 vs Landsat-9** | Yes | None in Pipeline A | Unnecessary | Valid if same path/row |
+| **Landsat-8 vs Landsat-9** | Yes | None | Minimal calibration required | Conditionally valid |
+| **Sentinel-2 vs Landsat-8** | **Allowed (Unchecked)** | **None** | **None** | ❌ **INVALID (Scale & spectral response mismatch)** |
+| **Sentinel-2 vs Landsat-9** | **Allowed (Unchecked)** | **None** | **None** | ❌ **INVALID** |
+
+#### Band Specifications and Wavelength Discrepancies:
+- **Red Band:** Sentinel-2 B4 ($665\text{ nm}$, bandwidth $30\text{ nm}$, $10\text{ m}$) vs Landsat-8 SR_B4 ($655\text{ nm}$, bandwidth $37\text{ nm}$, $30\text{ m}$).
+- **NIR Band:** Sentinel-2 B8 ($842\text{ nm}$, bandwidth $115\text{ nm}$, $10\text{ m}$) vs Landsat-8 SR_B5 ($865\text{ nm}$, bandwidth $28\text{ nm}$, $30\text{ m}$).
+- In dense vegetation, the slope of the "red edge" ($700 - 800\text{ nm}$) causes Landsat-8 NIR and Sentinel-2 NIR to record different surface reflectances over the exact same canopy, creating an inherent baseline index delta of $\pm 0.03 - 0.06$ NDVI with zero actual ground change.
+- The system applies **zero cross-sensor transformation coefficients** (e.g., Roy et al. 2016 transformation).
+
+---
+
+### G. CROSS-SENSOR AUDIT
+
+In [`ChangeDetectionService.ts`](file:///d:/tn-enforcement-system/tn-forest-monitoring/server/src/services/ChangeDetectionService.ts#L150-L155):
+```typescript
+if (sensorType !== refSensorType) {
+  throw new AppError(
+    `SENSOR_TRACK_MISMATCH: Direct comparison between ${sensorType} and ${refSensorType} is strictly prohibited. Optical must compare with Optical, and SAR with SAR.`,
+    HTTP_STATUS.BAD_REQUEST,
+  );
+}
+```
+
+The system checks that both are `OPTICAL`, but **does not check if one is Landsat and the other is Sentinel-2**.
+
+When `baseline.source !== current.source`:
+- It does **not** reject cross-sensor pairs.
+- It does **not** harmonize spatially.
+- It does **not** perform spectral bandpass translation.
+- It calculates single scalar mean indices, subtracts them, multiplies by 4000, and reports change.
+
+> [!CAUTION]
+> **CLASSIFICATION: CRITICAL_PRODUCTION_RISK**  
+> Direct subtraction of un-normalized Landsat-8 and Sentinel-2 observations generates false alarms due to sensor spectral response, resolution, and atmospheric processing differences.
+
+---
+
+### H. CLOUD / SHADOW MASKING AUDIT
+
+#### Quality Bands:
+- Sentinel-2: `SCL` (Scene Classification Map: values 3=Shadow, 8=Medium Cloud, 9=High Cloud, 10=Cirrus), `MSK_CLDPRB` (0–100%), `QA60`.
+- Landsat 8/9: `QA_PIXEL` (bit 3=cloud, bit 4=cloud shadow, bit 1=dilated cloud).
+
+#### Audit Findings in Existing Pipeline:
+1. **GEE Export Strips Masks:**
+   In [`GeeExportService.ts`](file:///d:/tn-enforcement-system/tn-forest-monitoring/server/src/services/gee/GeeExportService.ts#L80-L83):
+   ```typescript
+   // GeoTIFF requires homogeneous pixel data types. Optical bands are UInt16, while SCL/QA_PIXEL are Byte.
+   const opticalBands = bands.filter((b) => b !== 'SCL' && b !== 'QA_PIXEL');
+   const bandsForGeoTiff = opticalBands.length > 0 ? opticalBands : bands;
+   ```
+   Quality mask bands are removed before export.
+2. **Local GeoTIFF Files Lack QA Data:**
+   Inspecting all 4 local GeoTIFF files on disk confirms `numBands: 6`. None contain `SCL` or `QA_PIXEL`.
+3. **`raster.qa` is Always Undefined:**
+   In [`RasterReaderService.ts`](file:///d:/tn-enforcement-system/tn-forest-monitoring/server/src/services/raster/RasterReaderService.ts#L61):
+   `const qa = bandData.length > 6 ? bandData[6] : undefined;`  
+   Because `bandData.length === 6`, `qa` evaluates to `undefined`.
+4. **Masking Never Runs:**
+   In [`RasterPreprocessingService.ts`](file:///d:/tn-enforcement-system/tn-forest-monitoring/server/src/services/raster/RasterPreprocessingService.ts#L38):
+   `if (raster.qa)` evaluates to `false`. No cloud, shadow, or cirrus pixels are masked.
+5. **ChangeDetectionService Bypasses Pixel Masks:**
+   In [`ChangeDetectionService.ts`](file:///d:/tn-enforcement-system/tn-forest-monitoring/server/src/services/ChangeDetectionService.ts#L261):
+   `if (sensorType === SensorType.OPTICAL && observationMeta.cloudCover > 20.0)`  
+   Only scene-level metadata cloud percentages are evaluated.
+
+**Status: METADATA-ONLY in Change Detection; INOPERATIVE / NOT IMPLEMENTED at pixel level.**
+
+---
+
+### I. RADIOMETRIC / REFLECTANCE SCALING AUDIT
+
+#### 1. Landsat Collection 2 Level-2 Surface Reflectance:
+- USGS formula: $\text{Reflectance} = \text{DN} \times 0.0000275 - 0.2$
+- Raw Digital Numbers on disk: min 0, max 39,907, mean 5,300 to 10,100.
+- Scaling test on sample pixel $\text{DN} = 9,782$:
+  $$9782 \times 0.0000275 - 0.2 = 0.069005 \quad (6.90\%\text{ surface reflectance})$$
+- Scaling formula in [`SensorNormalizationService.ts`](file:///d:/tn-enforcement-system/tn-forest-monitoring/server/src/services/raster/SensorNormalizationService.ts#L43) is correct when executed.
+
+#### 2. Sentinel-2 L2A Surface Reflectance:
+- ESA formula: $\text{Reflectance} = \text{DN} / 10000 = \text{DN} \times 0.0001$
+- Raw values on disk: min 0, max 23,828, mean 1,000 to 2,050.
+- Scaling formula in `SensorNormalizationService.ts` is correct when executed.
+
+#### 3. Bug in `OpticalImageProcessor.processOpticalImage`:
+In [`OpticalImageProcessor.ts`](file:///d:/tn-enforcement-system/tn-forest-monitoring/server/src/services/imageProcessing/OpticalImageProcessor.ts#L72-L86):
+```typescript
+const baseReflectance = {
+  RED: zonal?.B4?.mean ?? _rawMetadata?.reflectance?.RED ?? 0.08,
+  NIR: zonal?.B8?.mean ?? _rawMetadata?.reflectance?.NIR ?? 0.42,
+  ...
+};
+```
+If the baseline is Landsat-8, the GEE reduction outputs `zonal.SR_B4` and `zonal.SR_B5`. `zonal.B4` and `zonal.B8` evaluate to `undefined`. The processor falls back to synthetic hardcoded constants (`0.08`, `0.42`), which are then altered by `cloudCover / 100.0`.
+
+---
+
+### J. SPECTRAL INDEX AUDIT
+
+Formulas implemented across the two pipeline components:
+
+| Index | Target Phenomenon | Pipeline A Formula ([`OpticalImageProcessor.ts`](file:///d:/tn-enforcement-system/tn-forest-monitoring/server/src/services/imageProcessing/OpticalImageProcessor.ts)) | Pipeline B Formula ([`PixelAnalysisService.ts`](file:///d:/tn-enforcement-system/tn-forest-monitoring/server/src/services/raster/PixelAnalysisService.ts)) | Input Source |
+| :--- | :--- | :--- | :--- | :--- |
+| **NDVI** | Canopy vigor | $(\overline{\text{NIR}} - \overline{\text{RED}}) / (\overline{\text{NIR}} + \overline{\text{RED}})$ | $(\text{NIR}_i - \text{RED}_i) / (\text{NIR}_i + \text{RED}_i)$ | Summary mean vs Pixel array |
+| **NDWI** | Water/Moisture | $(\overline{\text{NIR}} - \overline{\text{SWIR1}}) / (\overline{\text{NIR}} + \overline{\text{SWIR1}})$ *(Gao)* | $(\text{GREEN}_i - \text{NIR}_i) / (\text{GREEN}_i + \text{NIR}_i)$ *(McFeeters)* | **Inconsistent definitions** |
+| **NDBI/NBR**| Built-up / Burn | $(\overline{\text{SWIR1}} - \overline{\text{NIR}}) / (\overline{\text{SWIR1}} + \overline{\text{NIR}})$ | $(\text{NIR}_i - \text{SWIR2}_i) / (\text{NIR}_i + \text{SWIR2}_i)$ | **Inconsistent definitions** |
+| **BSI** | Bare soil exposure | $\frac{(\overline{\text{SWIR1}}+\overline{\text{RED}}) - (\overline{\text{NIR}}+\overline{\text{BLUE}})}{(\overline{\text{SWIR1}}+\overline{\text{RED}}) + (\overline{\text{NIR}}+\overline{\text{BLUE}})}$ | $\frac{(\text{SWIR1}_i+\text{RED}_i) - (\text{NIR}_i+\text{BLUE}_i)}{(\text{SWIR1}_i+\text{RED}_i) + (\text{NIR}_i+\text{BLUE}_i)}$ | Summary mean vs Pixel array |
+| **SAVI** | Soil-adjusted veg | $(1 + L)\frac{\overline{\text{NIR}} - \overline{\text{RED}}}{\overline{\text{NIR}} + \overline{\text{RED}} + L} \;(L=0.5)$ | $(1 + L)\frac{\text{NIR}_i - \text{RED}_i}{\text{NIR}_i + \text{RED}_i + L} \;(L=0.5)$ | Summary mean vs Pixel array |
+| **EVI** | Enhanced veg | $2.5\frac{\overline{\text{NIR}} - \overline{\text{RED}}}{\overline{\text{NIR}} + 6\overline{\text{RED}} - 7.5\overline{\text{BLUE}} + 1}$ | $2.5\frac{\text{NIR}_i - \text{RED}_i}{\text{NIR}_i + 6\text{RED}_i - 7.5\text{BLUE}_i + 1}$ | Summary mean vs Pixel array |
+
+#### Mathematical Flaw in Pipeline A:
+Evaluating spectral indices on zonal means violates Jensen's Inequality:
+$$\frac{\mathbb{E}[\text{NIR}] - \mathbb{E}[\text{RED}]}{\mathbb{E}[\text{NIR}] + \mathbb{E}[\text{RED}]} \ne \mathbb{E}\left[\frac{\text{NIR} - \text{RED}}{\text{NIR} + \text{RED}}\right]$$
+Averaging non-linear ratios produces mathematically distorted indices.
+
+---
+
+### K. PIXEL-LEVEL CHANGE DETECTION AUDIT
+
+In [`OpticalChangeDetector.ts`](file:///d:/tn-enforcement-system/tn-forest-monitoring/server/src/services/changeDetection/OpticalChangeDetector.ts#L118-L129):
+```typescript
+// Deterministically derive affected area estimate from change vector magnitude
+const vegLossMag = Math.max(0, -ndviDelta);
+const bareSoilMag = Math.max(0, bsiDelta);
+const builtUpMag = Math.max(0, ndbiDelta);
+const compositeDelta = (vegLossMag * 1.5 + bareSoilMag * 1.2 + builtUpMag * 1.0) / 3.0;
+
+// 10 changed pixels for subtle ~0.002 delta
+changedPixels = Math.max(1, Math.round(compositeDelta * 4000.0));
+if (changedPixels > validPixels) changedPixels = validPixels;
+changedArea = Number(((changedPixels * pixelAreaM2) / 10000.0).toFixed(4));
+affectedAreaPercentage = Number(((changedPixels / validPixels) * 100.0).toFixed(3));
+```
+
+#### Forensic Analysis of Area Derivation:
+1. **The Multiplier `4000.0`:**
+   `4000.0` is an arbitrary scalar constant with no geographic, physical, or sensor-based justification.
+2. **Synthetic Pixel Counts:**
+   For a zone of 100 ha at $10\text{ m}$ resolution ($100\text{ m}^2$ per pixel), `validPixels` is $100,000$.
+   If $\text{compositeDelta} = 0.04$, then $\text{changedPixels} = 0.04 \times 4000 = 160\text{ pixels}$.
+   $$\text{affectedAreaPercentage} = \frac{160}{100000} \times 100 = 0.16\%$$
+3. **No Pixel Mask Generated:**
+   The output `changedGeometry` is `undefined`. No geospatial polygon or binary raster mask is produced.
+4. **Verification Verdict:**
+   Optical change detection in `ChangeDetectionService` is **FORMULA-DERIVED ESTIMATION FROM SUMMARY STATISTICS**. It is **not** pixel-level change detection.
+
+---
+
+### L. CHANGE THRESHOLD AUDIT
+
+| Threshold | Value | Scope | Action |
+| :--- | :--- | :--- | :--- |
+| **Vegetation Loss** | $\Delta\text{NDVI} < -0.04$ | Delta of zonal mean | Flags category `VEGETATION_LOSS` |
+| **Bare Soil** | $\Delta\text{BSI} > +0.04$ | Delta of zonal mean | Flags category `BARE_SOIL_EXPOSURE` |
+| **Built-Up** | $\Delta\text{NDBI} > +0.04$ | Delta of zonal mean | Flags category `BUILT_UP_CHANGE` |
+| **Water Change** | $|\Delta\text{NDWI}| > 0.06$ | Absolute delta | Flags category `WATER_CHANGE` |
+| **Surface Change** | $|\Delta\text{NDVI}| > 0.02 \lor |\Delta\text{BSI}| > 0.02$ | Absolute delta | Flags category `SURFACE_CHANGE` |
+| **Low Alert** | $\text{Affected Area} \ge 2.0\%$ | Estimated percentage | Creates LOW Alert |
+| **Medium Alert** | $\text{Affected Area} \ge 5.0\%$ | Estimated percentage | Creates MEDIUM Alert |
+| **High Alert** | $\text{Affected Area} \ge 10.0\%$ | Estimated percentage | Creates HIGH Alert |
+
+---
+
+### M. MULTI-INDEX LOGIC AUDIT
+
+In `OpticalChangeDetector.ts`:
+$$\text{compositeDelta} = \frac{1.5 \times \max(0, -\Delta\text{NDVI}) + 1.2 \times \max(0, \Delta\text{BSI}) + 1.0 \times \max(0, \Delta\text{NDBI})}{3.0}$$
+
+- The three indices are combined into a weighted average.
+- If negative vegetation change is zero ($\Delta\text{NDVI} \ge 0$), but soil moisture changes cause $\Delta\text{BSI} = +0.05$ and $\Delta\text{NDBI} = +0.04$, `compositeDelta` evaluates to:
+  $$\frac{0 + 1.2(0.05) + 1.0(0.04)}{3.0} = \frac{0.10}{3.0} \approx 0.0333$$
+- This yields synthetic changed pixels, even in the absence of canopy loss.
+- **Flaw:** A shift in soil index can trigger an alert without verified vegetation disturbance.
+
+---
+
+### N. TEMPORAL COMPATIBILITY AUDIT
+
+1. **Seasonal / Phenological Invariance:**
+   The optical pipeline does not evaluate the acquisition day-of-year. Comparing a dry-season baseline (January) with a post-monsoon current image (October) is treated identically to an anniversary-date comparison (January vs January). Natural deciduous leaf fall is not distinguished from canopy clearing.
+2. **Temporal Interval Check:**
+   In `ChangeDetectionService.ts`:
+   ```typescript
+   const gapMs = Math.abs(currDate.getTime() - baseDate.getTime());
+   const gapDays = Math.round(gapMs / (1000 * 60 * 60 * 24));
+   ```
+   The time difference is calculated for display formatting (`11 years, 8 months`), but does not adjust change thresholds, trigger long-term growth normalization, or restrict comparisons across decade-long intervals.
+
+---
+
+### O. VIEWER / CURTAIN SLIDER AUDIT
+
+#### 1. Server Image Endpoints
+In [`ChangeDetectionService.ts`](file:///d:/tn-enforcement-system/tn-forest-monitoring/server/src/services/ChangeDetectionService.ts#L901-L905,L957-L961):
+```typescript
+// Optical baseline image serving
+return await GeoTiffService.renderTrueColorPng(rasterPath, {
+  satellite: baselineMeta.source,
+});
+...
+// Optical current image serving
+return await GeoTiffService.renderTrueColorPng(rasterPath, {
+  satellite: currentMeta.source,
+});
+```
+Unlike SAR (which reprojects onto `change.analysisGrid` when available), optical imagery is converted to PNG directly from raw source GeoTIFFs.
+
+#### 2. Geometry Comparison for `CHG-1790510572230-4759`
+- Baseline PNG: $314 \times 236$ pixels (Landsat-8, UTM Zone 44N, Easting 171,375 to 180,795).
+- Current PNG: $2569 \times 2237$ or $930 \times 717$ pixels (Sentinel-2, UTM Zone 43N, Easting 829,130 to 838,430).
+
+#### 3. Client Slider Rendering
+In [`SatelliteImageViewerModal.tsx`](file:///d:/tn-enforcement-system/tn-forest-monitoring/client/src/components/satellite/SatelliteImageViewerModal.tsx#L710-L750):
+Both images are placed in a container with `maxWidth: 100%`, `maxHeight: 100%`. CSS centers and stretches both images to match the container dimensions. Because coordinate bounds, pixel resolutions, and map projections differ, dragging the slider compares unaligned ground locations.
+
+---
+
+### P. EXISTING OPTICAL CASE STUDIES
+
+#### Case Study 1: Cross-Sensor Comparison (Vadipatti)
+- **Change Record:** `CHG-1790510572230-4759` | **Zone:** `ZONE-260913-7787` (vadipatti)
+- **Baseline Observation:** `6aa679012b4fe5808c7e8ec7`
+  - Sensor: Landsat-8 | Date: 2015-01-06 | CRS: EPSG:32644 | Resolution: 30m | Dimensions: 314 × 236
+- **Current Observation:** `6ab8abf5667c98f4208d8f6a`
+  - Sensor: Sentinel-2A | Date: 2026-09-26 | CRS: EPSG:32643 | Resolution: 10m | Dimensions: 2569 × 2237
+- **Analysis Grid:** `undefined`
+- **Reported Metrics:** Valid Pixels: `undefined`, Changed Pixels: `undefined`, Affected Area: **16.022% (16.02 ha)**, Severity: **HIGH**.
+- **Alert:** `ALT-1790510572230-8843` generated.
+- **Forensic Assessment:** False alarm caused by cross-sensor spectral differences, resolution differences (30m vs 10m), different UTM projections, and a 4000× scalar heuristic formula.
+
+#### Case Study 2: Same-Sensor Sentinel-2 Comparison (Sirumalai)
+- **Change Record:** `CHG-1790487696743-2109` | **Zone:** `ZONE-260925-8986` (Sirumalai)
+- **Baseline Observation:** `6ab5c957f979afc8c8714fb4`
+  - Sensor: Sentinel-2A | Date: 2026-09-06 | CRS: EPSG:32643 | Resolution: 10m | Dimensions: 2569 × 2237
+- **Current Observation:** `6ab8abf5667c98f4208d8f6a`
+  - Sensor: Sentinel-2A | Date: 2026-09-26 | CRS: EPSG:32643 | Resolution: 10m | Dimensions: 2569 × 2237
+- **Analysis Grid:** `undefined`
+- **Reported Metrics:** Valid Pixels: `undefined`, Changed Pixels: `undefined`, Affected Area: **0.98%**, Severity: **NONE**.
+- **Forensic Assessment:** Both images share the same sensor, native projection, and dimensions, but were evaluated using zonal mean subtractions rather than pixel differencing.
+
+---
+
+### Q. TEST COVERAGE AUDIT
+
+| Test File | Focus | Tests Spatial Reprojection? | Tests True Pixel-Level Mask? | Tests Cross-Sensor Rules? | Tests Viewer Alignment? |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| `m6-change-detection.test.ts` | REST API routes & permissions | ❌ No (Mock models) | ❌ No | ❌ No | ❌ No |
+| `vadipatti-change-detection-audit.test.ts` | Endpoint PNG texture / 200 OK | ❌ No (Asserts 314×236) | ❌ No | ❌ No | ❌ No |
+| `raster-processing-pipeline.test.ts` | Pipeline B unit checks | ❌ No (Asserts scale ratio) | ⚠️ Partial (NDVI only) | ❌ No | ❌ No |
+| `sar-spatial-harmonization-pixel-change.test.ts`| SAR spatial engine | ✅ Yes (SAR only) | ✅ Yes (SAR only) | N/A | ✅ Yes (SAR only) |
+
+**Missing Test Coverage:**
+1. No test verifies coordinate reprojection from EPSG:32643 to EPSG:32644 for optical GeoTIFFs.
+2. No test verifies that optical change detection produces a binary pixel mask `changedMask[totalPixels]`.
+3. No test blocks cross-sensor comparisons (Landsat vs Sentinel-2).
+4. No test validates optical curtain slider pixel co-registration.
+
+---
+
+### R. DATABASE / PRODUCTION SAFETY VERIFICATION
+
+Before concluding this audit, database collections were verified:
+- `satellitemetadatas`: 8 documents (unmodified).
+- `baselines`: 6 documents (unmodified).
+- `changedetections`: 9 documents (unmodified).
+- `alerts`: 3 documents (unmodified).
+- **Status Changes:** 0.
+- **GEE Exports Triggered:** 0.
+- **Drive Files Downloaded:** 0.
+- **Local Raster Files Modified:** 0.
+
+---
+
+### S. FINDINGS CLASSIFICATION
+
+| # | Finding Description | Classification |
+| :--- | :--- | :--- |
+| **F-01** | Optical change detection in `ChangeDetectionService` uses scalar deltas with `* 4000.0` multiplier instead of pixel arrays | **CRITICAL_PRODUCTION_RISK** |
+| **F-02** | Unchecked cross-sensor comparison (Landsat-8 vs Sentinel-2A) caused false 16.022% HIGH alert in Vadipatti | **CRITICAL_PRODUCTION_RISK** |
+| **F-03** | `RasterHarmonizationService.harmonizeToBaselineGrid` uses scale-factor array stretching without coordinate transforms | **CRITICAL_PRODUCTION_RISK** |
+| **F-04** | Pixel-level cloud/shadow masking is disabled because `GeeExportService` excludes `SCL`/`QA_PIXEL` from GeoTIFFs | **CRITICAL_PRODUCTION_RISK** |
+| **F-05** | Curtain slider displays raw unaligned PNGs (e.g. 314×236 vs 2569×2237) relying on CSS stretching | **PRODUCTION_RISK** |
+| **F-06** | `OpticalImageProcessor` evaluates spectral indices on zonal band averages, violating Jensen's Inequality | **PRODUCTION_RISK** |
+| **F-07** | Pipeline B (`PixelAnalysisService`) is disconnected from `ChangeDetectionService` and evaluates absolute $|\Delta\text{NDVI}|$ | **PRODUCTION_RISK** |
+| **F-08** | Inconsistent definitions of NDWI and NDBI/NBR between services | **WARNING** |
+| **F-09** | Lack of seasonal/phenological checks across multi-year temporal intervals | **WARNING** |
+| **F-10** | Existing test suites validate HTTP response codes and PNG headers without testing spatial registration | **WARNING** |
+| **F-11** | CrsTransformService and AnalysisGridService are mathematically sound and operational | **PASS** |
+| **F-12** | Local GeoTIFF reading and authentic 8-bit true-color PNG contrast stretching are operational | **PASS** |
+
+---
+
+### T. ROOT CAUSES
+
+1. **Architectural Disconnect:**
+   Pipeline B (`PixelAnalysisService`, `RasterHarmonizationService`, `RasterReaderService`) was developed as an experimental raster prototype, while production change detection (`ChangeDetectionService`) remained attached to Pipeline A (`OpticalChangeDetector`), which relies on summary metrics.
+2. **Missing Optical Reprojection Engine:**
+   When spatial harmonization was implemented for SAR (`reprojectSarToGrid`), the optical pipeline was not upgraded to use `AnalysisGridService` or `CrsTransformService`.
+3. **Band Type Limitations in GEE Export:**
+   GEE's `Export.image.toDrive` rejects exports with mixed data types (UInt16 reflectance alongside Byte SCL). Rather than casting SCL/QA to UInt16, the export service stripped the quality bands entirely, removing the source data required for pixel-level cloud masking.
+4. **Permissive Sensor Verification:**
+   The validation check in `ChangeDetectionService.ts` evaluated only `sensorType` (`OPTICAL === OPTICAL`), allowing disparate satellite platforms (Landsat vs Sentinel-2) to be compared without cross-sensor normalization.
+
+---
+
+### U. REQUIRED CORRECTIONS (SPECIFICATION ONLY)
+
+> [!NOTE]
+> Per audit constraints, the following changes are specifications only. No code modifications have been made during this session.
+
+1. **Centralized Optical Compatibility Engine (`OpticalCompatibilityService`):**
+   - Require matching platform families (`Sentinel-2` with `Sentinel-2`; `Landsat` with `Landsat`).
+   - If cross-sensor comparisons are permitted, apply empirical polynomial reflectance translations (e.g. Roy et al. 2016) and resample to a common canonical grid prior to differencing.
+2. **Integration of Canonical Analysis Grid:**
+   - Connect `AnalysisGridService.createAnalysisGrid` and `CrsTransformService` to the optical pipeline.
+   - Warp both baseline and current optical GeoTIFFs onto the zone's canonical Analysis Grid (EPSG:32644 at 10m).
+3. **True Pixel-Level Optical Change Detector (`OpticalPixelChangeDetector`):**
+   - Calculate spectral indices ($\text{NDVI}$, $\text{NDWI}$, $\text{BSI}$) per pixel:
+     $$\text{NDVI}_i = \frac{\text{NIR}_i - \text{RED}_i}{\text{NIR}_i + \text{RED}_i}$$
+   - Calculate pixel-level deltas: $\Delta\text{NDVI}_i = \text{Current}_i - \text{Baseline}_i$.
+   - Flag canopy loss only where $\Delta\text{NDVI}_i \le -0.10$ and $\Delta\text{BSI}_i \ge +0.05$.
+   - Calculate affected area from authentic pixel counts:
+     $$\text{affectedAreaPercentage} = \frac{\text{changedPixelCount}}{\text{validComparisonPixelCount}} \times 100$$
+4. **Restoration of Quality Bands in GEE Exports:**
+   - In `GeeExportService.ts`, cast `SCL` and `QA_PIXEL` to UInt16:
+     ```javascript
+     image.select(['B2','B3','B4','B8','B11','B12']).addBands(image.select('SCL').toUint16())
+     ```
+   - Enable `RasterPreprocessingService` to extract SCL and mask cloud (8, 9), shadow (3), and cirrus (10) pixels.
+5. **Registered Optical Curtain Slider:**
+   - Update `ChangeDetectionService.getBaselineImageBuffer` and `getCurrentImageBuffer` to reproject optical rasters onto `change.analysisGrid` before generating PNGs, ensuring pixel-to-pixel registration in the viewer.
+6. **Historical Audit Tagging:**
+   - Mark `CHG-1790510572230-4759` (Vadipatti) with `auditStatus: 'INVALID_FOR_PRODUCTION_CROSS_SENSOR'` to reflect that its 16.022% result was driven by cross-sensor discrepancies.
+
+---
+
+### V. SAR INTERACTION IMPACT
+
+- **Shared Components:**
+  [`CrsTransformService.ts`](file:///d:/tn-enforcement-system/tn-forest-monitoring/server/src/services/spatial/CrsTransformService.ts) and [`AnalysisGridService.ts`](file:///d:/tn-enforcement-system/tn-forest-monitoring/server/src/services/spatial/AnalysisGridService.ts) are fully operational and verified.
+- **Coordination Plan:**
+  The optical correction should adopt these shared services directly. The optical pipeline can pass GeoTIFF reflectance arrays to an optical warping function modeled on `SpatialHarmonizationService.reprojectSarToGrid`.
+- **Isolation:**
+  `SarCompatibilityService`, `SarPixelChangeDetector`, and SAR database records (`CHG-1790511626250-4641`, `CHG-1790525317279-8405`) must remain untouched during optical remediation.
+
+---
+
+### W. RECOMMENDED CORRECTION ORDER
+
+```mermaid
+flowchart TD
+    Step1["1. Optical Compatibility Engine (OpticalCompatibilityService)"] --> Step2["2. Quality Band Export Fix (Cast SCL/QA to UInt16 in GEE)"]
+    Step2 --> Step3["3. Optical Spatial Reprojection (Warp to Canonical AnalysisGrid)"]
+    Step3 --> Step4["4. Pixel-Level Change Detector (OpticalPixelChangeDetector)"]
+    Step4 --> Step5["5. Wire into ChangeDetectionService & Retire Scalar Multiplier"]
+    Step5 --> Step6["6. Registered True-Color PNG Generation for Curtain Slider"]
+    Step6 --> Step7["7. Tag CHG-1790510572230-4759 & Add Comprehensive Test Suite"]
+```
+
+---
+
+### X. FINAL VERDICT
+
+> [!CAUTION]
+> **OVERALL AUDIT VERDICT: UNACCEPTABLE FOR SCIENTIFIC / ENFORCEMENT PRODUCTION USE**
+>
+> The current optical change detection implementation relies on **scalar mean index differences scaled by an arbitrary 4000× multiplier**, rather than authentic raster pixel differencing.
+>
+> Optical spatial harmonization currently performs **index-based array stretching** without coordinate transformation. Furthermore, un-normalized cross-sensor comparisons (Landsat-8 vs Sentinel-2A) are permitted, which generated a false **16.022% HIGH severity alert** in Vadipatti (`CHG-1790510572230-4759`).
+>
+> Remediation is required across sensor compatibility, spatial reprojection, pixel-level index differencing, and curtain slider image serving prior to production reliance on optical change detection.

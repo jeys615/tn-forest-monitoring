@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1320" width="1080" height="1320">
+<defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M 0 1 L 10 5 L 0 9 z" fill="#1E293B" />
+  </marker>
+  <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+    <feDropShadow dx="1" dy="2" stdDeviation="2" flood-color="#000000" flood-opacity="0.06"/>
+  </filter>
+</defs>
+<rect width="1080" height="1320" fill="#FFFFFF" />
+<text x="540" y="16" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#0F172A">UML Activity Diagram: Mining Transport Authorization &amp; Digital E-Pass Issuance</text>
+  <g id="lane_2">
+    <rect x="10" y="20" width="310" height="1280" fill="#F8FAFC" stroke="#334155" stroke-width="1.5" />
+    <rect x="10" y="20" width="310" height="36" fill="#E2E8F0" stroke="#334155" stroke-width="1.5" />
+    <text x="165" y="43" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#0F172A">Mining Officer / Authority</text>
+  </g>
+  <g id="lane_3">
+    <rect x="320" y="20" width="350" height="1280" fill="#F8FAFC" stroke="#334155" stroke-width="1.5" />
+    <rect x="320" y="20" width="350" height="36" fill="#E2E8F0" stroke="#334155" stroke-width="1.5" />
+    <text x="495" y="43" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#0F172A">Transport Operator / Mining Lessee</text>
+  </g>
+  <g id="lane_4">
+    <rect x="670" y="20" width="400" height="1280" fill="#F8FAFC" stroke="#334155" stroke-width="1.5" />
+    <rect x="670" y="20" width="400" height="36" fill="#E2E8F0" stroke="#334155" stroke-width="1.5" />
+    <text x="870" y="43" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#0F172A">E-Pass Management System</text>
+  </g>
+  <path d="M 165 91 L 165 120" fill="none" stroke="#1E293B" stroke-width="1.5" marker-end="url(#arrow)" />
+  <path d="M 165 175 L 165 190 L 495 190 L 495 205" fill="none" stroke="#1E293B" stroke-width="1.5" marker-end="url(#arrow)" />
+  <path d="M 495 265 L 495 275 L 870 275 L 870 290" fill="none" stroke="#1E293B" stroke-width="1.5" marker-end="url(#arrow)" />
+  <path d="M 870 345 L 870 375" fill="none" stroke="#1E293B" stroke-width="1.5" marker-end="url(#arrow)" />
+  <path d="M 850 395 L 850 395 L 635 395 L 635 565 L 615 565 L 615 572.5" fill="none" stroke="#1E293B" stroke-width="1.5" marker-end="url(#arrow)" />
+  <text x="850" y="387" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="10" font-weight="bold" fill="#1E3A8A">[Suspended / Expired]</text>
+  <path d="M 870 415 L 870 460" fill="none" stroke="#1E293B" stroke-width="1.5" marker-end="url(#arrow)" />
+  <text x="878" y="437.5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="10" font-weight="bold" fill="#1E3A8A">[Active &amp; Valid]</text>
+  <path d="M 870 515 L 870 545" fill="none" stroke="#1E293B" stroke-width="1.5" marker-end="url(#arrow)" />
+  <path d="M 850 565 L 850 565 L 615 565 L 615 572.5" fill="none" stroke="#1E293B" stroke-width="1.5" marker-end="url(#arrow)" />
+  <text x="850" y="557" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="10" font-weight="bold" fill="#1E3A8A">[Quota Exceeded]</text>
+  <path d="M 870 585 L 870 630" fill="none" stroke="#1E293B" stroke-width="1.5" marker-end="url(#arrow)" />
+  <text x="878" y="607.5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="10" font-weight="bold" fill="#1E3A8A">[Within Quota]</text>
+  <path d="M 870 685 L 870 715" fill="none" stroke="#1E293B" stroke-width="1.5" marker-end="url(#arrow)" />
+  <path d="M 850 735 L 850 735 L 635 735 L 635 580 L 615 580 L 615 572.5" fill="none" stroke="#1E293B" stroke-width="1.5" marker-end="url(#arrow)" />
+  <text x="850" y="727" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="10" font-weight="bold" fill="#1E3A8A">[Fleet Invalid]</text>
+  <path d="M 870 755 L 870 800" fill="none" stroke="#1E293B" stroke-width="1.5" marker-end="url(#arrow)" />
+  <text x="878" y="777.5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="10" font-weight="bold" fill="#1E3A8A">[Fleet Verified]</text>
+  <path d="M 870 855 L 870 885" fill="none" stroke="#1E293B" stroke-width="1.5" marker-end="url(#arrow)" />
+  <path d="M 870 940 L 870 970" fill="none" stroke="#1E293B" stroke-width="1.5" marker-end="url(#arrow)" />
+  <path d="M 870 1025 L 870 1040 L 495 1040 L 495 1060" fill="none" stroke="#1E293B" stroke-width="1.5" marker-end="url(#arrow)" />
+  <path d="M 495 1115 L 495 1150" fill="none" stroke="#1E293B" stroke-width="1.5" marker-end="url(#arrow)" />
+  <path d="M 375 572.5 L 430 600 L 430 1170 L 475 1170 L 475 1170" fill="none" stroke="#1E293B" stroke-width="1.5" marker-end="url(#arrow)" />
+  <path d="M 495 1190 L 495 1225" fill="none" stroke="#1E293B" stroke-width="1.5" marker-end="url(#arrow)" />
+  <g id="node_5">
+    <circle cx="165" cy="78" r="13" fill="#0F172A" />
+  </g>
+  <g id="node_6">
+    <rect x="45" y="120" width="240" height="55" rx="12" ry="12" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="1.5" filter="url(#shadow)" />
+    <text x="165" y="145.5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">Issue Mining Lease &amp;</text>
+    <text x="165" y="158.5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">Allocate Mineral Tonnage Quota</text>
+  </g>
+  <g id="node_7">
+    <rect x="375" y="205" width="240" height="60" rx="12" ry="12" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="1.5" filter="url(#shadow)" />
+    <text x="495" y="233" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">Submit Digital E-Pass Request</text>
+    <text x="495" y="246" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">(Vehicle, Driver, Route, Net Weight)</text>
+  </g>
+  <g id="node_8">
+    <rect x="750" y="290" width="240" height="55" rx="12" ry="12" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="1.5" filter="url(#shadow)" />
+    <text x="870" y="315.5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">Validate Mining Authorization</text>
+    <text x="870" y="328.5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">Status &amp; Permit Validity Dates</text>
+  </g>
+  <g id="node_9">
+    <polygon points="870,375 890,395 870,415 850,395" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="1.5" filter="url(#shadow)" />
+  </g>
+  <g id="node_10">
+    <rect x="750" y="460" width="240" height="55" rx="12" ry="12" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="1.5" filter="url(#shadow)" />
+    <text x="870" y="485.5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">Check Remaining Quota vs</text>
+    <text x="870" y="498.5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">Declared Net Transport Weight</text>
+  </g>
+  <g id="node_11">
+    <polygon points="870,545 890,565 870,585 850,565" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="1.5" filter="url(#shadow)" />
+  </g>
+  <g id="node_12">
+    <rect x="750" y="630" width="240" height="55" rx="12" ry="12" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="1.5" filter="url(#shadow)" />
+    <text x="870" y="655.5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">Verify Vehicle Registration &amp;</text>
+    <text x="870" y="668.5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">Driver Approval Credentials</text>
+  </g>
+  <g id="node_13">
+    <polygon points="870,715 890,735 870,755 850,735" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="1.5" filter="url(#shadow)" />
+  </g>
+  <g id="node_14">
+    <rect x="375" y="545" width="240" height="55" rx="12" ry="12" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="1.5" filter="url(#shadow)" />
+    <text x="495" y="570.5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">Receive Rejection Notice &amp;</text>
+    <text x="495" y="583.5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">Terminate Request Lifecycle</text>
+  </g>
+  <g id="node_15">
+    <rect x="750" y="800" width="240" height="55" rx="12" ry="12" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="1.5" filter="url(#shadow)" />
+    <text x="870" y="825.5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">Atomically Deduct Net Weight</text>
+    <text x="870" y="838.5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">from Authorization Remaining Quota</text>
+  </g>
+  <g id="node_16">
+    <rect x="750" y="885" width="240" height="55" rx="12" ry="12" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="1.5" filter="url(#shadow)" />
+    <text x="870" y="910.5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">Generate Canonical Payload, SHA-256</text>
+    <text x="870" y="923.5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">Hash &amp; Cryptographic HMAC Signature</text>
+  </g>
+  <g id="node_17">
+    <rect x="750" y="970" width="240" height="55" rx="12" ry="12" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="1.5" filter="url(#shadow)" />
+    <text x="870" y="995.5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">Persist E-Pass in ACTIVE Status</text>
+    <text x="870" y="1008.5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">with Sequential Identifier (EP-YYYY-XXXX)</text>
+  </g>
+  <g id="node_18">
+    <rect x="375" y="1060" width="240" height="55" rx="12" ry="12" fill="#FEF3C7" stroke="#D97706" stroke-width="1.5" filter="url(#shadow)" />
+    <text x="495" y="1085.5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">Download &amp; Print Tamper-Proof</text>
+    <text x="495" y="1098.5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">Digital E-Pass with Embedded QR Code</text>
+  </g>
+  <g id="node_19">
+    <polygon points="495,1150 515,1170 495,1190 475,1170" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="1.5" filter="url(#shadow)" />
+  </g>
+  <g id="node_20">
+    <circle cx="495" cy="1238" r="13" fill="#FFFFFF" stroke="#0F172A" stroke-width="2" />
+    <circle cx="495" cy="1238" r="9" fill="#0F172A" />
+  </g>
+</svg>

@@ -1,0 +1,8 @@
+{
+  "step_index": 24364,
+  "source": "MODEL",
+  "type": "GENERIC",
+  "status": "DONE",
+  "created_at": "2026-09-27T11:02:10Z",
+  "content": "Created At: 2026-09-27T16:32:10+05:30\nCompleted At: 2026-09-27T16:32:10+05:30\nThe following changes were made by the replace_file_content tool to: d:\\tn-enforcement-system\\tn-forest-monitoring\\server\\src\\services\\gee\\GeeSatelliteService.ts. If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.\n[diff_block_start]\n@@ -177,6 +177,13 @@\n   public async searchSarImages(request: SatelliteSearchRequest): Promise<SatelliteSearchResponse> {\n     return this.searchSentinel2Images({ ...request, sensor: 'SAR' as any });\n   }\n+\n+  /**\n+   * Generic image search covering optical multi-collection or SAR based on request parameters.\n+   */\n+  public async searchImages(request: SatelliteSearchRequest): Promise<SatelliteSearchResponse> {\n+    return this.searchSentinel2Images(request);\n+  }\n }\n \n \n[diff_block_end]\n\nPlease note that the above snippet only shows the MODIFIED lines from the last change. It shows up to 3 lines of unchanged lines before and after the modified lines. The actual file contents may have many more lines not shown."
+}

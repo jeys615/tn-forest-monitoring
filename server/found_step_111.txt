@@ -1,0 +1,176 @@
+Created At: 2026-10-07T19:43:35+05:30
+Completed At: 2026-10-07T19:43:41+05:30
+
+The command exited with code 0.
+Output:
+✅ MongoDB connected: localhost
+sat1 footprint: {
+  type: 'Polygon',
+  coordinates: [
+    [
+      [Array], [Array],
+      [Array], [Array],
+      [Array], [Array],
+      [Array], [Array]
+    ]
+  ]
+}
+sat1 intersectingZones: [ new ObjectId('6ac64221540f1518603d05ff') ]
+sat2 footprint: {
+  type: 'Polygon',
+  coordinates: [
+    [
+      [Array], [Array],
+      [Array], [Array],
+      [Array], [Array],
+      [Array], [Array]
+    ]
+  ]
+}
+sat2 intersectingZones: [ new ObjectId('6ac64221540f1518603d05ff') ]
+cd zoneId: new ObjectId('6ac64221540f1518603d05ff')
+CD found: {
+  id: '6ac64691540f1518603d091d',
+  changeId: 'CHG-1791379089579-2827',
+  zoneId: '6ac64221540f1518603d05ff',
+  observationId: '6ac6452b540f1518603d081d',
+  baselineId: '6ac643d2540f1518603d0728',
+  referenceObservationId: undefined,
+  sensorType: 'OPTICAL',
+  source: 'SENTINEL_2',
+  detectedAt: 2026-01-22T05:10:19.000Z,
+  changedArea: 67.75,
+  calculationMethod: 'OPTICAL_PIXEL_DIFFERENCE',
+  spatialCalculation: 'PIXEL_GRID',
+  comparisonMode: 'NATIVE',
+  rasterStatistics: {
+    meanDeltaNdvi: 0.0002,
+    medianDeltaNdvi: 0,
+    stdDeltaNdvi: 0.0579,
+    meanDeltaNdwi: -0.0002,
+    meanDeltaNdbi: -0.0003,
+    meanDeltaBsi: -0.0002,
+    meanDeltaSavi: -0,
+    meanDeltaEvi: 0,
+    changedPixelCount: 6775,
+    validComparisonPixelCount: 3058848,
+    decreasePixelCount: 6775,
+    increasePixelCount: 8459,
+    stablePixelCount: 3043614,
+    decreaseAffectedAreaPercentage: 0.2215,
+    increaseAffectedAreaPercentage: 0.2765
+  }
+}
+
+--- Checking Baselines ---
+Total baselines: 7
+{
+  id: '6ac097fca67ffc60fd757e67',
+  zoneId: '6ac097fca67ffc60fd757e59',
+  satMetaId: '6ac097fca67ffc60fd757e5d',
+  imageId: 'COPERNICUS/S2_SR/20260115_BASE',
+  status: 'EXPORT_FAILED',
+  isActive: false
+}
+{
+  id: '6ac09805a67ffc60fd757e77',
+  zoneId: '6ac097fca67ffc60fd757e59',
+  satMetaId: '6ac097fca67ffc60fd757e5f',
+  imageId: 'COPERNICUS/S1_GRD/20260116_BASE',
+  status: 'EXPORT_FAILED',
+  isActive: false
+}
+{
+  id: '6ac09824d54f3d3cc71c30b5',
+  zoneId: '6ac09824d54f3d3cc71c30a5',
+  satMetaId: '6ac09824d54f3d3cc71c30ad',
+  imageId: 'COPERNICUS/S2_SR_HARMONIZED/20250315T051651_1791006756803_T44PMT',
+  status: 'ACTIVE',
+  isActive: true
+}
+{
+  id: '6ac0e18e1631811fece60779',
+  zoneId: '6ac0e18e1631811fece60769',
+  satMetaId: '6ac0e18e1631811fece60777',
+  imageId: undefined,
+  status: 'ACTIVE',
+  isActive: true
+}
+{
+  id: '6ac5ac573f19822d1b7e6e93',
+  zoneId: '6ac5a9d496837067de289f3b',
+  satMetaId: '6ac5ac543f19822d1b7e6e7b',
+  imageId: 'COPERNICUS/S2_SR_HARMONIZED/20260310T051241_20260310T051808_T43PGM',
+  status: 'ACTIVE',
+  isActive: true
+}
+{
+  id: '6ac643d2540f1518603d0728',
+  zoneId: '6ac64221540f1518603d05ff',
+  satMetaId: '6ac642b3540f1518603d0624',
+  imageId: 'COPERNICUS/S2_SR_HARMONIZED/20200109T051201_20200109T051844_T43PHM',
+  status: 'ACTIVE',
+  isActive: true
+}
+{
+  id: '6ac6465e540f1518603d08ce',
+  zoneId: '6ac64221540f1518603d05ff',
+  satMetaId: '6ac6452b540f1518603d081d',
+  imageId: 'COPERNICUS/S2_SR_HARMONIZED/20260122T051019_20260122T052254_T43PHM',
+  status: 'PROCESSED',
+  isActive: false
+}
+
+--- Checking SatelliteMetadata records ---
+Total SatelliteMetadata count: 7
+{
+  id: '6ac0e18e1631811fece60777',
+  imageId: 'COPERNICUS/S2_SR_HARMONIZED/20240101T050221_T44PMT',
+  acquisitionDate: 2024-01-01T05:00:00.000Z,
+  intersectingZones: [ '6ac0e18e1631811fece60769' ],
+  processingStatus: 'PROCESSED'
+}
+{
+  id: '6ac0e18e1631811fece6077b',
+  imageId: 'COPERNICUS/S2_SR_HARMONIZED/20240105T050221_T44PMT',
+  acquisitionDate: 2024-01-05T05:00:00.000Z,
+  intersectingZones: [ '6ac0e18e1631811fece60769' ],
+  processingStatus: 'PROCESSED'
+}
+{
+  id: '6ac5ac543f19822d1b7e6e7b',
+  imageId: 'COPERNICUS/S2_SR_HARMONIZED/20260310T051241_20260310T051808_T43PGM',
+  acquisitionDate: 2026-03-10T05:26:23.579Z,
+  intersectingZones: [ '6ac5a9d496837067de289f3b' ],
+  processingStatus: 'PROCESSED'
+}
+{
+  id: '6ac5ac543f19822d1b7e6e7e',
+  imageId: 'COPERNICUS/S2_SR_HARMONIZED/20260323T050649_20260323T051951_T43PGM',
+  acquisitionDate: 2026-03-23T05:26:00.318Z,
+  intersectingZones: [ '6ac5a9d496837067de289f3b' ],
+  processingStatus: 'PROCESSED'
+}
+{
+  id: '6ac5d839540f1518603d0565',
+  imageId: 'COPERNICUS/S2_SR_HARMONIZED/20260926T051241_20260926T051801_T43PGM',
+  acquisitionDate: 2026-09-26T05:26:17.091Z,
+  intersectingZones: [ '6ac5a9d496837067de289f3b' ],
+  processingStatus: 'PROCESSED'
+}
+{
+  id: '6ac642b3540f1518603d0624',
+  imageId: 'COPERNICUS/S2_SR_HARMONIZED/20200109T051201_20200109T051844_T43PHM',
+  acquisitionDate: 2020-01-09T05:12:01.000Z,
+  intersectingZones: [ '6ac64221540f1518603d05ff' ],
+  processingStatus: 'PROCESSED'
+}
+{
+  id: '6ac6452b540f1518603d081d',
+  imageId: 'COPERNICUS/S2_SR_HARMONIZED/20260122T051019_20260122T052254_T43PHM',
+  acquisitionDate: 2026-01-22T05:10:19.000Z,
+  intersectingZones: [ '6ac64221540f1518603d05ff' ],
+  processingStatus: 'PROCESSED'
+}
+MongoDB disconnected
+

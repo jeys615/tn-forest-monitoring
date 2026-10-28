@@ -1,0 +1,161 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1220 1550" width="1220" height="1550">
+<defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M 0 1 L 10 5 L 0 9 z" fill="#1E293B" />
+  </marker>
+  <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+    <feDropShadow dx="1" dy="2" stdDeviation="2" flood-color="#000000" flood-opacity="0.06"/>
+  </filter>
+</defs>
+<rect width="1220" height="1550" fill="#FFFFFF" />
+<text x="610" y="16" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#0F172A">UML Activity Diagram: Automated Satellite Monitoring, Multi-Sensor Change Detection &amp; Alert Generation</text>
+  <g id="lane_2">
+    <rect x="10" y="20" width="270" height="1500" fill="#F8FAFC" stroke="#334155" stroke-width="1.5" />
+    <rect x="10" y="20" width="270" height="36" fill="#E2E8F0" stroke="#334155" stroke-width="1.5" />
+    <text x="145" y="43" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#0F172A">Forest Officer / Administrator</text>
+  </g>
+  <g id="lane_3">
+    <rect x="280" y="20" width="290" height="1500" fill="#F8FAFC" stroke="#334155" stroke-width="1.5" />
+    <rect x="280" y="20" width="290" height="36" fill="#E2E8F0" stroke="#334155" stroke-width="1.5" />
+    <text x="425" y="43" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#0F172A">Monitoring Scheduler &amp; Execution Engine</text>
+  </g>
+  <g id="lane_4">
+    <rect x="570" y="20" width="330" height="1500" fill="#F8FAFC" stroke="#334155" stroke-width="1.5" />
+    <rect x="570" y="20" width="330" height="36" fill="#E2E8F0" stroke="#334155" stroke-width="1.5" />
+    <text x="735" y="43" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#0F172A">Satellite Acquisition &amp; GEE Provider</text>
+  </g>
+  <g id="lane_5">
+    <rect x="900" y="20" width="310" height="1500" fill="#F8FAFC" stroke="#334155" stroke-width="1.5" />
+    <rect x="900" y="20" width="310" height="36" fill="#E2E8F0" stroke="#334155" stroke-width="1.5" />
+    <text x="1055" y="43" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#0F172A">Change Detection &amp; Alerting Engine</text>
+  </g>
+  <path d="M 145 91 L 145 120" fill="none" stroke="#1E293B" stroke-width="1.5" marker-end="url(#arrow)" />
+  <path d="M 145 175 L 145 195 L 425 195 L 425 210" fill="none" stroke="#1E293B" stroke-width="1.5" marker-end="url(#arrow)" />
+  <path d="M 425 265 L 425 280 L 735 280 L 735 295" fill="none" stroke="#1E293B" stroke-width="1.5" marker-end="url(#arrow)" />
+  <path d="M 735 345 L 735 375" fill="none" stroke="#1E293B" stroke-width="1.5" marker-end="url(#arrow)" />
+  <path d="M 657 383 L 657 395 L 657.5 415" fill="none" stroke="#1E293B" stroke-width="1.5" marker-end="url(#arrow)" />
+  <path d="M 812 383 L 812 395 L 812.5 415" fill="none" stroke="#1E293B" stroke-width="1.5" marker-end="url(#arrow)" />
+  <path d="M 657.5 475 L 657 495 L 657 510" fill="none" stroke="#1E293B" stroke-width="1.5" marker-end="url(#arrow)" />
+  <path d="M 812.5 475 L 812 495 L 812 510" fill="none" stroke="#1E293B" stroke-width="1.5" marker-end="url(#arrow)" />
+  <path d="M 735 518 L 735 545" fill="none" stroke="#1E293B" stroke-width="1.5" marker-end="url(#arrow)" />
+  <path d="M 715 565 L 715 565 L 655 565 L 655 620" fill="none" stroke="#1E293B" stroke-width="1.5" marker-end="url(#arrow)" />
+  <text x="715" y="557" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="10" font-weight="bold" fill="#1E3A8A">[Cloud &lt;= 20%]</text>
+  <path d="M 755 565 L 755 565 L 815 565 L 815 620" fill="none" stroke="#1E293B" stroke-width="1.5" marker-end="url(#arrow)" />
+  <text x="755" y="557" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="10" font-weight="bold" fill="#1E3A8A">[Cloud &gt; 20%]</text>
+  <path d="M 655 680 L 655 695 L 715 695 L 715 735 L 715 735" fill="none" stroke="#1E293B" stroke-width="1.5" marker-end="url(#arrow)" />
+  <path d="M 815 680 L 815 695 L 755 695 L 755 735 L 755 735" fill="none" stroke="#1E293B" stroke-width="1.5" marker-end="url(#arrow)" />
+  <path d="M 735 755 L 735 765 L 1055 765 L 1055 785" fill="none" stroke="#1E293B" stroke-width="1.5" marker-end="url(#arrow)" />
+  <path d="M 1055 840 L 1055 870" fill="none" stroke="#1E293B" stroke-width="1.5" marker-end="url(#arrow)" />
+  <path d="M 1055 925 L 1055 955" fill="none" stroke="#1E293B" stroke-width="1.5" marker-end="url(#arrow)" />
+  <path d="M 1055 1010 L 1055 1040" fill="none" stroke="#1E293B" stroke-width="1.5" marker-end="url(#arrow)" />
+  <path d="M 1035 1060 L 1035 1060 L 980 1060 L 980 1115" fill="none" stroke="#1E293B" stroke-width="1.5" marker-end="url(#arrow)" />
+  <text x="1035" y="1052" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="10" font-weight="bold" fill="#1E3A8A">[Area &lt; 2%]</text>
+  <path d="M 1075 1060 L 1075 1060 L 1132 1060 L 1132.5 1115" fill="none" stroke="#1E293B" stroke-width="1.5" marker-end="url(#arrow)" />
+  <text x="1075" y="1052" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="10" font-weight="bold" fill="#1E3A8A">[Area &gt;= 2%]</text>
+  <path d="M 1132.5 1175 L 1132.5 1205" fill="none" stroke="#1E293B" stroke-width="1.5" marker-end="url(#arrow)" />
+  <path d="M 1065 1232.5 L 1065 1232 L 245 1232 L 245 1232.5" fill="none" stroke="#1E293B" stroke-width="1.5" marker-end="url(#arrow)" />
+  <path d="M 145 1260 L 145 1275 L 145 1315 L 405 1315 L 405 1315" fill="none" stroke="#1E293B" stroke-width="1.5" marker-end="url(#arrow)" />
+  <path d="M 980 1170 L 980 1185 L 980 1315 L 445 1315 L 445 1315" fill="none" stroke="#1E293B" stroke-width="1.5" marker-end="url(#arrow)" />
+  <path d="M 425 1335 L 425 1365" fill="none" stroke="#1E293B" stroke-width="1.5" marker-end="url(#arrow)" />
+  <path d="M 425 1420 L 425 1450" fill="none" stroke="#1E293B" stroke-width="1.5" marker-end="url(#arrow)" />
+  <g id="node_6">
+    <circle cx="145" cy="78" r="13" fill="#0F172A" />
+  </g>
+  <g id="node_7">
+    <rect x="45" y="120" width="200" height="55" rx="12" ry="12" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="1.5" filter="url(#shadow)" />
+    <text x="145" y="145.5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">Define Monitored Zone &amp;</text>
+    <text x="145" y="158.5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">Set Optical &amp; SAR Tracks</text>
+  </g>
+  <g id="node_8">
+    <rect x="320" y="210" width="210" height="55" rx="12" ry="12" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="1.5" filter="url(#shadow)" />
+    <text x="425" y="235.5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">Trigger Monitoring Cycle &amp;</text>
+    <text x="425" y="248.5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">Acquire Concurrency Lock</text>
+  </g>
+  <g id="node_9">
+    <rect x="630" y="295" width="210" height="50" rx="12" ry="12" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="1.5" filter="url(#shadow)" />
+    <text x="735" y="318" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">Initialize Provider &amp;</text>
+    <text x="735" y="331" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">Resolve Acquisition Window</text>
+  </g>
+  <g id="node_10">
+    <rect x="615" y="375" width="240" height="8" fill="#0F172A" rx="2" ry="2" />
+  </g>
+  <g id="node_11">
+    <rect x="590" y="415" width="135" height="60" rx="12" ry="12" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="1.5" filter="url(#shadow)" />
+    <text x="657.5" y="443" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">Query Optical Imagery</text>
+    <text x="657.5" y="456" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">(Sentinel-2, Landsat-8/9)</text>
+  </g>
+  <g id="node_12">
+    <rect x="745" y="415" width="135" height="60" rx="12" ry="12" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="1.5" filter="url(#shadow)" />
+    <text x="812.5" y="443" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">Query SAR Radar Imagery</text>
+    <text x="812.5" y="456" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">(Sentinel-1 C-SAR)</text>
+  </g>
+  <g id="node_13">
+    <rect x="615" y="510" width="240" height="8" fill="#0F172A" rx="2" ry="2" />
+  </g>
+  <g id="node_14">
+    <polygon points="735,545 755,565 735,585 715,565" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="1.5" filter="url(#shadow)" />
+  </g>
+  <g id="node_15">
+    <rect x="585" y="620" width="140" height="60" rx="12" ry="12" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="1.5" filter="url(#shadow)" />
+    <text x="655" y="648" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">Select Optical Observation &amp;</text>
+    <text x="655" y="661" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">Execute GEE reduceRegion</text>
+  </g>
+  <g id="node_16">
+    <rect x="745" y="620" width="140" height="60" rx="12" ry="12" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="1.5" filter="url(#shadow)" />
+    <text x="815" y="648" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">Flag Cloud-Degraded &amp;</text>
+    <text x="815" y="661" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">Trigger SAR Fallback Reduction</text>
+  </g>
+  <g id="node_17">
+    <polygon points="735,715 755,735 735,755 715,735" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="1.5" filter="url(#shadow)" />
+  </g>
+  <g id="node_18">
+    <rect x="940" y="785" width="230" height="55" rx="12" ry="12" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="1.5" filter="url(#shadow)" />
+    <text x="1055" y="810.5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">Compute Dedicated Indices</text>
+    <text x="1055" y="823.5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">(NDVI/BSI for Optical, VV/VH for SAR)</text>
+  </g>
+  <g id="node_19">
+    <rect x="940" y="870" width="230" height="55" rx="12" ry="12" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="1.5" filter="url(#shadow)" />
+    <text x="1055" y="895.5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">Compare Observation with</text>
+    <text x="1055" y="908.5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">Active Sensor-Specific Baseline</text>
+  </g>
+  <g id="node_20">
+    <rect x="940" y="955" width="230" height="55" rx="12" ry="12" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="1.5" filter="url(#shadow)" />
+    <text x="1055" y="980.5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">Calculate Spatial Changed Area</text>
+    <text x="1055" y="993.5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">Percentage: (Area / Total) * 100</text>
+  </g>
+  <g id="node_21">
+    <polygon points="1055,1040 1075,1060 1055,1080 1035,1060" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="1.5" filter="url(#shadow)" />
+  </g>
+  <g id="node_22">
+    <rect x="915" y="1115" width="130" height="55" rx="12" ry="12" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="1.5" filter="url(#shadow)" />
+    <text x="980" y="1140.5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">Log Normal Fluctuation &amp;</text>
+    <text x="980" y="1153.5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">Update Track Telemetry</text>
+  </g>
+  <g id="node_23">
+    <rect x="1065" y="1115" width="135" height="60" rx="12" ry="12" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="1.5" filter="url(#shadow)" />
+    <text x="1132.5" y="1143" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">Compute Evidence Score</text>
+    <text x="1132.5" y="1156" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">(40% Mag, 20% Q, 20% T, 20% X)</text>
+  </g>
+  <g id="node_24">
+    <rect x="1065" y="1205" width="135" height="55" rx="12" ry="12" fill="#FEF3C7" stroke="#D97706" stroke-width="1.5" filter="url(#shadow)" />
+    <text x="1132.5" y="1230.5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">Generate Consolidated Alert</text>
+    <text x="1132.5" y="1243.5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">(Severity: LOW / MED / HIGH)</text>
+  </g>
+  <g id="node_25">
+    <rect x="45" y="1205" width="200" height="55" rx="12" ry="12" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="1.5" filter="url(#shadow)" />
+    <text x="145" y="1230.5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">Review Consolidated Alert &amp;</text>
+    <text x="145" y="1243.5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">Triage Investigation Lifecycle</text>
+  </g>
+  <g id="node_26">
+    <polygon points="425,1295 445,1315 425,1335 405,1315" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="1.5" filter="url(#shadow)" />
+  </g>
+  <g id="node_27">
+    <rect x="315" y="1365" width="220" height="55" rx="12" ry="12" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="1.5" filter="url(#shadow)" />
+    <text x="425" y="1390.5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">Release Concurrency Lock &amp;</text>
+    <text x="425" y="1403.5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">Record Status as COMPLETED</text>
+  </g>
+  <g id="node_28">
+    <circle cx="425" cy="1463" r="13" fill="#FFFFFF" stroke="#0F172A" stroke-width="2" />
+    <circle cx="425" cy="1463" r="9" fill="#0F172A" />
+  </g>
+</svg>

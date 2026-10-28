@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2026-10-27T02:00:00.000Z" agent="Antigravity" version="21.0.0">
+  <diagram id="diag_arch_01" name="Figure 3.1: Multi-Tier System Architecture Diagram">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1260" pageHeight="840" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title_2" value="TAMIL NADU FOREST MONITORING SYSTEM — MULTI-TIER SYSTEM ARCHITECTURE" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=2;fontColor=#000000;fontFamily=Helvetica;fontSize=15;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="30" y="20" width="1200" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="lane_3" value="TIER 1: CLIENT PRESENTATION LAYER (React 18 + TypeScript + Vite + Tailwind CSS)" style="swimlane;startSize=30;horizontal=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=2;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=1;collapsible=0;rounded=1;arcSize=4;" vertex="1" parent="1">
+          <mxGeometry x="30" y="85" width="1200" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="box_4" value="&lt;b&gt;Dashboard &amp; Analytics&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size: 9.5px;&quot;&gt;Real-Time KPIs, Alert Feed,&lt;br/&gt;Deforestation Heatmaps&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=11;align=center;verticalAlign=middle;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="50" y="125" width="215" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="box_5" value="&lt;b&gt;Marked Area GIS&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size: 9.5px;&quot;&gt;Interactive Leaflet Engine,&lt;br/&gt;EPSG:32643 UTM Grid&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=11;align=center;verticalAlign=middle;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="290" y="125" width="215" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="box_6" value="&lt;b&gt;Monitoring Control&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size: 9.5px;&quot;&gt;Job Lifecycle &amp; Cadence,&lt;br/&gt;Stale Recovery Panel&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=11;align=center;verticalAlign=middle;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="530" y="125" width="215" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="box_7" value="&lt;b&gt;Offline Workstation&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size: 9.5px;&quot;&gt;Dual GeoTIFF Ingestion, SCL Mask,&lt;br/&gt;Swipe Curtain, Metrics&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=11;align=center;verticalAlign=middle;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="770" y="125" width="215" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="box_8" value="&lt;b&gt;Enforcement &amp; E-Pass&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size: 9.5px;&quot;&gt;Checkpoint Console, Vehicle Log,&lt;br/&gt;Evidence Dossier Dispatch&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=11;align=center;verticalAlign=middle;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="1010" y="125" width="215" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="box_9" value="&lt;b&gt;SECURE REST API GATEWAY&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size: 9.5px;&quot;&gt;JWT Authentication • RBAC Permission Middleware • Zod Schema Validation • Busboy Streaming Uploads&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=11;align=center;verticalAlign=middle;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="150" y="265" width="960" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="lane_10" value="TIER 2: APPLICATION SERVER &amp; DOMAIN SERVICES (Node.js 20+ / Express.js / TypeScript)" style="swimlane;startSize=30;horizontal=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=2;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=1;collapsible=0;rounded=1;arcSize=4;" vertex="1" parent="1">
+          <mxGeometry x="30" y="335" width="1200" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="box_11" value="&lt;b&gt;Auth &amp; RBAC Service&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size: 9.5px;&quot;&gt;Argon2/Bcrypt Hash,&lt;br/&gt;JWT Token Verification,&lt;br/&gt;7 Specialized Roles&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=11;align=center;verticalAlign=middle;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="50" y="375" width="270" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="box_12" value="&lt;b&gt;Zone &amp; Area Service&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size: 9.5px;&quot;&gt;Boundary Validation,&lt;br/&gt;EPSG:4326 to UTM 43N,&lt;br/&gt;Spatial Buffer Geometry&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=11;align=center;verticalAlign=middle;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="345" y="375" width="270" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="box_13" value="&lt;b&gt;GEE Acquisition Svc&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size: 9.5px;&quot;&gt;Earth Engine Search,&lt;br/&gt;Sentinel-2/Landsat-8/SAR,&lt;br/&gt;Real Client Ingestion&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=11;align=center;verticalAlign=middle;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="640" y="375" width="270" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="box_14" value="&lt;b&gt;Monitoring Scheduler&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size: 9.5px;&quot;&gt;Automated Worker Daemon,&lt;br/&gt;Stale Job Recovery,&lt;br/&gt;Active/Waiting Queues&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=11;align=center;verticalAlign=middle;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="935" y="375" width="270" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="box_15" value="&lt;b&gt;Detection Pipeline&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size: 9.5px;&quot;&gt;Algorithm v2.0 (Official),&lt;br/&gt;Canopy Guard v2.1 (Shadow),&lt;br/&gt;ΔNDVI &lt;= -0.15 Rule&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=11;align=center;verticalAlign=middle;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="50" y="475" width="270" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="box_16" value="&lt;b&gt;Offline Raster Engine&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size: 9.5px;&quot;&gt;100% Offline Geotiff.js,&lt;br/&gt;SCL/QA Masking, BSI Delta,&lt;br/&gt;7-Class Categorization&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=11;align=center;verticalAlign=middle;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="345" y="475" width="270" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="box_17" value="&lt;b&gt;Alert &amp; Enforcement&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size: 9.5px;&quot;&gt;Evidence Fusion Engine,&lt;br/&gt;Form 1 Dossier Generator,&lt;br/&gt;Checkpoint Audit Log&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=11;align=center;verticalAlign=middle;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="640" y="475" width="270" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="box_18" value="&lt;b&gt;Compliance &amp; E-Pass&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size: 9.5px;&quot;&gt;Vehicle Checkpoint Sync,&lt;br/&gt;Mining Quota Reconcile,&lt;br/&gt;Audit Traceability&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=11;align=center;verticalAlign=middle;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="935" y="475" width="270" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="lane_19" value="TIER 3: DATA STORAGE &amp; EXTERNAL COMPUTATION LAYER" style="swimlane;startSize=30;horizontal=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=2;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=1;collapsible=0;rounded=1;arcSize=4;" vertex="1" parent="1">
+          <mxGeometry x="30" y="600" width="1200" height="175" as="geometry" />
+        </mxCell>
+        <mxCell id="box_20" value="&lt;b&gt;MongoDB 7+ Database&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size: 9.5px;&quot;&gt;Mongoose ODM • 23 Collections • 2dsphere Geospatial Indexing&lt;br/&gt;Soft Deletes &amp; Schema Validation&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=11;align=center;verticalAlign=middle;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="50" y="640" width="370" height="115" as="geometry" />
+        </mxCell>
+        <mxCell id="box_21" value="&lt;b&gt;Google Earth Engine (Cloud)&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size: 9.5px;&quot;&gt;Sentinel-2 MSI / Landsat-8 OLI / Sentinel-1 SAR&lt;br/&gt;Planetary-Scale Cloud Processing API&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=11;align=center;verticalAlign=middle;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="445" y="640" width="370" height="115" as="geometry" />
+        </mxCell>
+        <mxCell id="box_22" value="&lt;b&gt;Local Filesystem Storage&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size: 9.5px;&quot;&gt;GeoTIFF Scratch Directory • Offline Change Detection Jobs&lt;br/&gt;GeoJSON / KML / CSV Evidence Dossiers&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=11;align=center;verticalAlign=middle;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="840" y="640" width="370" height="115" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_23" value="HTTPS / REST" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=10;endArrow=classic;endFill=1;startArrow=none;" edge="1" parent="1" source="box_6" target="box_9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_24" value="Dispatched Request" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=10;endArrow=classic;endFill=1;startArrow=none;" edge="1" parent="1" source="box_9" target="box_12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_25" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=10;endArrow=classic;endFill=1;startArrow=none;" edge="1" parent="1" source="box_9" target="box_13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_26" value="Mongoose CRUD" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=10;endArrow=classic;endFill=1;startArrow=none;" edge="1" parent="1" source="box_12" target="box_20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_27" value="REST / Python Bridge" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=10;endArrow=classic;endFill=1;startArrow=none;" edge="1" parent="1" source="box_13" target="box_21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_28" value="Local I/O" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=10;endArrow=classic;endFill=1;startArrow=none;" edge="1" parent="1" source="box_16" target="box_22">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

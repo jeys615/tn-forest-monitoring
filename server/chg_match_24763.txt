@@ -1,0 +1,163 @@
+Created At: 2026-09-27T17:58:17+05:30
+Completed At: 2026-09-27T17:58:22+05:30
+
+The command exited with code 0.
+Output:
+<truncated 1 lines>
+  "detectedAt": "2026-09-09T05:25:57.347Z",
+  "zoneArea": 100,
+  "changedArea": 0.89,
+  "affectedAreaPercentage": 0.89,
+  "calculationMode": "REAL",
+  "spatialSource": "RASTER",
+  "threshold2Crossed": false,
+  "threshold5Crossed": false,
+  "threshold10Crossed": false,
+  "highestThresholdCrossed": 0,
+  "severity": "NONE",
+  "evidenceStrength": 39,
+  "evidenceBreakdown": {
+    "magnitudeScore": 4.5,
+    "dataQualityScore": 14,
+    "temporalConsistencyScore": 10,
+    "crossSensorScore": 10,
+    "totalEvidenceScore": 39,
+    "explanation": "Evidence Strength: 39/100 [Magnitude: 4.5/40, Data Quality: 14/20, Temporal: 10/20, Cross-Sensor: 10/20]"
+  },
+  "categories": [
+    "SURFACE_CHANGE"
+  ],
+  "changeIndicators": {
+    "ndviDelta": -0.029,
+    "ndwiDelta": -0.008,
+    "ndbiDelta": 0.008,
+    "bsiDelta": 0.013,
+    "saviDelta": -0.025,
+    "eviDelta": -0.024
+  },
+  "opticalEvidence": "CLEAN",
+  "sarEvidence": "UNAVAILABLE",
+  "crossSensorAgreement": "SINGLE_SENSOR",
+  "temporalConsistency": "INSUFFICIENT_HISTORY",
+  "explanation": "Observation evaluated for zone Sirumalai (ZONE-260925-8986). Detected change of 0.89% is below the minimum alert threshold (2%). No alert generated. Confirmed via real satellite raster analysis. Evidence Strength: 39/100 [Magnitude: 4.5/40, Data Quality: 14/20, Temporal: 10/20, Cross-Sensor: 10/20]",
+  "alertGenerated": false,
+  "createdAt": "2026-09-25T09:17:33.571Z",
+  "updatedAt": "2026-09-25T09:17:33.571Z",
+  "__v": 0
+}
+------------------------------------------------------------
+Change ID: 6ab8ac90667c98f4208d8f9b
+{
+  "_id": "6ab8ac90667c98f4208d8f9b",
+  "changeId": "CHG-1790487696743-2109",
+  "zoneId": "6ab5c434f979afc8c8714e25",
+  "observationId": "6ab8abf5667c98f4208d8f6a",
+  "baselineId": "6ab5c957f979afc8c8714fb4",
+  "sensorType": "OPTICAL",
+  "monitoringTrack": "OPTICAL",
+  "source": "SENTINEL_2",
+  "detectedAt": "2026-09-26T05:26:13.842Z",
+  "zoneArea": 100,
+  "changedArea": 0.98,
+  "affectedAreaPercentage": 0.98,
+  "calculationMode": "REAL",
+  "spatialSource": "RASTER",
+  "threshold2Crossed": false,
+  "threshold5Crossed": false,
+  "threshold10Crossed": false,
+  "highestThresholdCrossed": 0,
+  "severity": "NONE",
+  "evidenceStrength": 51,
+  "evidenceBreakdown": {
+    "magnitudeScore": 4.9,
+    "dataQualityScore": 16,
+    "temporalConsistencyScore": 20,
+    "crossSensorScore": 10,
+    "totalEvidenceScore": 51,
+    "explanation": "Evidence Strength: 51/100 [Magnitude: 4.9/40, Data Quality: 16/20, Temporal: 20/20, Cross-Sensor: 10/20]"
+  },
+  "categories": [
+    "SURFACE_CHANGE"
+  ],
+  "changeIndicators": {
+    "ndviDelta": -0.018,
+    "ndwiDelta": -0.021,
+    "ndbiDelta": 0.021,
+    "bsiDelta": 0.021,
+    "saviDelta": -0.015,
+    "eviDelta": -0.016
+  },
+  "opticalEvidence": "CLEAN",
+  "sarEvidence": "UNAVAILABLE",
+  "crossSensorAgreement": "SINGLE_SENSOR",
+  "temporalConsistency": "CONFIRMED_BY_HISTORY (1 recent matching observations)",
+  "explanation": "Observation evaluated for zone Sirumalai (ZONE-260925-8986). Detected change of 0.98% is below the minimum alert threshold (2%). No alert generated. Confirmed via real satellite raster analysis. Evidence Strength: 51/100 [Magnitude: 4.9/40, Data Quality: 16/20, Temporal: 20/20, Cross-Sensor: 10/20]",
+  "alertGenerated": false,
+  "createdAt": "2026-09-27T05:41:36.745Z",
+  "updatedAt": "2026-09-27T05:41:36.745Z",
+  "__v": 0
+}
+------------------------------------------------------------
+Change ID: 6ab90a0a65d99f53e6ce7555
+{
+  "_id": "6ab90a0a65d99f53e6ce7555",
+  "changeId": "CHG-1790511626250-4641",
+  "zoneId": "6ab5c434f979afc8c8714e25",
+  "observationId": "6ab8a897667c98f4208d8bc0",
+  "baselineId": "6ab8dab06f0c75ad0b423200",
+  "sensorType": "SAR",
+  "monitoringTrack": "SAR",
+  "source": "SENTINEL_1",
+  "detectedAt": "2021-01-01T00:41:01.000Z",
+  "zoneArea": 100,
+  "changedArea": 1.06,
+  "affectedAreaPercentage": 1.06,
+  "calculationMode": "REAL",
+  "spatialSource": "RASTER",
+  "threshold2Crossed": false,
+  "threshold5Crossed": false,
+  "threshold10Crossed": false,
+  "highestThresholdCrossed": 0,
+  "severity": "NONE",
+  "evidenceStrength": 54,
+  "evidenceBreakdown": {
+    "magnitudeScore": 5.3,
+    "dataQualityScore": 19,
+    "temporalConsistencyScore": 20,
+    "crossSensorScore": 10,
+    "totalEvidenceScore": 54,
+    "explanation": "Evidence Strength: 54/100 [Magnitude: 5.3/40, Data Quality: 19/20, Temporal: 20/20, Cross-Sensor: 10/20]"
+  },
+  "categories": [
+    "UNKNOWN_CHANGE"
+  ],
+  "changeIndicators": {
+    "vvDelta": 0.2,
+    "vhDelta": 0.22,
+    "vvVhRatioDelta": -0.02
+  },
+  "opticalEvidence": "CLEAN",
+  "sarEvidence": "AVAILABLE",
+  "crossSensorAgreement": "SINGLE_SENSOR",
+  "temporalConsistency": "CONFIRMED_BY_HISTORY (2 recent matching observations)",
+  "explanation": "Observation evaluated for zone Sirumalai (ZONE-260925-8986). Detected change of 1.06% is below the minimum alert threshold (2%). No alert generated. Confirmed via real satellite raster analysis. Evidence Strength: 54/100 [Magnitude: 5.3/40, Data Quality: 19/20, Temporal: 20/20, Cross-Sensor: 10/20]",
+  "alertGenerated": false,
+  "createdAt": "2026-09-27T12:20:26.252Z",
+  "updatedAt": "2026-09-27T12:20:26.252Z",
+  "__v": 0
+}
+
+Baselines for Sirumalai:
+  [OPTICAL] ID: 6ab5c957f979afc8c8714fb4 | Date: 2026-09-06 | Status: ACTIVE | Raster: D:\tn-enforcement-system\tn-forest-monitoring\server\storage\raster_temp\6ab5c957f979afc8c8714fb4\ZONE-260925-8986_6ab5c957f979afc8c8714fb4_BASELINE_Sentinel2_20260906.tif
+  [SAR] ID: 6ab7eb8e6358176818476cbc | Date: 2026-01-06 | Status: PROCESSED | Raster: D:\tn-enforcement-system\tn-forest-monitoring\server\storage\raster_temp\6ab7eb8e6358176818476cbc\ZONE-260925-8986_6ab7eb8e6358176818476cbc_BASELINE_Sentinel1_20260106.tif
+  [SAR] ID: 6ab8a9ba667c98f4208d8d32 | Date: 2021-01-01 | Status: PROCESSED | Raster: D:\tn-enforcement-system\tn-forest-monitoring\server\storage\raster_temp\6ab8a9ba667c98f4208d8d32\ZONE-260925-8986_6ab8a9ba667c98f4208d8d32_BASELINE_Sentinel1_20210101.tif
+  [SAR] ID: 6ab8dab06f0c75ad0b423200 | Date: 2020-01-02 | Status: ACTIVE | Raster: D:\tn-enforcement-system\tn-forest-monitoring\server\storage\raster_temp\6ab8a736667c98f4208d8b05\ZONE-260925-8986_6ab8a736667c98f4208d8b05_CURRENT_Sentinel1_20200102.tif
+  [OPTICAL] ID: 6ab9074f65d99f53e6ce732f | Date: 2026-09-26 | Status: PROCESSED | Raster: D:\tn-enforcement-system\tn-forest-monitoring\server\storage\raster_temp\6ab9074f65d99f53e6ce732f\ZONE-260925-8986_6ab9074f65d99f53e6ce732f_BASELINE_Sentinel2_20260926.tif
+
+SatelliteMetadata for Sirumalai:
+  [SAR] ID: 6ab8a736667c98f4208d8b05 | Date: 2020-01-02 | ImageId: COPERNICUS/S1_GRD/S1A_IW_GRDH_1SDV_20200102T003240_20200102T003305_030614_0381E6_3EAD | Raster: D:\tn-enforcement-system\tn-forest-monitoring\server\storage\raster_temp\6ab8a736667c98f4208d8b05\ZONE-260925-8986_6ab8a736667c98f4208d8b05_CURRENT_Sentinel1_20200102.tif
+  [SAR] ID: 6ab8a897667c98f4208d8bc0 | Date: 2021-01-01 | ImageId: COPERNICUS/S1_GRD/S1A_IW_GRDH_1SDV_20210101T004101_20210101T004126_035937_043594_958C | Raster: D:\tn-enforcement-system\tn-forest-monitoring\server\storage\raster_temp\6ab8a897667c98f4208d8bc0\ZONE-260925-8986_6ab8a897667c98f4208d8bc0_CURRENT_Sentinel1_20210101.tif
+  [OPTICAL] ID: 6ab8abf5667c98f4208d8f6a | Date: 2026-09-26 | ImageId: COPERNICUS/S2_SR_HARMONIZED/20260926T051241_20260926T051801_T43PHM | Raster: D:\tn-enforcement-system\tn-forest-monitoring\server\storage\raster_temp\6ab8abf5667c98f4208d8f6a\ZONE-260925-8986_6ab8abf5667c98f4208d8f6a_CURRENT_Sentinel2_20260926.tif
+  [SAR] ID: 6ab7e7e46358176818476c24 | Date: 2026-01-06 | ImageId: COPERNICUS/S1_GRD/S1A_IW_GRDH_1SDV_20260106T003233_20260106T003258_062639_07DA3D_0A25 | Raster: D:\tn-enforcement-system\tn-forest-monitoring\server\storage\raster_temp\6ab7eb8e6358176818476cbc\ZONE-260925-8986_6ab7eb8e6358176818476cbc_BASELINE_Sentinel1_20260106.tif
+  [OPTICAL] ID: 6ab5c628f979afc8c8714eba | Date: 2026-09-06 | ImageId: COPERNICUS/S2_SR_HARMONIZED/20260906T051241_20260906T051802_T43PHM | Raster: D:\tn-enforcement-system\tn-forest-monitoring\server\storage\raster_temp\6ab5c957f979afc8c8714fb4\ZONE-260925-8986_6ab5c957f979afc8c8714fb4_BASELINE_Sentinel2_20260906.tif
+

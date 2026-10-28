@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 1420" width="1100" height="1420">
+<defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M 0 1 L 10 5 L 0 9 z" fill="#1E293B" />
+  </marker>
+  <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+    <feDropShadow dx="1" dy="2" stdDeviation="2" flood-color="#000000" flood-opacity="0.06"/>
+  </filter>
+</defs>
+<rect width="1100" height="1420" fill="#FFFFFF" />
+<text x="550" y="16" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#0F172A">UML Activity Diagram: Checkpoint Physical Enforcement &amp; Transit Verification</text>
+  <g id="lane_2">
+    <rect x="10" y="20" width="320" height="1370" fill="#F8FAFC" stroke="#334155" stroke-width="1.5" />
+    <rect x="10" y="20" width="320" height="36" fill="#E2E8F0" stroke="#334155" stroke-width="1.5" />
+    <text x="170" y="43" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#0F172A">Vehicle Driver / Transport Vehicle</text>
+  </g>
+  <g id="lane_3">
+    <rect x="330" y="20" width="360" height="1370" fill="#F8FAFC" stroke="#334155" stroke-width="1.5" />
+    <rect x="330" y="20" width="360" height="36" fill="#E2E8F0" stroke="#334155" stroke-width="1.5" />
+    <text x="510" y="43" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#0F172A">Checkpoint Enforcement Officer</text>
+  </g>
+  <g id="lane_4">
+    <rect x="690" y="20" width="400" height="1370" fill="#F8FAFC" stroke="#334155" stroke-width="1.5" />
+    <rect x="690" y="20" width="400" height="36" fill="#E2E8F0" stroke="#334155" stroke-width="1.5" />
+    <text x="890" y="43" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#0F172A">Checkpoint Enforcement System</text>
+  </g>
+  <path d="M 170 91 L 170 120" fill="none" stroke="#1E293B" stroke-width="1.5" marker-end="url(#arrow)" />
+  <path d="M 170 180 L 170 195 L 510 195 L 510 210" fill="none" stroke="#1E293B" stroke-width="1.5" marker-end="url(#arrow)" />
+  <path d="M 510 270 L 510 280 L 890 280 L 890 300" fill="none" stroke="#1E293B" stroke-width="1.5" marker-end="url(#arrow)" />
+  <path d="M 890 355 L 890 385" fill="none" stroke="#1E293B" stroke-width="1.5" marker-end="url(#arrow)" />
+  <path d="M 890 385 L 890 405 L 985 405 L 985 455" fill="none" stroke="#1E293B" stroke-width="1.5" marker-end="url(#arrow)" />
+  <text x="898" y="395" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="10" font-weight="bold" fill="#1E3A8A">[Within Geofence]</text>
+  <path d="M 870 405 L 870 405 L 800 405 L 800 455" fill="none" stroke="#1E293B" stroke-width="1.5" marker-end="url(#arrow)" />
+  <text x="870" y="397" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="10" font-weight="bold" fill="#1E3A8A">[Outside Geofence]</text>
+  <path d="M 985 505 L 985 515 L 985 550 L 910 550 L 910 550" fill="none" stroke="#1E293B" stroke-width="1.5" marker-end="url(#arrow)" />
+  <path d="M 800 505 L 800 515 L 800 550 L 870 550 L 870 550" fill="none" stroke="#1E293B" stroke-width="1.5" marker-end="url(#arrow)" />
+  <path d="M 890 570 L 890 595" fill="none" stroke="#1E293B" stroke-width="1.5" marker-end="url(#arrow)" />
+  <path d="M 890 650 L 890 680" fill="none" stroke="#1E293B" stroke-width="1.5" marker-end="url(#arrow)" />
+  <path d="M 870 700 L 870 700 L 740 700 L 740 930 L 715 960" fill="none" stroke="#1E293B" stroke-width="1.5" marker-end="url(#arrow)" />
+  <text x="870" y="692" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="10" font-weight="bold" fill="#1E3A8A">[Invalid Signature / Tampered]</text>
+  <path d="M 890 720 L 890 755" fill="none" stroke="#1E293B" stroke-width="1.5" marker-end="url(#arrow)" />
+  <text x="898" y="737.5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="10" font-weight="bold" fill="#1E3A8A">[Signature Authentic]</text>
+  <path d="M 890 810 L 890 840" fill="none" stroke="#1E293B" stroke-width="1.5" marker-end="url(#arrow)" />
+  <path d="M 890 840 L 890 860 L 982 860 L 982.5 930" fill="none" stroke="#1E293B" stroke-width="1.5" marker-end="url(#arrow)" />
+  <text x="898" y="850" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="10" font-weight="bold" fill="#1E3A8A">[Valid &amp; ACTIVE]</text>
+  <path d="M 870 860 L 870 860 L 800 860 L 797.5 930" fill="none" stroke="#1E293B" stroke-width="1.5" marker-end="url(#arrow)" />
+  <text x="870" y="852" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="10" font-weight="bold" fill="#1E3A8A">[Expired / Used / Suspended]</text>
+  <path d="M 982.5 990 L 982 1005 L 510 1005 L 510 1030" fill="none" stroke="#1E293B" stroke-width="1.5" marker-end="url(#arrow)" />
+  <path d="M 797.5 990 L 797 1005 L 797 1147 L 630 1147 L 630 1147.5" fill="none" stroke="#1E293B" stroke-width="1.5" marker-end="url(#arrow)" />
+  <path d="M 390 1057.5 L 290 1057.5" fill="none" stroke="#1E293B" stroke-width="1.5" marker-end="url(#arrow)" />
+  <path d="M 390 1147.5 L 290 1147.5" fill="none" stroke="#1E293B" stroke-width="1.5" marker-end="url(#arrow)" />
+  <path d="M 170 1085 L 170 1095 L 170 1215 L 170 1215" fill="none" stroke="#1E293B" stroke-width="1.5" marker-end="url(#arrow)" />
+  <path d="M 170 1175 L 170 1185 L 170 1215 L 170 1215" fill="none" stroke="#1E293B" stroke-width="1.5" marker-end="url(#arrow)" />
+  <path d="M 170 1255 L 170 1290" fill="none" stroke="#1E293B" stroke-width="1.5" marker-end="url(#arrow)" />
+  <g id="node_5">
+    <circle cx="170" cy="78" r="13" fill="#0F172A" />
+  </g>
+  <g id="node_6">
+    <rect x="50" y="120" width="240" height="60" rx="12" ry="12" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="1.5" filter="url(#shadow)" />
+    <text x="170" y="148" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">Arrive at Roadside Checkpoint &amp;</text>
+    <text x="170" y="161" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">Present Digital E-Pass QR Code</text>
+  </g>
+  <g id="node_7">
+    <rect x="390" y="210" width="240" height="60" rx="12" ry="12" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="1.5" filter="url(#shadow)" />
+    <text x="510" y="238" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">Scan QR Code &amp; Enter Vehicle GPS</text>
+    <text x="510" y="251" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">Coordinates with Declared Tonnage</text>
+  </g>
+  <g id="node_8">
+    <rect x="770" y="300" width="240" height="55" rx="12" ry="12" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="1.5" filter="url(#shadow)" />
+    <text x="890" y="325.5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">Verify Checkpoint Status &amp; Compute</text>
+    <text x="890" y="338.5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">Haversine Geofence Distance</text>
+  </g>
+  <g id="node_9">
+    <polygon points="890,385 910,405 890,425 870,405" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="1.5" filter="url(#shadow)" />
+  </g>
+  <g id="node_10">
+    <rect x="910" y="455" width="150" height="50" rx="12" ry="12" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="1.5" filter="url(#shadow)" />
+    <text x="985" y="478" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">Mark Checkpoint Location</text>
+    <text x="985" y="491" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">as VERIFIED_LOCATION</text>
+  </g>
+  <g id="node_11">
+    <rect x="720" y="455" width="160" height="50" rx="12" ry="12" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="1.5" filter="url(#shadow)" />
+    <text x="800" y="478" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">Flag Geofence Breach &amp;</text>
+    <text x="800" y="491" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">Record OUTSIDE_GEOFENCE Reason</text>
+  </g>
+  <g id="node_12">
+    <polygon points="890,530 910,550 890,570 870,550" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="1.5" filter="url(#shadow)" />
+  </g>
+  <g id="node_13">
+    <rect x="770" y="595" width="240" height="55" rx="12" ry="12" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="1.5" filter="url(#shadow)" />
+    <text x="890" y="620.5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">Decode Payload &amp; Verify HMAC-SHA256</text>
+    <text x="890" y="633.5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">Signature &amp; SHA-256 Hash</text>
+  </g>
+  <g id="node_14">
+    <polygon points="890,680 910,700 890,720 870,700" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="1.5" filter="url(#shadow)" />
+  </g>
+  <g id="node_15">
+    <rect x="770" y="755" width="240" height="55" rx="12" ry="12" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="1.5" filter="url(#shadow)" />
+    <text x="890" y="780.5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">Validate E-Pass Lifecycle Status &amp;</text>
+    <text x="890" y="793.5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">Permit Quota in Database</text>
+  </g>
+  <g id="node_16">
+    <polygon points="890,840 910,860 890,880 870,860" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="1.5" filter="url(#shadow)" />
+  </g>
+  <g id="node_17">
+    <rect x="900" y="930" width="165" height="60" rx="12" ry="12" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="1.5" filter="url(#shadow)" />
+    <text x="982.5" y="958" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">Transition E-Pass to USED &amp;</text>
+    <text x="982.5" y="971" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">Log Successful Passage Record</text>
+  </g>
+  <g id="node_18">
+    <rect x="715" y="930" width="165" height="60" rx="12" ry="12" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="1.5" filter="url(#shadow)" />
+    <text x="797.5" y="958" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">Log Rejected Checkpoint Attempt</text>
+    <text x="797.5" y="971" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">with Detailed Violation Reasons</text>
+  </g>
+  <g id="node_19">
+    <rect x="390" y="1030" width="240" height="55" rx="12" ry="12" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="1.5" filter="url(#shadow)" />
+    <text x="510" y="1055.5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">Inspect Physical Cargo Seal &amp;</text>
+    <text x="510" y="1068.5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">Authorize Vehicle Transit Passage</text>
+  </g>
+  <g id="node_20">
+    <rect x="390" y="1120" width="240" height="55" rx="12" ry="12" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="1.5" filter="url(#shadow)" />
+    <text x="510" y="1145.5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">Deny Transit Passage &amp; Detain</text>
+    <text x="510" y="1158.5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">Vehicle for Enforcement Inspection</text>
+  </g>
+  <g id="node_21">
+    <rect x="50" y="1030" width="240" height="55" rx="12" ry="12" fill="#FEF3C7" stroke="#D97706" stroke-width="1.5" filter="url(#shadow)" />
+    <text x="170" y="1055.5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">Proceed on Transport Route</text>
+    <text x="170" y="1068.5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">with Digital Clearance Receipt</text>
+  </g>
+  <g id="node_22">
+    <rect x="50" y="1120" width="240" height="55" rx="12" ry="12" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="1.5" filter="url(#shadow)" />
+    <text x="170" y="1145.5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">Halt Vehicle &amp; Move into</text>
+    <text x="170" y="1158.5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#0F172A">Checkpoint Holding Bay</text>
+  </g>
+  <g id="node_23">
+    <polygon points="170,1215 190,1235 170,1255 150,1235" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="1.5" filter="url(#shadow)" />
+  </g>
+  <g id="node_24">
+    <circle cx="170" cy="1303" r="13" fill="#FFFFFF" stroke="#0F172A" stroke-width="2" />
+    <circle cx="170" cy="1303" r="9" fill="#0F172A" />
+  </g>
+</svg>

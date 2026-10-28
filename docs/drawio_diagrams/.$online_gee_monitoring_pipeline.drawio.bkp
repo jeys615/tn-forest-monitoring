@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2026-10-27T02:00:00.000Z" agent="Antigravity" version="21.0.0">
+  <diagram id="diag_gee_02" name="Figure 3.2: Online GEE-Backed Satellite Monitoring Pipeline">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1160" pageHeight="660" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title_2" value="ONLINE GEE-BACKED SATELLITE MONITORING &amp; CHANGE DETECTION PIPELINE" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=2;fontColor=#000000;fontFamily=Helvetica;fontSize=15;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="30" y="20" width="1100" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="box_3" value="&lt;b&gt;1. Scheduled Trigger&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size: 9.5px;&quot;&gt;Cadence Worker triggers&lt;br/&gt;zone monitoring scan&lt;br/&gt;(1-30 day intervals)&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=11;align=center;verticalAlign=middle;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="40" y="95" width="195" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="box_4" value="&lt;b&gt;2. GEE Ingestion&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size: 9.5px;&quot;&gt;Query Sentinel-2 L2A&lt;br/&gt;MultiSource Provider&lt;br/&gt;Verify Real Access Token&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=11;align=center;verticalAlign=middle;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="260" y="95" width="195" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="box_5" value="&lt;b&gt;3. SCL Cloud Filter&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size: 9.5px;&quot;&gt;Mask Cloud, Shadow, Cirrus&lt;br/&gt;Evaluate scene cloud &lt; 20%&lt;br/&gt;Generate Clear Pixel Mask&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=11;align=center;verticalAlign=middle;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="480" y="95" width="195" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="box_6" value="&lt;b&gt;4. Baseline Matching&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size: 9.5px;&quot;&gt;Fetch active baseline raster&lt;br/&gt;or establish new baseline&lt;br/&gt;for marked zone boundary&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=11;align=center;verticalAlign=middle;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="700" y="95" width="195" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="box_7" value="&lt;b&gt;5. Spatial Alignment&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size: 9.5px;&quot;&gt;Resample to common 10m grid&lt;br/&gt;EPSG:32643 UTM projection&lt;br/&gt;Bilinear interpolation&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=11;align=center;verticalAlign=middle;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="920" y="95" width="195" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=10;endArrow=classic;endFill=1;startArrow=none;" edge="1" parent="1" source="box_3" target="box_4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=10;endArrow=classic;endFill=1;startArrow=none;" edge="1" parent="1" source="box_4" target="box_5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=10;endArrow=classic;endFill=1;startArrow=none;" edge="1" parent="1" source="box_5" target="box_6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=10;endArrow=classic;endFill=1;startArrow=none;" edge="1" parent="1" source="box_6" target="box_7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="box_12" value="&lt;b&gt;6. Algorithm v2.0 (Official)&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size: 9.5px;&quot;&gt;Compute NDVI Delta:&lt;br/&gt;ΔNDVI = NDVI(T1) - NDVI(T0)&lt;br/&gt;Threshold: ΔNDVI &lt;= -0.15&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=11;align=center;verticalAlign=middle;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="920" y="275" width="195" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="box_13" value="&lt;b&gt;7. Canopy Guard v2.1&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size: 9.5px;&quot;&gt;[SHADOW MODE]&lt;br/&gt;Calculates Confidence Score&lt;br/&gt;Logs shadow agreement&lt;br/&gt;(Production authority = v2.0)&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=11;align=center;verticalAlign=middle;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="700" y="275" width="195" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="box_14" value="&lt;b&gt;8. Polygon Vectorization&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size: 9.5px;&quot;&gt;Cluster contiguous pixels&lt;br/&gt;Filter min polygon size&lt;br/&gt;Calculate metric area (ha)&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=11;align=center;verticalAlign=middle;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="480" y="275" width="195" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="box_15" value="&lt;b&gt;9. Evidence &amp; Alert&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size: 9.5px;&quot;&gt;Create ChangeDetection Doc&lt;br/&gt;Generate Alert if Severity High&lt;br/&gt;Export GeoJSON/KML Dossier&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=11;align=center;verticalAlign=middle;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="260" y="275" width="195" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_16" value="Aligned Rasters" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=10;endArrow=classic;endFill=1;startArrow=none;" edge="1" parent="1" source="box_7" target="box_12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_17" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=10;endArrow=classic;endFill=1;startArrow=none;" edge="1" parent="1" source="box_12" target="box_13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_18" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=10;endArrow=classic;endFill=1;startArrow=none;" edge="1" parent="1" source="box_13" target="box_14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_19" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=10;endArrow=classic;endFill=1;startArrow=none;" edge="1" parent="1" source="box_14" target="box_15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="note_20" value="CRITICAL OPERATIONAL GUARANTEES &amp; STATUTORY FRAMING&lt;br/&gt;• Algorithm v2.0 is the sole production classification authority. Canopy Guard v2.1 runs strictly in SHADOW mode (zero active gating).&lt;br/&gt;• Detected polygons represent candidate spectral variations and do not constitute legal proof of illicit felling without ground field verification." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;strokeDashed=1;fontColor=#000000;fontFamily=Helvetica;fontSize=10;align=center;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="460" width="1075" height="80" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

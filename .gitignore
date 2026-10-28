@@ -1,0 +1,61 @@
+# Dependencies
+node_modules/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Build output
+dist/
+build/
+out/
+
+# TypeScript build info
+*.tsbuildinfo
+
+# Test coverage
+coverage/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-workspace
+*.sublime-project
+
+# Satellite imagery (do not store large imagery in repo)
+satellite-imagery/
+*.tif
+*.tiff
+*.geotiff
+
+# Local image processing output
+processing-output/
+processing-temp/
+
+# Image cache and temporary images
+image-cache/
+temp-images/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Docker volumes
+mongo-data/
+
+# Debug
+.debug/

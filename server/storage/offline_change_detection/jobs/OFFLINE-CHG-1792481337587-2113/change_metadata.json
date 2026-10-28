@@ -1,0 +1,173 @@
+{
+  "jobId": "OFFLINE-CHG-1792481337587-2113",
+  "status": "SUCCESS",
+  "executedAt": "2026-10-20T07:28:57.691Z",
+  "pipeline": "SAME_SENSOR",
+  "baselineMetadata": {
+    "filename": "test_T0_Sentinel2.tif",
+    "originalPath": "D:\\tn-enforcement-system\\tn-forest-monitoring\\server\\storage\\offline_change_detection\\test_fixtures\\test_T0_Sentinel2.tif",
+    "width": 20,
+    "height": 20,
+    "numBands": 7,
+    "crs": "EPSG:32717",
+    "pixelSizeX": 10,
+    "pixelSizeY": 10,
+    "originX": -180,
+    "originY": 90,
+    "bbox": [
+      -180,
+      -110,
+      20,
+      90
+    ],
+    "nodata": -9999,
+    "detectedSensor": "Sentinel-2",
+    "thumbnailPngBase64": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAHUlEQVR4nGNgYGD4T2U8auCogaMGjho4auDINBAAqMKOgECfktYAAAAASUVORK5CYII=",
+    "bandNames": [
+      "Band_1",
+      "Band_2",
+      "Band_3",
+      "Band_4",
+      "Band_5",
+      "Band_6",
+      "Band_7"
+    ]
+  },
+  "observationMetadata": {
+    "filename": "test_T1_SameSensor_Sentinel2.tif",
+    "originalPath": "D:\\tn-enforcement-system\\tn-forest-monitoring\\server\\storage\\offline_change_detection\\test_fixtures\\test_T1_SameSensor_Sentinel2.tif",
+    "width": 20,
+    "height": 20,
+    "numBands": 7,
+    "crs": "EPSG:32717",
+    "pixelSizeX": 10,
+    "pixelSizeY": 10,
+    "originX": -180,
+    "originY": 90,
+    "bbox": [
+      -180,
+      -110,
+      20,
+      90
+    ],
+    "nodata": -9999,
+    "detectedSensor": "Sentinel-2",
+    "thumbnailPngBase64": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAALElEQVR4nGPwYGD4T03MMGrgqIHD0sD/DAz/icEMxOJRAyk3kASFowbSyUAAauL4jqgZ2IsAAAAASUVORK5CYII=",
+    "bandNames": [
+      "Band_1",
+      "Band_2",
+      "Band_3",
+      "Band_4",
+      "Band_5",
+      "Band_6",
+      "Band_7"
+    ]
+  },
+  "commonGrid": {
+    "width": 20,
+    "height": 20,
+    "crs": "EPSG:32717",
+    "resolutionMeters": 10,
+    "bbox": [
+      -180,
+      -110,
+      20,
+      90
+    ]
+  },
+  "areaSummary": {
+    "totalFootprintHectares": 4,
+    "validAnalyzedHectares": 3.95,
+    "maskedHectares": 0.05,
+    "validPercentage": 98.75,
+    "maskedPercentage": 1.25,
+    "categories": [
+      {
+        "category": "VEGETATION_DECREASE_CANDIDATE",
+        "label": "Vegetation Decrease Candidate",
+        "pixelCount": 195,
+        "areaHectares": 1.95,
+        "areaSqKm": 0.0195,
+        "percentage": 48.75,
+        "colorHex": "#E63946"
+      },
+      {
+        "category": "VEGETATION_INCREASE_CANDIDATE",
+        "label": "Vegetation Increase Candidate",
+        "pixelCount": 0,
+        "areaHectares": 0,
+        "areaSqKm": 0,
+        "percentage": 0,
+        "colorHex": "#2A9D8F"
+      },
+      {
+        "category": "BARE_GROUND_INCREASE_CANDIDATE",
+        "label": "Bare-Ground Expansion Candidate",
+        "pixelCount": 50,
+        "areaHectares": 0.5,
+        "areaSqKm": 0.005,
+        "percentage": 12.5,
+        "colorHex": "#E76F51"
+      },
+      {
+        "category": "BARE_GROUND_DECREASE_CANDIDATE",
+        "label": "Bare-Ground Reduction Candidate",
+        "pixelCount": 0,
+        "areaHectares": 0,
+        "areaSqKm": 0,
+        "percentage": 0,
+        "colorHex": "#D4A373"
+      },
+      {
+        "category": "OTHER_SPECTRAL_CHANGE",
+        "label": "Other Land-Surface Spectral Change",
+        "pixelCount": 0,
+        "areaHectares": 0,
+        "areaSqKm": 0,
+        "percentage": 0,
+        "colorHex": "#9D4EDD"
+      },
+      {
+        "category": "STABLE",
+        "label": "Stable Land Cover",
+        "pixelCount": 150,
+        "areaHectares": 1.5,
+        "areaSqKm": 0.015,
+        "percentage": 37.5,
+        "colorHex": "#1E293B"
+      },
+      {
+        "category": "UNCERTAIN_INVALID",
+        "label": "Uncertain / Cloud-Masked / Invalid",
+        "pixelCount": 5,
+        "areaHectares": 0.05,
+        "areaSqKm": 0.0005,
+        "percentage": 1.25,
+        "colorHex": "#64748B"
+      }
+    ]
+  },
+  "baselinePreviewUrl": "/api/offline-change-detection/jobs/OFFLINE-CHG-1792481337587-2113/artifacts/baseline_preprocessed.png",
+  "observationPreviewUrl": "/api/offline-change-detection/jobs/OFFLINE-CHG-1792481337587-2113/artifacts/observation_preprocessed.png",
+  "baselineMaskedPreviewUrl": "/api/offline-change-detection/jobs/OFFLINE-CHG-1792481337587-2113/artifacts/baseline_preprocessed.png",
+  "observationMaskedPreviewUrl": "/api/offline-change-detection/jobs/OFFLINE-CHG-1792481337587-2113/artifacts/observation_preprocessed.png",
+  "changeMapPreviewUrl": "/api/offline-change-detection/jobs/OFFLINE-CHG-1792481337587-2113/artifacts/change_map.png",
+  "cloudMaskPreviewUrl": "/api/offline-change-detection/jobs/OFFLINE-CHG-1792481337587-2113/artifacts/cloud_mask.png",
+  "artifacts": {
+    "baselineGeoTiff": "/api/offline-change-detection/jobs/OFFLINE-CHG-1792481337587-2113/artifacts/baseline_input.tif",
+    "observationGeoTiff": "/api/offline-change-detection/jobs/OFFLINE-CHG-1792481337587-2113/artifacts/observation_input.tif",
+    "changeMapGeoTiff": "/api/offline-change-detection/jobs/OFFLINE-CHG-1792481337587-2113/artifacts/change_classification.tif",
+    "cloudMaskGeoTiff": "/api/offline-change-detection/jobs/OFFLINE-CHG-1792481337587-2113/artifacts/cloud_mask.tif",
+    "ndviDiffGeoTiff": "/api/offline-change-detection/jobs/OFFLINE-CHG-1792481337587-2113/artifacts/ndvi_difference.tif",
+    "bsiDiffGeoTiff": "/api/offline-change-detection/jobs/OFFLINE-CHG-1792481337587-2113/artifacts/bsi_difference.tif",
+    "metadataJson": "/api/offline-change-detection/jobs/OFFLINE-CHG-1792481337587-2113/artifacts/change_metadata.json",
+    "areaSummaryCsv": "/api/offline-change-detection/jobs/OFFLINE-CHG-1792481337587-2113/artifacts/area_summary.csv",
+    "validationReportMd": "/api/offline-change-detection/jobs/OFFLINE-CHG-1792481337587-2113/artifacts/validation_report.md",
+    "changeMapPng": "/api/offline-change-detection/jobs/OFFLINE-CHG-1792481337587-2113/artifacts/change_map.png",
+    "baselinePng": "/api/offline-change-detection/jobs/OFFLINE-CHG-1792481337587-2113/artifacts/baseline_preprocessed.png",
+    "observationPng": "/api/offline-change-detection/jobs/OFFLINE-CHG-1792481337587-2113/artifacts/observation_preprocessed.png",
+    "cloudMaskPng": "/api/offline-change-detection/jobs/OFFLINE-CHG-1792481337587-2113/artifacts/cloud_mask.png"
+  },
+  "warnings": [],
+  "limitations": []
+}

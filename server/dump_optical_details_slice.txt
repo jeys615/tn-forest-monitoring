@@ -1,0 +1,1 @@
+error);\n","Description":"Extract database dump slices from transcript_full.jsonl","Overwrite":true,"TargetFile":"C:/Users/jayaseelan/.gemini/antigravity/brain/0fa06343-02c9-4e30-bff2-c98f7b170b82/scratch/extract_full_db.js","toolAction":"Extracting dump from transcript","toolSummary":"Create extract_full_db.js"}}]}

@@ -1,0 +1,172 @@
+{
+  "targetZone": {
+    "zoneId": "ZONE-261011-6340",
+    "name": "test zone 57",
+    "mongoId": "6acb1a799ee540ec5f705ebd"
+  },
+  "targetDetection": {
+    "detectionId": "CHG-1791696357291-3501",
+    "mongoId": "6acb1de59ee540ec5f7060de",
+    "algorithmVersion": "Algorithm v2.0 (Official) / v2.1-SHADOW",
+    "reportedDetectionPixels": 3774,
+    "reportedDetectionAreaHa": 37.74,
+    "productionThresholdRule": "delta_NDVI <= -0.15"
+  },
+  "selectedPolygon": {
+    "polygonId": "POLY-CHG-1791696357291-3501-033",
+    "polygonIndexInMultiPolygon": 32,
+    "selectionRule": "Ranked #1 by verified detector-positive pixel count (delta_NDVI <= -0.15) with valid contiguous geometry",
+    "centroidWgs84": [
+      829190.0041966,
+      1133769.9971445
+    ],
+    "coordinatesWgs84": [
+      [
+        78.0043673,
+        10.242862
+      ],
+      [
+        78.0049144,
+        10.242857
+      ],
+      [
+        78.0049093,
+        10.242315
+      ],
+      [
+        78.0043621,
+        10.2423201
+      ],
+      [
+        78.0043673,
+        10.242862
+      ]
+    ],
+    "bboxUtmZone43N": [
+      829160,
+      1133740,
+      829220,
+      1133800
+    ],
+    "dimensionsMeters": [
+      60,
+      60
+    ],
+    "dimensionsPixels": [
+      6,
+      6
+    ],
+    "envelopeAreaHa": 0.36,
+    "geotiffPixelIndexRange": {
+      "colMin": 955,
+      "colMax": 961,
+      "rowMin": 624,
+      "rowMax": 630
+    }
+  },
+  "contextWindow": {
+    "paddingMeters": 200,
+    "bboxUtmZone43N": [
+      828960,
+      1133540,
+      829420,
+      1134000
+    ],
+    "dimensionsPixels": [
+      46,
+      46
+    ],
+    "dimensionsMeters": [
+      460,
+      460
+    ],
+    "totalAreaHa": 21.16,
+    "geotiffPixelIndexRange": {
+      "colMin": 935,
+      "colMax": 981,
+      "rowMin": 604,
+      "rowMax": 650
+    }
+  },
+  "scenes": {
+    "baseline": {
+      "sceneId": "COPERNICUS/S2_SR_HARMONIZED/20200109T051201_20200109T051844_T43PHM",
+      "acquisitionDate": "2020-01-09T05:12:01.000Z",
+      "sensor": "Sentinel-2A MSI L2A",
+      "localRasterPath": "d:/tn-enforcement-system/tn-forest-monitoring/server/storage/raster_temp/6acb1b449ee540ec5f705ee2/ZONE-261011-6340_6acb1b449ee540ec5f705ee2_CURRENT_Sentinel2_20200109.tif"
+    },
+    "observation": {
+      "sceneId": "COPERNICUS/S2_SR_HARMONIZED/20240207T051001_20240207T052026_T43PHM",
+      "acquisitionDate": "2024-02-07T05:10:01.000Z",
+      "sensor": "Sentinel-2B MSI L2A",
+      "localRasterPath": "d:/tn-enforcement-system/tn-forest-monitoring/server/storage/raster_temp/6acb1cad9ee540ec5f705fac/ZONE-261011-6340_6acb1cad9ee540ec5f705fac_CURRENT_Sentinel2_20240207.tif"
+    }
+  },
+  "scientificStatistics": {
+    "polygonFootprint": {
+      "totalPixels": 36,
+      "validPixels": 36,
+      "invalidPixels": 0,
+      "detectorPositivePixels": 25,
+      "detectorPositivePercentageOfValid": 69.44,
+      "verifiedChangeAreaHa": 0.25,
+      "baselineNdvi": {
+        "min": -0.028037383177570083,
+        "max": 0.7682780663204155,
+        "mean": 0.1551008156727678,
+        "median": 0.0777176845235745,
+        "std": 0.19044161432708645
+      },
+      "observationNdvi": {
+        "min": -0.38339920948616596,
+        "max": 0.7102001906577692,
+        "mean": -0.045518993344526075,
+        "median": -0.1587545250423865,
+        "std": 0.27165617601263825
+      },
+      "deltaNdvi": {
+        "min": -0.4264831097129233,
+        "max": 0.04545355988758215,
+        "mean": -0.20061980901729395,
+        "median": -0.19100182219085465,
+        "std": 0.113619444528279
+      }
+    },
+    "contextWindow": {
+      "totalPixels": 2116,
+      "validPixels": 2116,
+      "invalidPixels": 0,
+      "detectorPositivePixelsTotal": 253,
+      "detectorPositivePixelsOutsidePolygon": 228,
+      "detectorPositivePercentageOfWindow": 11.96,
+      "baselineNdvi": {
+        "min": -0.028037383177570083,
+        "max": 0.9183019623548256,
+        "mean": 0.7344873155981926,
+        "median": 0.8071754916951726,
+        "std": 0.18201419569978688
+      },
+      "observationNdvi": {
+        "min": -0.38339920948616596,
+        "max": 0.9086412569100961,
+        "mean": 0.7001612327661426,
+        "median": 0.7834790769220459,
+        "std": 0.22546950963194123
+      },
+      "deltaNdvi": {
+        "min": -0.499025844870955,
+        "max": 0.46450280468597127,
+        "mean": -0.03432608283205103,
+        "median": -0.026754924499820032,
+        "std": 0.11586455885788666
+      }
+    }
+  },
+  "provenance": {
+    "softwareExecutionVerified": true,
+    "spectralChangeReproduced": true,
+    "groundTruthConfirmed": false,
+    "groundTruthNote": "Spectral change reproduced from calibrated Sentinel-2 L2A surface reflectance. Independent date-matched sub-meter imagery or field inspection is required to confirm whether this spectral change is deforestation, timber extraction, or seasonal disturbance.",
+    "generatedAt": "2026-10-20T05:56:46.456Z"
+  }
+}

@@ -1,0 +1,249 @@
+Created At: 2026-09-29T02:57:52+05:30
+Completed At: 2026-09-29T02:57:59+05:30
+
+The command exited with code 0.
+Output:
+<truncated 180 lines>
+- changeId: CHG-1790487696743-2109, sensorType: OPTICAL, source: SENTINEL_2, affectedArea: 0.98, changedArea: 0.98, auditStatus: undefined
+- changeId: CHG-1790510572230-4759, sensorType: OPTICAL, source: SENTINEL_2, affectedArea: 16.022, changedArea: 16.02, auditStatus: INVALID_FOR_PRODUCTION_CROSS_SENSOR
+- changeId: CHG-1790511626250-4641, sensorType: SAR, source: SENTINEL_1, affectedArea: 1.06, changedArea: 1.06, auditStatus: undefined
+- changeId: CHG-1790525317279-8405, sensorType: SAR, source: SENTINEL_1, affectedArea: 77.3, changedArea: 20450.57, auditStatus: INVALID_FOR_PRODUCTION_GEOMETRY
+
+=== METADATA RECORDS ===
+
+--- Looking up ID: 6aa678502b4fe5808c7e8e2d ---
+{
+  "id": "6aa678502b4fe5808c7e8e2d",
+  "imageId": "LANDSAT/LC08/C02/T1_L2/LC08_143053_20150106",
+  "source": "LANDSAT_8",
+  "sensorType": "OPTICAL",
+  "platform": "Landsat 8",
+  "acquisitionDate": "2015-01-06T05:05:32.318Z",
+  "cloudCover": 0,
+  "localRasterPath": "D:/tn-enforcement-system/tn-forest-monitoring/server/storage/raster_temp/6aa679012b4fe5808c7e8ec7/ZONE-260913-7787_6aa679012b4fe5808c7e8ec7_BASELINE_Landsat8_20150106.tif",
+  "rasterWidth": 314,
+  "rasterHeight": 236,
+  "rasterCrs": "EPSG:32644",
+  "geeExportTaskId": "projects/monitoring-system-506515/operations/XO74HAF3GK336J76OADX2LWL",
+  "driveFileId": "1Sr78xDnoawa9kdVgFGy1D1xSi4_MG10G",
+  "fileExists": true,
+  "fileSizeBytes": 689804
+}
+
+--- Looking up ID: 6aa6798c2b4fe5808c7e9038 ---
+{
+  "id": "6aa6798c2b4fe5808c7e9038",
+  "imageId": "COPERNICUS/S2_SR_HARMONIZED/20260909T050649_20260909T051600_T43PHM",
+  "source": "SENTINEL_2",
+  "sensorType": "OPTICAL",
+  "platform": "Sentinel-2A",
+  "acquisitionDate": "2026-09-09T05:25:57.347Z",
+  "cloudCover": 19.866832,
+  "localRasterPath": "D:\\tn-enforcement-system\\tn-forest-monitoring\\server\\storage\\raster_temp\\6aa6798c2b4fe5808c7e9038\\ZONE-260913-7787_6aa6798c2b4fe5808c7e9038_CURRENT_Sentinel2_20260909.tif",
+  "rasterWidth": 930,
+  "rasterHeight": 717,
+  "rasterCrs": "EPSG:32643",
+  "resolutionMeters": 10,
+  "pixelAreaM2": 100,
+  "geeExportTaskId": "projects/monitoring-system-506515/operations/IOURBULPWG6MD2WKPH6VCLQE",
+  "driveFileId": "1-JHsxCLIGmpYdfB1AgvTQtUPcyzMui0B",
+  "fileExists": true,
+  "fileSizeBytes": 6353232
+}
+
+--- Looking up ID: 6ab5c628f979afc8c8714eba ---
+{
+  "id": "6ab5c628f979afc8c8714eba",
+  "imageId": "COPERNICUS/S2_SR_HARMONIZED/20260906T051241_20260906T051802_T43PHM",
+  "source": "SENTINEL_2",
+  "sensorType": "OPTICAL",
+  "platform": "Sentinel-2A",
+  "acquisitionDate": "2026-09-06T05:26:14.942Z",
+  "cloudCover": 13.23971,
+  "localRasterPath": "D:\\tn-enforcement-system\\tn-forest-monitoring\\server\\storage\\raster_temp\\6ab5c957f979afc8c8714fb4\\ZONE-260925-8986_6ab5c957f979afc8c8714fb4_BASELINE_Sentinel2_20260906.tif",
+  "rasterWidth": 2569,
+  "rasterHeight": 2237,
+  "rasterCrs": "EPSG:32643",
+  "geeExportTaskId": "projects/monitoring-system-506515/operations/VPVQM3ZVLIRXMKX7IARXK7MX",
+  "driveFileId": "1jcIsmqX4KhmsflU_T6d2k8BHzSR-9A4F",
+  "fileExists": true,
+  "fileSizeBytes": 49579275
+}
+
+--- Looking up ID: 6ab8abf5667c98f4208d8f6a ---
+{
+  "id": "6ab8abf5667c98f4208d8f6a",
+  "imageId": "COPERNICUS/S2_SR_HARMONIZED/20260926T051241_20260926T051801_T43PHM",
+  "source": "SENTINEL_2",
+  "sensorType": "OPTICAL",
+  "platform": "Sentinel-2A",
+  "acquisitionDate": "2026-09-26T05:26:13.842Z",
+  "cloudCover": 13.360214,
+  "localRasterPath": "D:\\tn-enforcement-system\\tn-forest-monitoring\\server\\storage\\raster_temp\\6ab8abf5667c98f4208d8f6a\\ZONE-260925-8986_6ab8abf5667c98f4208d8f6a_CURRENT_Sentinel2_20260926.tif",
+  "rasterWidth": 2569,
+  "rasterHeight": 2237,
+  "rasterCrs": "EPSG:32643",
+  "resolutionMeters": 10,
+  "pixelAreaM2": 100,
+  "geeExportTaskId": "projects/monitoring-system-506515/operations/RO7KASBOVLHAYAQK6JWUHD7S",
+  "driveFileId": "13KEFnT6_mVzokEiwTwPVj-JBDuM8SPNx",
+  "fileExists": true,
+  "fileSizeBytes": 45426464,
+  "metadata": {
+    "spacecraftName": "Sentinel-2A",
+    "isRealTelemetry": true,
+    "bands": [
+      {
+        "id": "B1",
+        "name": "Coastal aerosol",
+        "resolutionMeters": 60,
+        "description": "443 nm aerosol optical thickness",
+        "centralWavelengthNm": 443
+      },
+      {
+        "id": "B2",
+        "name": "Blue",
+        "resolutionMeters": 10,
+        "description": "490 nm surface reflectance",
+        "centralWavelengthNm": 490
+      },
+      {
+        "id": "B3",
+        "name": "Green",
+        "resolutionMeters": 10,
+        "description": "560 nm surface reflectance",
+        "centralWavelengthNm": 560
+      },
+      {
+        "id": "B4",
+        "name": "Red",
+        "resolutionMeters": 10,
+        "description": "665 nm surface reflectance",
+        "centralWavelengthNm": 665
+      },
+      {
+        "id": "B5",
+        "name": "Vegetation red edge 1",
+        "resolutionMeters": 20,
+        "description": "705 nm red edge reflectance",
+        "centralWavelengthNm": 705
+      },
+      {
+        "id": "B6",
+        "name": "Vegetation red edge 2",
+        "resolutionMeters": 20,
+        "description": "740 nm red edge reflectance",
+        "centralWavelengthNm": 740
+      },
+      {
+        "id": "B7",
+        "name": "Vegetation red edge 3",
+        "resolutionMeters": 20,
+        "description": "783 nm red edge reflectance",
+        "centralWavelengthNm": 783
+      },
+      {
+        "id": "B8",
+        "name": "Near Infrared (NIR)",
+        "resolutionMeters": 10,
+        "description": "842 nm surface reflectance",
+        "centralWavelengthNm": 842
+      },
+      {
+        "id": "B8A",
+        "name": "Narrow NIR",
+        "resolutionMeters": 20,
+        "description": "865 nm surface reflectance",
+        "centralWavelengthNm": 865
+      },
+      {
+        "id": "B9",
+        "name": "Water vapour",
+        "resolutionMeters": 60,
+        "description": "940 nm atmospheric absorption",
+        "centralWavelengthNm": 940
+      },
+      {
+        "id": "B11",
+        "name": "SWIR 1",
+        "resolutionMeters": 20,
+        "description": "1610 nm surface reflectance",
+        "centralWavelengthNm": 1610
+      },
+      {
+        "id": "B12",
+        "name": "SWIR 2",
+        "resolutionMeters": 20,
+        "description": "2190 nm surface reflectance",
+        "centralWavelengthNm": 2190
+      },
+      {
+        "id": "AOT",
+        "name": "Aerosol optical thickness",
+        "resolutionMeters": 10,
+        "description": "Atmospheric optical depth"
+      },
+      {
+        "id": "WVP",
+        "name": "Water vapour map",
+        "resolutionMeters": 10,
+        "description": "Total atmospheric water column"
+      },
+      {
+        "id": "SCL",
+        "name": "Scene classification map",
+        "resolutionMeters": 20,
+        "description": "Land, water, cloud, shadow class map"
+      },
+      {
+        "id": "TCI_R",
+        "name": "True color red",
+        "resolutionMeters": 10,
+        "description": "Visual red channel"
+      },
+      {
+        "id": "TCI_G",
+        "name": "True color green",
+        "resolutionMeters": 10,
+        "description": "Visual green channel"
+      },
+      {
+        "id": "TCI_B",
+        "name": "True color blue",
+        "resolutionMeters": 10,
+        "description": "Visual blue channel"
+      },
+      {
+        "id": "MSK_CLDPRB",
+        "name": "Cloud probability map",
+        "resolutionMeters": 20,
+        "description": "0–100% cloud probability"
+      },
+      {
+        "id": "MSK_SNWPRB",
+        "name": "Snow probability map",
+        "resolutionMeters": 20,
+        "description": "0–100% snow probability"
+      },
+      {
+        "id": "QA10",
+        "name": "Quality assurance 10m",
+        "resolutionMeters": 10,
+        "description": "Detector geometry and quality"
+      },
+      {
+        "id": "QA20",
+        "name": "Quality assurance 20m",
+        "resolutionMeters": 20,
+        "description": "Detector geometry and quality"
+      },
+      {
+        "id": "QA60",
+        "name": "Opaque/cirrus cloud mask",
+        "resolutionMeters": 60,
+        "description": "Quality indicator cloud flags"
+      }
+    ]
+  }
+}
+

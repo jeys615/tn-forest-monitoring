@@ -1,0 +1,2347 @@
+{
+  "incrementalmonitoringrecords": {
+    "count": 13,
+    "indexes": [
+      {
+        "v": 2,
+        "key": {
+          "_id": 1
+        },
+        "name": "_id_"
+      },
+      {
+        "v": 2,
+        "key": {
+          "jobId": 1
+        },
+        "name": "jobId_1",
+        "background": true,
+        "unique": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "areaId": 1
+        },
+        "name": "areaId_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "areaType": 1
+        },
+        "name": "areaType_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "targetObservationId": 1
+        },
+        "name": "targetObservationId_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "lifecycleState": 1
+        },
+        "name": "lifecycleState_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "acquisitionDate": 1
+        },
+        "name": "acquisitionDate_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "areaId": 1,
+          "targetObservationId": 1
+        },
+        "name": "areaId_1_targetObservationId_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "areaId": 1,
+          "lifecycleState": 1
+        },
+        "name": "areaId_1_lifecycleState_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "createdAt": -1
+        },
+        "name": "createdAt_-1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "nextRetryAt": 1
+        },
+        "name": "nextRetryAt_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "lifecycleState": 1,
+          "updatedAt": 1
+        },
+        "name": "lifecycleState_1_updatedAt_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "lifecycleState": 1,
+          "nextRetryAt": 1
+        },
+        "name": "lifecycleState_1_nextRetryAt_1",
+        "background": true
+      }
+    ],
+    "sampleFields": [
+      "_id",
+      "jobId",
+      "areaId",
+      "areaType",
+      "areaName",
+      "targetObservationId",
+      "sensorType",
+      "source",
+      "lifecycleState",
+      "acquisitionDate",
+      "startedAt",
+      "retryCount",
+      "maxRetries",
+      "isPermanentFailure",
+      "logs",
+      "createdAt",
+      "updatedAt",
+      "__v",
+      "satelliteMetadataId",
+      "completedAt",
+      "durationMs",
+      "results"
+    ]
+  },
+  "miningextractionestimates": {
+    "count": 2,
+    "indexes": [
+      {
+        "v": 2,
+        "key": {
+          "_id": 1
+        },
+        "name": "_id_"
+      },
+      {
+        "v": 2,
+        "key": {
+          "estimateId": 1
+        },
+        "name": "estimateId_1",
+        "background": true,
+        "unique": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "temporaryAreaId": 1
+        },
+        "name": "temporaryAreaId_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "changeDetectionId": 1
+        },
+        "name": "changeDetectionId_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "observationId": 1
+        },
+        "name": "observationId_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "observationDate": 1
+        },
+        "name": "observationDate_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "miningClassification": 1
+        },
+        "name": "miningClassification_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "temporaryAreaId": 1,
+          "observationDate": 1
+        },
+        "name": "temporaryAreaId_1_observationDate_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "areaType": 1
+        },
+        "name": "areaType_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "markedAreaId": 1
+        },
+        "name": "markedAreaId_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "zoneId": 1
+        },
+        "name": "zoneId_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "markedAreaId": 1,
+          "observationDate": 1
+        },
+        "name": "markedAreaId_1_observationDate_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "zoneId": 1,
+          "observationDate": 1
+        },
+        "name": "zoneId_1_observationDate_1",
+        "background": true
+      }
+    ],
+    "sampleFields": [
+      "_id",
+      "estimateId",
+      "areaType",
+      "markedAreaId",
+      "temporaryAreaId",
+      "changeDetectionId",
+      "observationId",
+      "observationDate",
+      "changedAreaSquareMeters",
+      "changedAreaHectares",
+      "percentageOfTemporaryArea",
+      "miningClassification",
+      "volumeUnit",
+      "isVolumeAvailable",
+      "volumeUnavailableReason",
+      "estimationMethod",
+      "estimationConfidence",
+      "disclaimer",
+      "createdAt",
+      "updatedAt",
+      "__v"
+    ]
+  },
+  "zones": {
+    "count": 5,
+    "indexes": [
+      {
+        "v": 2,
+        "key": {
+          "_id": 1
+        },
+        "name": "_id_"
+      },
+      {
+        "v": 2,
+        "key": {
+          "zoneId": 1
+        },
+        "name": "zoneId_1",
+        "background": true,
+        "unique": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "name": 1
+        },
+        "name": "name_1",
+        "background": true,
+        "unique": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "status": 1
+        },
+        "name": "status_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "boundary": "2dsphere"
+        },
+        "name": "boundary_2dsphere",
+        "background": true,
+        "2dsphereIndexVersion": 4
+      },
+      {
+        "v": 2,
+        "key": {
+          "centerPoint": "2dsphere"
+        },
+        "name": "centerPoint_2dsphere",
+        "background": true,
+        "2dsphereIndexVersion": 4
+      }
+    ],
+    "sampleFields": [
+      "_id",
+      "zoneId",
+      "name",
+      "category",
+      "status",
+      "boundary",
+      "centerPoint",
+      "createdBy",
+      "monitoringTracks",
+      "createdAt",
+      "updatedAt",
+      "__v"
+    ]
+  },
+  "reconciliationreports": {
+    "count": 6,
+    "indexes": [
+      {
+        "v": 2,
+        "key": {
+          "_id": 1
+        },
+        "name": "_id_"
+      },
+      {
+        "v": 2,
+        "key": {
+          "reconciliationId": 1
+        },
+        "name": "reconciliationId_1",
+        "background": true,
+        "unique": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "zoneId": 1
+        },
+        "name": "zoneId_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "authorizationId": 1
+        },
+        "name": "authorizationId_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "status": 1
+        },
+        "name": "status_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "reconciliationStatus": 1
+        },
+        "name": "reconciliationStatus_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "reconciliationStatus": 1,
+          "createdAt": -1
+        },
+        "name": "reconciliationStatus_1_createdAt_-1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "status": 1,
+          "createdAt": -1
+        },
+        "name": "status_1_createdAt_-1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "zoneId": 1,
+          "createdAt": -1
+        },
+        "name": "zoneId_1_createdAt_-1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "authorizationId": 1,
+          "createdAt": -1
+        },
+        "name": "authorizationId_1_createdAt_-1",
+        "background": true
+      }
+    ],
+    "sampleFields": [
+      "_id",
+      "reconciliationId",
+      "zoneId",
+      "zoneName",
+      "periodStart",
+      "periodEnd",
+      "status",
+      "reconciliationStatus",
+      "discrepancyScore",
+      "permitSummary",
+      "transportSummary",
+      "checkpointSummary",
+      "satelliteSummary",
+      "anomalies",
+      "findings",
+      "recommendations",
+      "createdAt",
+      "updatedAt",
+      "__v"
+    ]
+  },
+  "alerts": {
+    "count": 1,
+    "indexes": [
+      {
+        "v": 2,
+        "key": {
+          "_id": 1
+        },
+        "name": "_id_"
+      },
+      {
+        "v": 2,
+        "key": {
+          "alertId": 1
+        },
+        "name": "alertId_1",
+        "background": true,
+        "unique": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "zoneId": 1
+        },
+        "name": "zoneId_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "changeDetectionId": 1
+        },
+        "name": "changeDetectionId_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "detectedAt": 1
+        },
+        "name": "detectedAt_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "severity": 1
+        },
+        "name": "severity_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "sensorType": 1
+        },
+        "name": "sensorType_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "status": 1
+        },
+        "name": "status_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "zoneId": 1,
+          "status": 1
+        },
+        "name": "zoneId_1_status_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "status": 1,
+          "severity": 1
+        },
+        "name": "status_1_severity_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "detectedAt": -1
+        },
+        "name": "detectedAt_-1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "temporaryAreaId": 1
+        },
+        "name": "temporaryAreaId_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "monitoringTrack": 1
+        },
+        "name": "monitoringTrack_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "monitoringTrack": 1,
+          "status": 1
+        },
+        "name": "monitoringTrack_1_status_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "assignedTo": 1,
+          "status": 1
+        },
+        "name": "assignedTo_1_status_1",
+        "background": true
+      }
+    ],
+    "sampleFields": [
+      "_id",
+      "alertId",
+      "zoneId",
+      "changeDetectionId",
+      "detectedAt",
+      "affectedAreaPercentage",
+      "highestThresholdCrossed",
+      "thresholdsCrossed",
+      "severity",
+      "evidenceStrength",
+      "calculationMode",
+      "sensorType",
+      "monitoringTrack",
+      "evidenceSources",
+      "categories",
+      "explanation",
+      "status",
+      "auditHistory",
+      "createdAt",
+      "updatedAt",
+      "__v"
+    ]
+  },
+  "monitoringjobs": {
+    "count": 99,
+    "indexes": [
+      {
+        "v": 2,
+        "key": {
+          "_id": 1
+        },
+        "name": "_id_"
+      },
+      {
+        "v": 2,
+        "key": {
+          "jobId": 1
+        },
+        "name": "jobId_1",
+        "background": true,
+        "unique": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "status": 1
+        },
+        "name": "status_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "scheduledAt": 1
+        },
+        "name": "scheduledAt_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "zoneId": 1
+        },
+        "name": "zoneId_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "sensorType": 1
+        },
+        "name": "sensorType_1",
+        "background": true
+      }
+    ],
+    "sampleFields": [
+      "_id",
+      "jobId",
+      "type",
+      "zoneId",
+      "sensorType",
+      "status",
+      "retryCount",
+      "maxRetries",
+      "logs",
+      "scheduledAt",
+      "raster",
+      "createdAt",
+      "updatedAt",
+      "__v",
+      "heartbeatAt",
+      "startedAt",
+      "completedAt",
+      "errorMessage",
+      "satelliteMetadataId"
+    ]
+  },
+  "enforcementcases": {
+    "count": 13,
+    "indexes": [
+      {
+        "v": 2,
+        "key": {
+          "_id": 1
+        },
+        "name": "_id_"
+      },
+      {
+        "v": 2,
+        "key": {
+          "caseId": 1
+        },
+        "name": "caseId_1",
+        "background": true,
+        "unique": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "reconciliationReportId": 1
+        },
+        "name": "reconciliationReportId_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "zoneId": 1
+        },
+        "name": "zoneId_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "authorizationId": 1
+        },
+        "name": "authorizationId_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "severity": 1
+        },
+        "name": "severity_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "caseType": 1
+        },
+        "name": "caseType_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "status": 1
+        },
+        "name": "status_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "assignedOfficerId": 1
+        },
+        "name": "assignedOfficerId_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "status": 1,
+          "createdAt": -1
+        },
+        "name": "status_1_createdAt_-1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "severity": 1,
+          "createdAt": -1
+        },
+        "name": "severity_1_createdAt_-1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "zoneId": 1,
+          "status": 1
+        },
+        "name": "zoneId_1_status_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "assignedOfficerId": 1,
+          "status": 1
+        },
+        "name": "assignedOfficerId_1_status_1",
+        "background": true
+      }
+    ],
+    "sampleFields": [
+      "_id",
+      "caseId",
+      "reconciliationReportId",
+      "reconciliationReportNumber",
+      "zoneId",
+      "zoneName",
+      "severity",
+      "caseType",
+      "title",
+      "description",
+      "status",
+      "assignedOfficerId",
+      "assignedOfficerName",
+      "assignedAt",
+      "investigationFindings",
+      "fieldVerification",
+      "enforcementAction",
+      "createdBy",
+      "createdAt",
+      "updatedAt",
+      "__v"
+    ]
+  },
+  "epasses": {
+    "count": 8,
+    "indexes": [
+      {
+        "v": 2,
+        "key": {
+          "_id": 1
+        },
+        "name": "_id_"
+      },
+      {
+        "v": 2,
+        "key": {
+          "passNumber": 1
+        },
+        "name": "passNumber_1",
+        "background": true,
+        "unique": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "authorizationId": 1
+        },
+        "name": "authorizationId_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "vehicleId": 1
+        },
+        "name": "vehicleId_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "driverId": 1
+        },
+        "name": "driverId_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "status": 1
+        },
+        "name": "status_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "status": 1,
+          "validUntil": 1
+        },
+        "name": "status_1_validUntil_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "authorizationId": 1,
+          "status": 1
+        },
+        "name": "authorizationId_1_status_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "vehicleId": 1,
+          "status": 1
+        },
+        "name": "vehicleId_1_status_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "driverId": 1,
+          "status": 1
+        },
+        "name": "driverId_1_status_1",
+        "background": true
+      }
+    ],
+    "sampleFields": [
+      "_id",
+      "passNumber",
+      "authorizationId",
+      "vehicleId",
+      "driverId",
+      "mineralType",
+      "netWeightTonnes",
+      "sourceLocation",
+      "destinationCheckpoint",
+      "validFrom",
+      "validUntil",
+      "qrPayload",
+      "qrCodeHash",
+      "digitalSignature",
+      "status",
+      "dispatchTimestamp",
+      "createdBy",
+      "createdAt",
+      "updatedAt",
+      "__v"
+    ]
+  },
+  "vehicles": {
+    "count": 3,
+    "indexes": [
+      {
+        "v": 2,
+        "key": {
+          "_id": 1
+        },
+        "name": "_id_"
+      },
+      {
+        "v": 2,
+        "key": {
+          "vehicleId": 1
+        },
+        "name": "vehicleId_1",
+        "background": true,
+        "unique": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "registrationNumber": 1
+        },
+        "name": "registrationNumber_1",
+        "background": true,
+        "unique": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "status": 1
+        },
+        "name": "status_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "transportCompanyId": 1
+        },
+        "name": "transportCompanyId_1",
+        "background": true
+      }
+    ],
+    "sampleFields": [
+      "_id",
+      "vehicleId",
+      "registrationNumber",
+      "vehicleType",
+      "tareWeight",
+      "grossVehicleWeight",
+      "permittedCarryingCapacity",
+      "status",
+      "transportCompanyId",
+      "createdAt",
+      "updatedAt",
+      "__v"
+    ]
+  },
+  "temporaryareas": {
+    "count": 3,
+    "indexes": [
+      {
+        "v": 2,
+        "key": {
+          "_id": 1
+        },
+        "name": "_id_"
+      },
+      {
+        "v": 2,
+        "key": {
+          "temporaryAreaId": 1
+        },
+        "name": "temporaryAreaId_1",
+        "background": true,
+        "unique": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "startDate": 1
+        },
+        "name": "startDate_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "endDate": 1
+        },
+        "name": "endDate_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "status": 1
+        },
+        "name": "status_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "createdBy": 1
+        },
+        "name": "createdBy_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "zoneId": 1
+        },
+        "name": "zoneId_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "boundary": "2dsphere"
+        },
+        "name": "boundary_2dsphere",
+        "background": true,
+        "2dsphereIndexVersion": 4
+      },
+      {
+        "v": 2,
+        "key": {
+          "createdBy": 1,
+          "createdAt": -1
+        },
+        "name": "createdBy_1_createdAt_-1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "status": 1,
+          "createdAt": -1
+        },
+        "name": "status_1_createdAt_-1",
+        "background": true
+      }
+    ],
+    "sampleFields": [
+      "_id",
+      "temporaryAreaId",
+      "name",
+      "boundary",
+      "areaHectares",
+      "areaSquareMeters",
+      "centerPoint",
+      "startDate",
+      "endDate",
+      "status",
+      "createdBy",
+      "demElevationDataAvailable",
+      "createdAt",
+      "updatedAt",
+      "__v"
+    ]
+  },
+  "checkpointlogs": {
+    "count": 23,
+    "indexes": [
+      {
+        "v": 2,
+        "key": {
+          "_id": 1
+        },
+        "name": "_id_"
+      },
+      {
+        "v": 2,
+        "key": {
+          "logId": 1
+        },
+        "name": "logId_1",
+        "background": true,
+        "unique": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "checkpointId": 1
+        },
+        "name": "checkpointId_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "epassId": 1
+        },
+        "name": "epassId_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "passNumber": 1
+        },
+        "name": "passNumber_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "vehicleId": 1
+        },
+        "name": "vehicleId_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "driverId": 1
+        },
+        "name": "driverId_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "verificationTimestamp": 1
+        },
+        "name": "verificationTimestamp_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "verificationResult": 1
+        },
+        "name": "verificationResult_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "verifiedBy": 1
+        },
+        "name": "verifiedBy_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "verificationTimestamp": -1
+        },
+        "name": "verificationTimestamp_-1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "checkpointId": 1,
+          "verificationTimestamp": -1
+        },
+        "name": "checkpointId_1_verificationTimestamp_-1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "passNumber": 1,
+          "verificationTimestamp": -1
+        },
+        "name": "passNumber_1_verificationTimestamp_-1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "scannedCoordinates": "2dsphere"
+        },
+        "name": "scannedCoordinates_2dsphere",
+        "background": true,
+        "2dsphereIndexVersion": 4
+      }
+    ],
+    "sampleFields": [
+      "_id",
+      "logId",
+      "checkpointId",
+      "checkpointName",
+      "epassId",
+      "passNumber",
+      "vehicleId",
+      "vehicleRegistrationNumber",
+      "driverId",
+      "driverName",
+      "driverLicenseNumber",
+      "authorizationId",
+      "permitNumber",
+      "mineralType",
+      "authorizedQuantityTonnes",
+      "declaredQuantityTonnes",
+      "verificationTimestamp",
+      "verificationResult",
+      "rejectionReasons",
+      "signatureVerified",
+      "hashVerified",
+      "locationStatus",
+      "scannedCoordinates",
+      "distanceFromCheckpointMeters",
+      "createdAt",
+      "updatedAt",
+      "__v"
+    ]
+  },
+  "evidencedossiers": {
+    "count": 4,
+    "indexes": [
+      {
+        "v": 2,
+        "key": {
+          "_id": 1
+        },
+        "name": "_id_"
+      },
+      {
+        "v": 2,
+        "key": {
+          "dossierId": 1
+        },
+        "name": "dossierId_1",
+        "background": true,
+        "unique": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "caseId": 1
+        },
+        "name": "caseId_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "caseNumber": 1
+        },
+        "name": "caseNumber_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "caseId": 1,
+          "dossierVersion": -1
+        },
+        "name": "caseId_1_dossierVersion_-1",
+        "background": true
+      }
+    ],
+    "sampleFields": [
+      "_id",
+      "dossierId",
+      "caseId",
+      "caseNumber",
+      "dossierVersion",
+      "dossierHash",
+      "hashAlgorithm",
+      "isSealed",
+      "sealedAt",
+      "sealedBy",
+      "sealedByName",
+      "canonicalPayload",
+      "dossierData",
+      "createdAt",
+      "updatedAt",
+      "__v"
+    ]
+  },
+  "checkpoints": {
+    "count": 3,
+    "indexes": [
+      {
+        "v": 2,
+        "key": {
+          "_id": 1
+        },
+        "name": "_id_"
+      },
+      {
+        "v": 2,
+        "key": {
+          "checkpointId": 1
+        },
+        "name": "checkpointId_1",
+        "background": true,
+        "unique": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "name": 1
+        },
+        "name": "name_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "district": 1
+        },
+        "name": "district_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "status": 1
+        },
+        "name": "status_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "location": "2dsphere"
+        },
+        "name": "location_2dsphere",
+        "background": true,
+        "2dsphereIndexVersion": 4
+      }
+    ],
+    "sampleFields": [
+      "_id",
+      "checkpointId",
+      "name",
+      "district",
+      "location",
+      "geofenceRadiusMeters",
+      "status",
+      "authorizedUserIds",
+      "operatingHours",
+      "createdAt",
+      "updatedAt",
+      "__v"
+    ]
+  },
+  "miningauthorizations": {
+    "count": 4,
+    "indexes": [
+      {
+        "v": 2,
+        "key": {
+          "_id": 1
+        },
+        "name": "_id_"
+      },
+      {
+        "v": 2,
+        "key": {
+          "authorizationId": 1
+        },
+        "name": "authorizationId_1",
+        "background": true,
+        "unique": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "zoneId": 1
+        },
+        "name": "zoneId_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "temporaryAreaId": 1
+        },
+        "name": "temporaryAreaId_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "permitNumber": 1
+        },
+        "name": "permitNumber_1",
+        "background": true,
+        "unique": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "status": 1
+        },
+        "name": "status_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "status": 1,
+          "validUntil": 1
+        },
+        "name": "status_1_validUntil_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "remainingQuota": 1
+        },
+        "name": "remainingQuota_1",
+        "background": true
+      }
+    ],
+    "sampleFields": [
+      "_id",
+      "authorizationId",
+      "permitNumber",
+      "lesseeName",
+      "mineralType",
+      "permittedWeightTonnes",
+      "validFrom",
+      "validUntil",
+      "status",
+      "remainingQuota",
+      "createdBy",
+      "createdAt",
+      "updatedAt",
+      "__v"
+    ]
+  },
+  "satellitemetadatas": {
+    "count": 13,
+    "indexes": [
+      {
+        "v": 2,
+        "key": {
+          "_id": 1
+        },
+        "name": "_id_"
+      },
+      {
+        "v": 2,
+        "key": {
+          "imageId": 1
+        },
+        "name": "imageId_1",
+        "background": true,
+        "unique": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "acquisitionDate": 1
+        },
+        "name": "acquisitionDate_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "processingStatus": 1
+        },
+        "name": "processingStatus_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "intersectingZones": 1
+        },
+        "name": "intersectingZones_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "footprint": "2dsphere"
+        },
+        "name": "footprint_2dsphere",
+        "background": true,
+        "2dsphereIndexVersion": 4
+      },
+      {
+        "v": 2,
+        "key": {
+          "sensorType": 1,
+          "acquisitionDate": -1
+        },
+        "name": "sensorType_1_acquisitionDate_-1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "source": 1,
+          "acquisitionDate": -1
+        },
+        "name": "source_1_acquisitionDate_-1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "intersectingZones": 1,
+          "acquisitionDate": -1
+        },
+        "name": "intersectingZones_1_acquisitionDate_-1",
+        "background": true
+      }
+    ],
+    "sampleFields": [
+      "_id",
+      "imageId",
+      "source",
+      "sensorType",
+      "acquisitionDate",
+      "cloudCover",
+      "footprint",
+      "processingStatus",
+      "geeReference",
+      "intersectingZones",
+      "metadata",
+      "polarizations",
+      "createdAt",
+      "updatedAt",
+      "__v",
+      "driveFileId",
+      "driveFileName",
+      "driveFileSizeBytes",
+      "geeExportTaskId",
+      "localRasterPath",
+      "rasterBandCount",
+      "rasterCrs",
+      "rasterHeight",
+      "rasterValidated",
+      "rasterWidth",
+      "spectralIndicesCalculated"
+    ]
+  },
+  "users": {
+    "count": 11,
+    "indexes": [
+      {
+        "v": 2,
+        "key": {
+          "_id": 1
+        },
+        "name": "_id_"
+      },
+      {
+        "v": 2,
+        "key": {
+          "employeeId": 1
+        },
+        "name": "employeeId_1",
+        "background": true,
+        "unique": true,
+        "sparse": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "email": 1
+        },
+        "name": "email_1",
+        "background": true,
+        "unique": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "status": 1
+        },
+        "name": "status_1",
+        "background": true
+      }
+    ],
+    "sampleFields": [
+      "_id",
+      "name",
+      "email",
+      "passwordHash",
+      "role",
+      "permissions",
+      "status",
+      "createdAt",
+      "updatedAt",
+      "__v",
+      "lastLoginAt"
+    ]
+  },
+  "drivers": {
+    "count": 2,
+    "indexes": [
+      {
+        "v": 2,
+        "key": {
+          "_id": 1
+        },
+        "name": "_id_"
+      },
+      {
+        "v": 2,
+        "key": {
+          "driverId": 1
+        },
+        "name": "driverId_1",
+        "background": true,
+        "unique": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "licenseNumber": 1
+        },
+        "name": "licenseNumber_1",
+        "background": true,
+        "unique": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "verificationStatus": 1
+        },
+        "name": "verificationStatus_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "transportCompanyId": 1
+        },
+        "name": "transportCompanyId_1",
+        "background": true
+      }
+    ],
+    "sampleFields": [
+      "_id",
+      "driverId",
+      "licenseNumber",
+      "name",
+      "phone",
+      "verificationStatus",
+      "transportCompanyId",
+      "createdAt",
+      "updatedAt",
+      "__v"
+    ]
+  },
+  "processedimageresults": {
+    "count": 8,
+    "indexes": [
+      {
+        "v": 2,
+        "key": {
+          "_id": 1
+        },
+        "name": "_id_"
+      },
+      {
+        "v": 2,
+        "key": {
+          "zoneId": 1
+        },
+        "name": "zoneId_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "satelliteMetadataId": 1
+        },
+        "name": "satelliteMetadataId_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "baselineId": 1
+        },
+        "name": "baselineId_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "sensorType": 1
+        },
+        "name": "sensorType_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "zoneId": 1,
+          "sensorType": 1,
+          "acquisitionDate": -1
+        },
+        "name": "zoneId_1_sensorType_1_acquisitionDate_-1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "temporaryAreaId": 1
+        },
+        "name": "temporaryAreaId_1",
+        "background": true
+      }
+    ],
+    "sampleFields": [
+      "_id",
+      "zoneId",
+      "satelliteMetadataId",
+      "baselineId",
+      "sensorType",
+      "source",
+      "acquisitionDate",
+      "processingStatus",
+      "qualityMetrics",
+      "sarMetrics",
+      "processingDurationMs",
+      "processedImageUrl",
+      "fallbackTriggered",
+      "fallbackReason",
+      "createdAt",
+      "updatedAt",
+      "__v"
+    ]
+  },
+  "baselines": {
+    "count": 8,
+    "indexes": [
+      {
+        "v": 2,
+        "key": {
+          "_id": 1
+        },
+        "name": "_id_"
+      },
+      {
+        "v": 2,
+        "key": {
+          "zoneId": 1
+        },
+        "name": "zoneId_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "satelliteMetadataId": 1
+        },
+        "name": "satelliteMetadataId_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "sensorType": 1
+        },
+        "name": "sensorType_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "status": 1
+        },
+        "name": "status_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "isActive": 1
+        },
+        "name": "isActive_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "zoneId": 1,
+          "sensorType": 1,
+          "isActive": 1
+        },
+        "name": "zoneId_1_sensorType_1_isActive_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "zoneId": 1,
+          "sensorType": 1,
+          "status": 1
+        },
+        "name": "zoneId_1_sensorType_1_status_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "zoneId": 1,
+          "acquisitionDate": -1
+        },
+        "name": "zoneId_1_acquisitionDate_-1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "monitoringTrack": 1
+        },
+        "name": "monitoringTrack_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "imageId": 1
+        },
+        "name": "imageId_1",
+        "background": true
+      }
+    ],
+    "sampleFields": [
+      "_id",
+      "zoneId",
+      "satelliteMetadataId",
+      "imageId",
+      "sensorType",
+      "monitoringTrack",
+      "source",
+      "acquisitionDate",
+      "status",
+      "isActive",
+      "qualityScore",
+      "cloudCover",
+      "validPixelPercentage",
+      "selectionReason",
+      "processingSummary",
+      "rasterValidated",
+      "spectralIndicesCalculated",
+      "polarizations",
+      "createdAt",
+      "updatedAt",
+      "__v",
+      "driveFileName",
+      "geeExportTaskId",
+      "validFrom",
+      "pipelineCompletedAt",
+      "createdBy",
+      "validUntil",
+      "driveFileId",
+      "driveFileSizeBytes",
+      "localRasterPath",
+      "rasterBandCount",
+      "rasterCrs",
+      "rasterHeight",
+      "rasterWidth"
+    ]
+  },
+  "caseauditlogs": {
+    "count": 50,
+    "indexes": [
+      {
+        "v": 2,
+        "key": {
+          "_id": 1
+        },
+        "name": "_id_"
+      },
+      {
+        "v": 2,
+        "key": {
+          "auditId": 1
+        },
+        "name": "auditId_1",
+        "background": true,
+        "unique": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "caseId": 1
+        },
+        "name": "caseId_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "caseNumber": 1
+        },
+        "name": "caseNumber_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "actorId": 1
+        },
+        "name": "actorId_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "action": 1
+        },
+        "name": "action_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "timestamp": 1
+        },
+        "name": "timestamp_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "caseId": 1,
+          "timestamp": -1
+        },
+        "name": "caseId_1_timestamp_-1",
+        "background": true
+      }
+    ],
+    "sampleFields": [
+      "_id",
+      "auditId",
+      "caseId",
+      "caseNumber",
+      "actorId",
+      "actorName",
+      "actorRole",
+      "action",
+      "newStatus",
+      "remarks",
+      "timestamp",
+      "__v"
+    ]
+  },
+  "transportcompanies": {
+    "count": 1,
+    "indexes": [
+      {
+        "v": 2,
+        "key": {
+          "_id": 1
+        },
+        "name": "_id_"
+      },
+      {
+        "v": 2,
+        "key": {
+          "companyId": 1
+        },
+        "name": "companyId_1",
+        "background": true,
+        "unique": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "registrationNumber": 1
+        },
+        "name": "registrationNumber_1",
+        "background": true,
+        "unique": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "status": 1
+        },
+        "name": "status_1",
+        "background": true
+      }
+    ],
+    "sampleFields": [
+      "_id",
+      "companyId",
+      "registrationNumber",
+      "companyName",
+      "contactDetails",
+      "status",
+      "createdAt",
+      "updatedAt",
+      "__v"
+    ]
+  },
+  "hlsrepresentations": {
+    "count": 2,
+    "indexes": [
+      {
+        "v": 2,
+        "key": {
+          "_id": 1
+        },
+        "name": "_id_"
+      },
+      {
+        "v": 2,
+        "key": {
+          "baselineId": 1
+        },
+        "name": "baselineId_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "sourceObservationId": 1
+        },
+        "name": "sourceObservationId_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "satelliteMetadataId": 1
+        },
+        "name": "satelliteMetadataId_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "sourceAcquisitionDate": 1
+        },
+        "name": "sourceAcquisitionDate_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "status": 1
+        },
+        "name": "status_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "baselineId": 1,
+          "hlsProduct": 1,
+          "hlsVersion": 1
+        },
+        "name": "baselineId_1_hlsProduct_1_hlsVersion_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "baselineId": 1,
+          "sourceObservationId": 1,
+          "hlsProduct": 1,
+          "hlsVersion": 1,
+          "processingVersion": 1
+        },
+        "name": "baselineId_1_sourceObservationId_1_hlsProduct_1_hlsVersion_1_processingVersion_1",
+        "background": true,
+        "unique": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "sourceAcquisitionDate": -1
+        },
+        "name": "sourceAcquisitionDate_-1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "isObservationOnly": 1
+        },
+        "name": "isObservationOnly_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "observationId": 1
+        },
+        "name": "observationId_1",
+        "background": true
+      }
+    ],
+    "sampleFields": [
+      "_id",
+      "baselineId",
+      "sourceObservationId",
+      "satelliteMetadataId",
+      "sourceSatelliteSource",
+      "sourceSensorType",
+      "sourcePlatform",
+      "sourceAcquisitionDate",
+      "hlsProduct",
+      "hlsVersion",
+      "processingVersion",
+      "status",
+      "geeCollectionId",
+      "geeImageId",
+      "geeExportTaskId",
+      "driveFileId",
+      "driveFileName",
+      "driveFileSizeBytes",
+      "localRasterPath",
+      "rasterValidated",
+      "rasterBandCount",
+      "rasterWidth",
+      "rasterHeight",
+      "rasterCrs",
+      "originalCrs",
+      "rasterResolutionMeters",
+      "pixelAreaM2",
+      "validPixelCount",
+      "fileHash",
+      "completedAt",
+      "createdAt",
+      "updatedAt",
+      "__v"
+    ]
+  },
+  "changedetections": {
+    "count": 9,
+    "indexes": [
+      {
+        "v": 2,
+        "key": {
+          "_id": 1
+        },
+        "name": "_id_"
+      },
+      {
+        "v": 2,
+        "key": {
+          "changeId": 1
+        },
+        "name": "changeId_1",
+        "background": true,
+        "unique": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "zoneId": 1
+        },
+        "name": "zoneId_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "observationId": 1
+        },
+        "name": "observationId_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "baselineId": 1
+        },
+        "name": "baselineId_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "sensorType": 1
+        },
+        "name": "sensorType_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "detectedAt": 1
+        },
+        "name": "detectedAt_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "severity": 1
+        },
+        "name": "severity_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "alertGenerated": 1
+        },
+        "name": "alertGenerated_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "zoneId": 1,
+          "detectedAt": -1
+        },
+        "name": "zoneId_1_detectedAt_-1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "temporaryAreaId": 1
+        },
+        "name": "temporaryAreaId_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "referenceObservationId": 1
+        },
+        "name": "referenceObservationId_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "temporaryAreaId": 1,
+          "detectedAt": -1
+        },
+        "name": "temporaryAreaId_1_detectedAt_-1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "monitoringTrack": 1
+        },
+        "name": "monitoringTrack_1",
+        "background": true
+      },
+      {
+        "v": 2,
+        "key": {
+          "zoneId": 1,
+          "observationId": 1,
+          "baselineId": 1,
+          "calculationMethod": 1
+        },
+        "name": "zoneId_1_observationId_1_baselineId_1_calculationMethod_1",
+        "background": true,
+        "unique": true,
+        "partialFilterExpression": {
+          "zoneId": {
+            "$type": "objectId"
+          }
+        }
+      },
+      {
+        "v": 2,
+        "key": {
+          "temporaryAreaId": 1,
+          "observationId": 1,
+          "referenceObservationId": 1,
+          "calculationMethod": 1
+        },
+        "name": "temporaryAreaId_1_observationId_1_referenceObservationId_1_calculationMethod_1",
+        "background": true,
+        "unique": true,
+        "partialFilterExpression": {
+          "temporaryAreaId": {
+            "$type": "string"
+          }
+        }
+      }
+    ],
+    "sampleFields": [
+      "_id",
+      "changeId",
+      "zoneId",
+      "observationId",
+      "baselineId",
+      "sensorType",
+      "monitoringTrack",
+      "source",
+      "detectedAt",
+      "zoneArea",
+      "changedArea",
+      "affectedAreaPercentage",
+      "calculationMode",
+      "spatialSource",
+      "comparisonMode",
+      "changedGeometry",
+      "threshold2Crossed",
+      "threshold5Crossed",
+      "threshold10Crossed",
+      "highestThresholdCrossed",
+      "severity",
+      "evidenceStrength",
+      "evidenceBreakdown",
+      "categories",
+      "changeIndicators",
+      "crossSensorAgreement",
+      "temporalConsistency",
+      "explanation",
+      "alertGenerated",
+      "createdAt",
+      "updatedAt",
+      "__v"
+    ]
+  }
+}

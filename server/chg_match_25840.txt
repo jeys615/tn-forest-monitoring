@@ -1,0 +1,56 @@
+Created At: 2026-09-28T07:23:48+05:30
+Completed At: 2026-09-28T07:23:52+05:30
+
+The command exited with code 0.
+Output:
+--- DATABASE COUNTS BEFORE ---
+alerts: 5
+baselines: 7
+caseauditlogs: 0
+changedetections: 9
+checkpointlogs: 0
+checkpoints: 0
+drivers: 0
+enforcementcases: 0
+epasses: 0
+incrementalmonitoringrecords: 7
+miningauthorizations: 0
+miningextractionestimates: 1
+monitoringjobs: 47
+processedimageresults: 74
+reconciliationreports: 0
+satellitemetadatas: 8
+temporaryareas: 0
+transportcompanies: 0
+users: 3
+vehicles: 0
+zones: 2
+Vadipatti Baselines: 2 Changes: 3
+Sirumalai Baselines: 5
+Sirumalai Changes: [
+  {
+    id: 'CHG-1790327853567-2332',
+    method: undefined,
+    affected: 0.89,
+    status: undefined
+  },
+  {
+    id: 'CHG-1790487696743-2109',
+    method: undefined,
+    affected: 0.98,
+    status: undefined
+  },
+  {
+    id: 'CHG-1790511626250-4641',
+    method: 'SAR_ZONAL_SUMMARY',
+    affected: 1.06,
+    status: undefined
+  },
+  {
+    id: 'CHG-1790525317279-8405',
+    method: 'SAR_PIXEL_DIFFERENCE',
+    affected: 77.3,
+    status: undefined
+  }
+]
+

@@ -1,0 +1,68 @@
+Created At: 2026-09-29T02:58:29+05:30
+Completed At: 2026-09-29T02:58:37+05:30
+
+The command exited with code 0.
+Output:
+=== INITIAL_COUNTS ===
+{
+  "satellitemetadatas": 8,
+  "baselines": 7,
+  "changedetections": 9,
+  "alerts": 5
+}
+
+=== EXACT_RECORD_CHG-1790510572230-4759 ===
+{
+  "_id": "6ab905ec65d99f53e6ce728c",
+  "changeId": "CHG-1790510572230-4759",
+  "zoneId": "6aa676d32b4fe5808c7e8ded",
+  "observationId": "6ab8abf5667c98f4208d8f6a",
+  "baselineId": "6aa679012b4fe5808c7e8ec7",
+  "sensorType": "OPTICAL",
+  "monitoringTrack": "OPTICAL",
+  "source": "SENTINEL_2",
+  "detectedAt": "2026-09-26T05:26:13.842Z",
+  "zoneArea": 100,
+  "changedArea": 16.02,
+  "affectedAreaPercentage": 16.022,
+  "calculationMode": "REAL",
+  "spatialSource": "RASTER",
+  "threshold2Crossed": true,
+  "threshold5Crossed": true,
+  "threshold10Crossed": true,
+  "highestThresholdCrossed": 10,
+  "severity": "HIGH",
+  "evidenceStrength": 69,
+  "evidenceBreakdown": {
+    "magnitudeScore": 38,
+    "dataQualityScore": 16,
+    "temporalConsistencyScore": 5,
+    "crossSensorScore": 10,
+    "totalEvidenceScore": 69,
+    "explanation": "Evidence Strength: 69/100 [Magnitude: 38/40, Data Quality: 16/20, Temporal: 5/20, Cross-Sensor: 10/20]"
+  },
+  "categories": [
+    "SURFACE_CHANGE"
+  ],
+  "changeIndicators": {
+    "ndviDelta": -0.032,
+    "ndwiDelta": -0.039,
+    "ndbiDelta": 0.039,
+    "bsiDelta": 0.039,
+    "saviDelta": -0.027,
+    "eviDelta": -0.028
+  },
+  "opticalEvidence": "CLEAN",
+  "sarEvidence": "UNAVAILABLE",
+  "crossSensorAgreement": "SINGLE_SENSOR",
+  "temporalConsistency": "TEMPORALLY_INCONSISTENT_TREND",
+  "explanation": "Change detected across approximately 16.022% of monitored zone vadipatti (ZONE-260913-7787). Primary evidence source: OPTICAL. Detected patterns: SURFACE CHANGE. Highest threshold crossed: 10% (Severity: HIGH). Confirmed via real satellite raster analysis. Evidence Strength: 69/100 [Magnitude: 38/40, Data Quality: 16/20, Temporal: 5/20, Cross-Sensor: 10/20]",
+  "alertGenerated": true,
+  "alertId": "6ab905ec65d99f53e6ce728d",
+  "createdAt": "2026-09-27T12:02:52.241Z",
+  "updatedAt": "2026-09-28T20:19:51.816Z",
+  "__v": 0,
+  "auditStatus": "INVALID_FOR_PRODUCTION_CROSS_SENSOR"
+}
+=== END_RECORD_CHG-1790510572230-4759 ===
+

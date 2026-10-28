@@ -1,0 +1,124 @@
+Created At: 2026-09-28T07:53:23+05:30
+Completed At: 2026-09-28T07:53:46+05:30
+
+The command exited with code 0.
+Output:
+Found 8 SatelliteMetadata docs:
+{
+  id: '6ab8a736667c98f4208d8b05',
+  imageId: 'COPERNICUS/S1_GRD/S1A_IW_GRDH_1SDV_20200102T003240_20200102T003305_030614_0381E6_3EAD',
+  source: 'SENTINEL_1',
+  sensorType: 'SAR',
+  acquisitionDate: 2020-01-02T00:32:40.000Z,
+  platform: undefined,
+  relativeOrbit: undefined,
+  metadata: {
+    spacecraftName: 'Sentinel-1A',
+    polarization: 'VV+VH',
+    acquisitionMode: 'IW',
+    orbitDirection: 'DESCENDING',
+    orbitNumber: 30614,
+    isRealTelemetry: true
+  }
+}
+{
+  id: '6ab8a897667c98f4208d8bc0',
+  imageId: 'COPERNICUS/S1_GRD/S1A_IW_GRDH_1SDV_20210101T004101_20210101T004126_035937_043594_958C',
+  source: 'SENTINEL_1',
+  sensorType: 'SAR',
+  acquisitionDate: 2021-01-01T00:41:01.000Z,
+  platform: undefined,
+  relativeOrbit: undefined,
+  metadata: {
+    spacecraftName: 'Sentinel-1A',
+    polarization: 'VV+VH',
+    acquisitionMode: 'IW',
+    orbitDirection: 'DESCENDING',
+    orbitNumber: 35937,
+    isRealTelemetry: true
+  }
+}
+{
+  id: '6ab8abf5667c98f4208d8f6a',
+  imageId: 'COPERNICUS/S2_SR_HARMONIZED/20260926T051241_20260926T051801_T43PHM',
+  source: 'SENTINEL_2',
+  sensorType: 'OPTICAL',
+  acquisitionDate: 2026-09-26T05:26:13.842Z,
+  platform: undefined,
+  relativeOrbit: undefined,
+  metadata: {
+    spacecraftName: 'Sentinel-2A',
+    isRealTelemetry: true,
+    bands: [
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object]
+    ]
+  }
+}
+{
+  id: '6ab7e7e46358176818476c24',
+  imageId: 'COPERNICUS/S1_GRD/S1A_IW_GRDH_1SDV_20260106T003233_20260106T003258_062639_07DA3D_0A25',
+  source: 'SENTINEL_1',
+  sensorType: 'SAR',
+  acquisitionDate: 2026-01-06T00:32:33.000Z,
+  platform: undefined,
+  relativeOrbit: undefined,
+  metadata: {
+    spacecraftName: 'Sentinel-1A',
+    mode: 'IW',
+    polarization: 'VV+VH',
+    bands: [ 'VV', 'VH' ],
+    isRealTelemetry: true
+  }
+}
+{
+  id: '6aa678502b4fe5808c7e8e2d',
+  imageId: 'LANDSAT/LC08/C02/T1_L2/LC08_143053_20150106',
+  source: 'LANDSAT_8',
+  sensorType: 'OPTICAL',
+  acquisitionDate: 2015-01-06T05:05:32.318Z,
+  platform: undefined,
+  relativeOrbit: undefined,
+  metadata: undefined
+}
+{
+  id: '6aa6798c2b4fe5808c7e9038',
+  imageId: 'COPERNICUS/S2_SR_HARMONIZED/20260909T050649_20260909T051600_T43PHM',
+  source: 'SENTINEL_2',
+  sensorType: 'OPTICAL',
+  acquisitionDate: 2026-09-09T05:25:57.347Z,
+  platform: undefined,
+  relativeOrbit: undefined,
+  metadata: undefined
+}
+{
+  id: '6ab5c628f979afc8c8714eba',
+  imageId: 'COPERNICUS/S2_SR_HARMONIZED/20260906T051241_20260906T051802_T43PHM',
+  source: 'SENTINEL_2',
+  sensorType: 'OPTICAL',
+  acquisitionDate: 2026-09-06T05:26:14.942Z,
+  platform: undefined,
+  relativeOrbit: undefined,
+  metadata: undefined
+}
+{
+  id: '6ab93a0c4ff016cd4dfe2ac8',
+  imageId: 'COPERNICUS/S1_GRD/S1D_IW_GRDH_1SDV_20260927T004022_20260927T004047_004756_008E87_6A7F',
+  source: 'SENTINEL_1',
+  sensorType: 'SAR',
+  acquisitionDate: 2026-09-27T00:40:22.000Z,
+  platform: undefined,
+  relativeOrbit: undefined,
+  metadata: {
+    spacecraftName: 'Sentinel-1D',
+    isRealTelemetry: true,
+    bands: [ [Object], [Object], [Object] ]
+  }
+}
+

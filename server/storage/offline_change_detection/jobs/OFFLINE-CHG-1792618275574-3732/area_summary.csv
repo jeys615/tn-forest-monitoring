@@ -1,0 +1,8 @@
+Category Code,Category Name,Pixel Count,Area (ha),Area (sq km),Percentage (%)
+0,"Vegetation Decrease Candidate",195,1.95,0.0195,48.75%
+1,"Vegetation Increase Candidate",0,0,0,0%
+2,"Bare-Ground Expansion Candidate",50,0.5,0.005,12.5%
+3,"Bare-Ground Reduction Candidate",0,0,0,0%
+4,"Other Land-Surface Spectral Change",0,0,0,0%
+5,"Stable Land Cover",150,1.5,0.015,37.5%
+6,"Uncertain / Cloud-Masked / Invalid",5,0.05,0.0005,1.25%

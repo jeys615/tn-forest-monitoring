@@ -1,0 +1,68 @@
+Created At: 2026-09-28T20:47:08+05:30
+Completed At: 2026-09-28T20:47:08+05:30
+File Path: `file:///d:/tn-enforcement-system/tn-forest-monitoring/server/src/scripts/dumpOpticalDetails.ts`
+Total Lines: 118
+Total Bytes: 3848
+Showing lines 1 to 60
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+1: import mongoose from 'mongoose';
+2: import { env } from '../config/env.js';
+3: import { SatelliteMetadata } from '../models/SatelliteMetadata.js';
+4: import { BaselineModel } from '../models/Baseline.js';
+5: import { ChangeDetectionModel } from '../models/ChangeDetection.js';
+6: import { AlertModel } from '../models/Alert.js';
+7: import { GeoTiffService } from '../services/raster/GeoTiffService.js';
+8: import fs from 'node:fs';
+9: 
+10: async function main() {
+11:   await mongoose.connect(env.MONGODB_URI);
+12: 
+13:   console.log('=== PART 1: OPTICAL METADATA RECORDS ===');
+14:   const metas = await SatelliteMetadata.find({ sensorType: { $ne: 'SAR' } });
+15:   for (const m of metas) {
+16:     let rasterInfo: any = 'NONE';
+17:     if (m.localRasterPath && fs.existsSync(m.localRasterPath)) {
+18:       try {
+19:         const parsed = await GeoTiffService.readRaster(m.localRasterPath);
+20:         rasterInfo = {
+21:           width: parsed.width,
+22:           height: parsed.height,
+23:           crs: parsed.crs,
+24:           resolution: parsed.resolution,
+25:           bbox: parsed.bbox,
+26:           bands: parsed.bands.map(b => ({
+27:             name: b.name,
+28:             min: b.min,
+29:             max: b.max,
+30:             mean: b.mean,
+31:           })),
+32:         };
+33:       } catch (err: any) {
+34:         rasterInfo = `PARSE_ERROR: ${err.message}`;
+35:       }
+36:     }
+37:     console.log(JSON.stringify({
+38:       id: m._id,
+39:       imageId: m.imageId,
+40:       source: m.source,
+41:       sensorType: m.sensorType,
+42:       platform: m.platform,
+43:       date: m.acquisitionDate,
+44:       cloud: m.cloudCoverPercentage,
+45:       path: m.localRasterPath,
+46:       existsOnDisk: m.localRasterPath ? fs.existsSync(m.localRasterPath) : false,
+47:       rasterInfo,
+48:       geeAssetId: m.geeAssetId,
+49:       geeExportTaskId: m.geeExportTaskId,
+50:       driveFileId: m.driveFileId,
+51:       metaObj: m.metadata,
+52:     }, null, 2));
+53:   }
+54: 
+55:   console.log('\n=== PART 2: OPTICAL BASELINES ===');
+56:   const baselines = await BaselineModel.find({ sensorType: { $ne: 'SAR' } });
+57:   for (const b of baselines) {
+58:     console.log(JSON.stringify({
+59:       id: b._id,
+60:       zoneId: b.zoneId,
+The above content does NOT show the entire file contents. If you need to view any lines of the file which were not shown to complete your task, call this tool again to view those lines.

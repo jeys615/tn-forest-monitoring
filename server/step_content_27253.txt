@@ -1,0 +1,21 @@
+Created At: 2026-09-29T02:58:24+05:30
+Completed At: 2026-09-29T02:58:24+05:30
+The following changes were made by the replace_file_content tool to: d:\tn-enforcement-system\tn-forest-monitoring\server\src\scripts\forensic_inspect_db.ts. If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.
+[diff_block_start]
+@@ -20,9 +20,12 @@
+   console.log(JSON.stringify(initialCounts, null, 2));
+ 
+   // SECTION 1: CHG-1790510572230-4759
+-  console.log('\n=== RECORD CHG-1790510572230-4759 ===');
++  console.log('\n=== EXACT_RECORD_CHG-1790510572230-4759 ===');
+   const chg4759 = await ChangeDetectionModel.findOne({ changeId: 'CHG-1790510572230-4759' }).lean();
+   console.log(JSON.stringify(chg4759, null, 2));
++  console.log('=== END_RECORD_CHG-1790510572230-4759 ===');
++  await mongoose.disconnect();
++  return;
+ 
+   // Also search for any change records around that zone or date
+   console.log('\n=== ALL OPTICAL CHANGE RECORDS IN DB ===');
+[diff_block_end]
+
+Please note that the above snippet only shows the MODIFIED lines from the last change. It shows up to 3 lines of unchanged lines before and after the modified lines. The actual file contents may have many more lines not shown.

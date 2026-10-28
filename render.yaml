@@ -1,0 +1,46 @@
+services:
+  # ---------------------------------------------------------------------------
+  # Backend Web Service: TN Forest Monitoring API
+  # ---------------------------------------------------------------------------
+  - type: web
+    name: tn-forest-api
+    runtime: node
+    plan: free
+    region: singapore # Closest to Tamil Nadu / India for lowest latency
+    buildCommand: npm install && npm run build:shared && npm run build:server
+    startCommand: node server/dist/server.js
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: MONGODB_URI
+        sync: false # Set in Render Dashboard
+      - key: JWT_SECRET
+        generateValue: true # Render will automatically generate a secure secret
+      - key: JWT_EXPIRES_IN
+        value: 24h
+      - key: CLIENT_URL
+        sync: false # Set to https://<your-client-app-name>.onrender.com
+      - key: CANOPY_GUARD_MODE
+        value: SHADOW
+      - key: GEE_MODE
+        value: SIMULATED # Use REAL if Google Earth Engine service account is configured
+      - key: PROCESSING_MODE
+        value: REAL
+
+  # ---------------------------------------------------------------------------
+  # Frontend Static Site: TN Forest Monitoring Web UI
+  # ---------------------------------------------------------------------------
+  - type: static
+    name: tn-forest-ui
+    buildCommand: npm install && npm run build:shared && npm run build:client
+    staticPublishPath: client/dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    envVars:
+      - key: VITE_API_BASE_URL
+        sync: false # Set to https://<your-backend-api-name>.onrender.com/api

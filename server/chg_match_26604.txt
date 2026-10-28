@@ -1,0 +1,225 @@
+Created At: 2026-09-28T20:44:17+05:30
+Completed At: 2026-09-28T20:44:24+05:30
+
+The command exited with code 0.
+Output:
+<truncated 233 lines>
+  "imageId": "COPERNICUS/S2_SR_HARMONIZED/20260909T050649_20260909T051600_T43PHM",
+  "sensorType": "OPTICAL",
+  "source": "SENTINEL_2",
+  "date": "2026-09-09T05:25:57.347Z",
+  "status": "PROCESSED",
+  "isActive": false,
+  "qualityScore": 90.1,
+  "cloudCover": 19.866832,
+  "validPixelPercentage": 80.1,
+  "geeExportTaskId": "projects/monitoring-system-506515/operations/IOURBULPWG6MD2WKPH6VCLQE",
+  "driveFileId": "1-JHsxCLIGmpYdfB1AgvTQtUPcyzMui0B",
+  "localRasterPath": "D:\\tn-enforcement-system\\tn-forest-monitoring\\server\\storage\\raster_temp\\6aa6798c2b4fe5808c7e9038\\ZONE-260913-7787_6aa6798c2b4fe5808c7e9038_CURRENT_Sentinel2_20260909.tif",
+  "existsOnDisk": true
+}
+{
+  "id": "6ab5c957f979afc8c8714fb4",
+  "zoneId": "6ab5c434f979afc8c8714e25",
+  "satelliteMetadataId": "6ab5c628f979afc8c8714eba",
+  "imageId": "COPERNICUS/S2_SR_HARMONIZED/20260906T051241_20260906T051802_T43PHM",
+  "sensorType": "OPTICAL",
+  "source": "SENTINEL_2",
+  "date": "2026-09-06T05:26:14.942Z",
+  "status": "ACTIVE",
+  "isActive": true,
+  "qualityScore": 93.4,
+  "cloudCover": 13.23971,
+  "validPixelPercentage": 86.8,
+  "geeExportTaskId": "projects/monitoring-system-506515/operations/VPVQM3ZVLIRXMKX7IARXK7MX",
+  "driveFileId": "1jcIsmqX4KhmsflU_T6d2k8BHzSR-9A4F",
+  "localRasterPath": "D:\\tn-enforcement-system\\tn-forest-monitoring\\server\\storage\\raster_temp\\6ab5c957f979afc8c8714fb4\\ZONE-260925-8986_6ab5c957f979afc8c8714fb4_BASELINE_Sentinel2_20260906.tif",
+  "existsOnDisk": true
+}
+{
+  "id": "6ab9074f65d99f53e6ce732f",
+  "zoneId": "6ab5c434f979afc8c8714e25",
+  "satelliteMetadataId": "6ab8abf5667c98f4208d8f6a",
+  "imageId": "COPERNICUS/S2_SR_HARMONIZED/20260926T051241_20260926T051801_T43PHM",
+  "sensorType": "OPTICAL",
+  "source": "SENTINEL_2",
+  "date": "2026-09-26T05:26:13.842Z",
+  "status": "PROCESSED",
+  "isActive": false,
+  "qualityScore": 93.3,
+  "cloudCover": 13.360214,
+  "validPixelPercentage": 86.6,
+  "geeExportTaskId": "projects/monitoring-system-506515/operations/6SLJFNQFFXBRUHMTPEES7UOD",
+  "driveFileId": "1EgVWPIZUn8Xg4yfEBDdyK1SBfgNNFsPX",
+  "localRasterPath": "D:\\tn-enforcement-system\\tn-forest-monitoring\\server\\storage\\raster_temp\\6ab9074f65d99f53e6ce732f\\ZONE-260925-8986_6ab9074f65d99f53e6ce732f_BASELINE_Sentinel2_20260926.tif",
+  "existsOnDisk": true
+}
+
+=== PART 3: OPTICAL CHANGE DETECTIONS DETAILED ===
+{
+  "id": "6aa679af2b4fe5808c7e910d",
+  "changeId": "CHG-1789295023854-2895",
+  "zoneId": "6aa676d32b4fe5808c7e8ded",
+  "observationId": "6aa6798c2b4fe5808c7e9038",
+  "baselineId": "6aa679012b4fe5808c7e8ec7",
+  "sensorType": "OPTICAL",
+  "source": "SENTINEL_2",
+  "detectedAt": "2026-09-13T10:23:42.405Z",
+  "calculationMode": "REAL",
+  "spatialSource": "RASTER",
+  "zoneArea": 100,
+  "changedArea": 4.5,
+  "affectedAreaPercentage": 4.5,
+  "severity": "LOW",
+  "evidenceStrength": 57,
+  "categories": [
+    "VEGETATION_LOSS"
+  ],
+  "changeIndicators": {},
+  "explanation": "Vegetation loss detected in optical monitoring track (affected area: 4.5%, severity: LOW)"
+}
+{
+  "id": "6ab5c26cf979afc8c8714cfe",
+  "changeId": "CHG-1790296684819-7147",
+  "zoneId": "6aa676d32b4fe5808c7e8ded",
+  "observationId": "6aa6798c2b4fe5808c7e9038",
+  "sensorType": "OPTICAL",
+  "source": "SENTINEL_2",
+  "detectedAt": "2026-09-09T05:25:57.347Z",
+  "calculationMode": "REAL",
+  "spatialSource": "RASTER",
+  "zoneArea": 100,
+  "changedArea": 0.01,
+  "affectedAreaPercentage": 0.01,
+  "severity": "NONE",
+  "evidenceStrength": 29,
+  "categories": [
+    "UNKNOWN_CHANGE"
+  ],
+  "changeIndicators": {
+    "ndviDelta": 0,
+    "ndwiDelta": 0,
+    "ndbiDelta": 0,
+    "bsiDelta": 0,
+    "saviDelta": 0,
+    "eviDelta": 0
+  },
+  "explanation": "Observation evaluated for zone vadipatti (ZONE-260913-7787). Detected change of 0.01% is below the minimum alert threshold (2%). No alert generated. Confirmed via real satellite raster analysis. Evidence Strength: 29/100 [Magnitude: 0.1/40, Data Quality: 14/20, Temporal: 5/20, Cross-Sensor: 10/20]"
+}
+{
+  "id": "6ab63c2d5437ad453a51d97e",
+  "changeId": "CHG-1790327853567-2332",
+  "zoneId": "6ab5c434f979afc8c8714e25",
+  "observationId": "6aa6798c2b4fe5808c7e9038",
+  "baselineId": "6ab5c957f979afc8c8714fb4",
+  "sensorType": "OPTICAL",
+  "source": "SENTINEL_2",
+  "detectedAt": "2026-09-09T05:25:57.347Z",
+  "calculationMode": "REAL",
+  "spatialSource": "RASTER",
+  "zoneArea": 100,
+  "changedArea": 0.89,
+  "affectedAreaPercentage": 0.89,
+  "severity": "NONE",
+  "evidenceStrength": 39,
+  "categories": [
+    "SURFACE_CHANGE"
+  ],
+  "changeIndicators": {
+    "ndviDelta": -0.029,
+    "ndwiDelta": -0.008,
+    "ndbiDelta": 0.008,
+    "bsiDelta": 0.013,
+    "saviDelta": -0.025,
+    "eviDelta": -0.024
+  },
+  "explanation": "Observation evaluated for zone Sirumalai (ZONE-260925-8986). Detected change of 0.89% is below the minimum alert threshold (2%). No alert generated. Confirmed via real satellite raster analysis. Evidence Strength: 39/100 [Magnitude: 4.5/40, Data Quality: 14/20, Temporal: 10/20, Cross-Sensor: 10/20]"
+}
+{
+  "id": "6ab70049d8260a30adf61a6a",
+  "changeId": "CHG-1790378057185-2192",
+  "zoneId": "6ab70043d8260a30adf61a06",
+  "observationId": "6aa6798c2b4fe5808c7e9038",
+  "baselineId": "6ab70044d8260a30adf61a1f",
+  "sensorType": "OPTICAL",
+  "source": "SENTINEL_2",
+  "detectedAt": "2026-09-09T05:25:57.347Z",
+  "calculationMode": "REAL",
+  "spatialSource": "RASTER",
+  "zoneArea": 100,
+  "changedArea": 0.97,
+  "affectedAreaPercentage": 0.97,
+  "severity": "NONE",
+  "evidenceStrength": 39,
+  "categories": [
+    "SURFACE_CHANGE"
+  ],
+  "changeIndicators": {
+    "ndviDelta": -0.03,
+    "ndwiDelta": -0.01,
+    "ndbiDelta": 0.01,
+    "bsiDelta": 0.015,
+    "saviDelta": -0.025,
+    "eviDelta": -0.024
+  },
+  "explanation": "Observation evaluated for zone Test Sensor Cfg 1790378051952 (ZONE-TEST-CFG-1790378051952). Detected change of 0.97% is below the minimum alert threshold (2%). No alert generated. Confirmed via real satellite raster analysis. Evidence Strength: 39/100 [Magnitude: 4.8/40, Data Quality: 14/20, Temporal: 10/20, Cross-Sensor: 10/20]"
+}
+{
+  "id": "6ab8ac90667c98f4208d8f9b",
+  "changeId": "CHG-1790487696743-2109",
+  "zoneId": "6ab5c434f979afc8c8714e25",
+  "observationId": "6ab8abf5667c98f4208d8f6a",
+  "baselineId": "6ab5c957f979afc8c8714fb4",
+  "sensorType": "OPTICAL",
+  "source": "SENTINEL_2",
+  "detectedAt": "2026-09-26T05:26:13.842Z",
+  "calculationMode": "REAL",
+  "spatialSource": "RASTER",
+  "zoneArea": 100,
+  "changedArea": 0.98,
+  "affectedAreaPercentage": 0.98,
+  "severity": "NONE",
+  "evidenceStrength": 51,
+  "categories": [
+    "SURFACE_CHANGE"
+  ],
+  "changeIndicators": {
+    "ndviDelta": -0.018,
+    "ndwiDelta": -0.021,
+    "ndbiDelta": 0.021,
+    "bsiDelta": 0.021,
+    "saviDelta": -0.015,
+    "eviDelta": -0.016
+  },
+  "explanation": "Observation evaluated for zone Sirumalai (ZONE-260925-8986). Detected change of 0.98% is below the minimum alert threshold (2%). No alert generated. Confirmed via real satellite raster analysis. Evidence Strength: 51/100 [Magnitude: 4.9/40, Data Quality: 16/20, Temporal: 20/20, Cross-Sensor: 10/20]"
+}
+{
+  "id": "6ab905ec65d99f53e6ce728c",
+  "changeId": "CHG-1790510572230-4759",
+  "zoneId": "6aa676d32b4fe5808c7e8ded",
+  "observationId": "6ab8abf5667c98f4208d8f6a",
+  "baselineId": "6aa679012b4fe5808c7e8ec7",
+  "sensorType": "OPTICAL",
+  "source": "SENTINEL_2",
+  "detectedAt": "2026-09-26T05:26:13.842Z",
+  "calculationMode": "REAL",
+  "spatialSource": "RASTER",
+  "zoneArea": 100,
+  "changedArea": 16.02,
+  "affectedAreaPercentage": 16.022,
+  "severity": "HIGH",
+  "evidenceStrength": 69,
+  "categories": [
+    "SURFACE_CHANGE"
+  ],
+  "changeIndicators": {
+    "ndviDelta": -0.032,
+    "ndwiDelta": -0.039,
+    "ndbiDelta": 0.039,
+    "bsiDelta": 0.039,
+    "saviDelta": -0.027,
+    "eviDelta": -0.028
+  },
+  "explanation": "Change detected across approximately 16.022% of monitored zone vadipatti (ZONE-260913-7787). Primary evidence source: OPTICAL. Detected patterns: SURFACE CHANGE. Highest threshold crossed: 10% (Severity: HIGH). Confirmed via real satellite raster analysis. Evidence Strength: 69/100 [Magnitude: 38/40, Data Quality: 16/20, Temporal: 5/20, Cross-Sensor: 10/20]"
+}
+

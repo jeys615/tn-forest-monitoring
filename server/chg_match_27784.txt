@@ -1,0 +1,87 @@
+Created At: 2026-09-29T04:05:30+05:30
+Completed At: 2026-09-29T04:05:36+05:30
+
+The command exited with code 0.
+Output:
+CONTENT OF STEP 27247
+Created At: 2026-09-29T02:57:52+05:30
+Completed At: 2026-09-29T02:57:59+05:30
+
+The command exited with code 0.
+Output:
+<truncated 180 lines>
+- changeId: CHG-1790487696743-2109, sensorType: OPTICAL, source: SENTINEL_2, affectedArea: 0.98, changedArea: 0.98, auditStatus: undefined
+- changeId: CHG-1790510572230-4759, sensorType: OPTICAL, source: SENTINEL_2, affectedArea: 16.022, changedArea: 16.02, auditStatus: INVALID_FOR_PRODUCTION_CROSS_SENSOR
+- changeId: CHG-1790511626250-4641, sensorType: SAR, source: SENTINEL_1, affectedArea: 1.06, changedArea: 1.06, auditStatus: undefined
+- changeId: CHG-1790525317279-8405, sensorType: SAR, source: SENTINEL_1, affectedArea: 77.3, changedArea: 20450.57, auditStatus: INVALID_FOR_PRODUCTION_GEOMETRY
+
+=== METADATA RECORDS ===
+
+--- Looking up ID: 6aa678502b4fe5808c7e8e2d ---
+{
+  "id": "6aa678502b4fe5808c7e8e2d",
+  "imageId": "LANDSAT/LC08/C02/T1_L2/LC08_143053_20150106",
+  "source": "LANDSAT_8",
+  "sensorType": "OPTICAL",
+  "platform": "Landsat 8",
+  "acquisitionDate": "2015-01-06T05:05:32.318Z",
+  "cloudCover": 0,
+  "localRasterPath": "D:/tn-enforcement-system/tn-forest-monitoring/server/storage/raster_temp/6aa679012b4fe5808c7e8ec7/ZONE-260913-7787_6aa679012b4fe5808c7e8ec7_BASELINE_Landsat8_20150106.tif",
+  "rasterWidth": 314,
+  "rasterHeight": 236,
+  "rasterCrs": "EPSG:32644",
+  "geeExportTaskId": "projects/monitoring-system-506515/operations/XO74HAF3GK336J76OADX2LWL",
+  "driveFileId": "1Sr78xDnoawa9kdVgFGy1D1xSi4_MG10G",
+  "fileExists": true,
+  "fileSizeBytes": 689804
+}
+
+--- Looking up ID: 6aa6798c2b4fe5808c7e9038 ---
+{
+  "id": "6aa6798c2b4fe5808c7e9038",
+  "imageId": "COPERNICUS/S2_SR_HARMONIZED/20260909T050649_20260909T051600_T43PHM",
+  "source": "SENTINEL_2",
+  "sensorType": "OPTICAL",
+  "platform": "Sentinel-2A",
+  "acquisitionDate": "2026-09-09T05:25:57.347Z",
+  "cloudCover": 19.866832,
+  "localRasterPath": "D:\\tn-enforcement-system\\tn-forest-monitoring\\server\\storage\\raster_temp\\6aa6798c2b4fe5808c7e9038\\ZONE-260913-7787_6aa6798c2b4fe5808c7e9038_CURRENT_Sentinel2_20
+<truncated 4142 bytes>
+",
+        "centralWavelengthNm": 1610
+      },
+      {
+        "id": "B12",
+        "name": "SWIR 2",
+        "resolutionMeters": 20,
+        "description": "2190 nm surface reflectance",
+        "centralWavelengthNm": 2190
+      },
+      {
+        "id": "AOT",
+        "name": "Aerosol optical thickness",
+        "resolutionMeters": 10,
+        "description": "Atmospheric optical depth"
+      },
+      {
+        "id": "WVP",
+        "name": "Water vapour map",
+        "resolutionMeters": 10,
+        "description": "Total atmospheric water column"
+      },
+      {
+        "id": "SCL",
+        "name": "Scene classification map",
+        "resolutionMeters": 20,
+        "description": "Land, water, cloud, shadow class map"
+      },
+      {
+        "id": "TCI_R",
+        "name": "True color red",
+        "resolutionMeters": 10,
+        "description": "Visual red channel"
+      },
+      {
+        "id": "TCI_G",
+        "
+

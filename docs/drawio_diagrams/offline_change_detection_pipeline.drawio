@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2026-10-27T02:00:00.000Z" agent="Antigravity" version="21.0.0">
+  <diagram id="diag_offline_03" name="Figure 3.3: Offline Satellite Image Change Detection Workstation Pipeline">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1160" pageHeight="720" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title_2" value="OFFLINE SATELLITE IMAGE CHANGE DETECTION — WORKSTATION PIPELINE" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=2;fontColor=#000000;fontFamily=Helvetica;fontSize=15;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="30" y="20" width="1100" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="box_3" value="&lt;b&gt;1. Dual Image Selection&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size: 9.5px;&quot;&gt;Local File Upload or Local Catalog Picker&lt;br/&gt;T0 Baseline &amp; T1 Observation GeoTIFFs&lt;br/&gt;No network calls • Zero GEE&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=11;align=center;verticalAlign=middle;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="50" y="90" width="310" height="115" as="geometry" />
+        </mxCell>
+        <mxCell id="box_4" value="&lt;b&gt;2. Sensor &amp; Metadata Inspection&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size: 9.5px;&quot;&gt;Heuristic Detection: S2, Landsat, SAR&lt;br/&gt;Extract CRS, Resolution, Dimensions&lt;br/&gt;Generate True-Color Thumbnail&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=11;align=center;verticalAlign=middle;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="425" y="90" width="310" height="115" as="geometry" />
+        </mxCell>
+        <mxCell id="box_5" value="&lt;b&gt;3. Reflectance Calibration&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size: 9.5px;&quot;&gt;S2 L2A: DN * 0.0001&lt;br/&gt;Landsat C2 L2: DN * 0.0000275 - 0.2&lt;br/&gt;Physical Surface Reflectance (0-1)&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=11;align=center;verticalAlign=middle;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="800" y="90" width="310" height="115" as="geometry" />
+        </mxCell>
+        <mxCell id="box_6" value="&lt;b&gt;4. SCL &amp; QA Cloud Masking&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size: 9.5px;&quot;&gt;Sentinel-2 SCL (Classes 0,1,3,8,9,10,11)&lt;br/&gt;Landsat QA_PIXEL (Bits 0-4)&lt;br/&gt;Masked pixels preserved as UNCERTAIN&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=11;align=center;verticalAlign=middle;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="800" y="245" width="310" height="115" as="geometry" />
+        </mxCell>
+        <mxCell id="box_7" value="&lt;b&gt;5. Spatial Harmonization&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size: 9.5px;&quot;&gt;Common Analysis Grid Alignment&lt;br/&gt;Bilinear Resampling for Reflectance&lt;br/&gt;Roy et al. Bandpass Harmonization (S2-L8)&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=11;align=center;verticalAlign=middle;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="425" y="245" width="310" height="115" as="geometry" />
+        </mxCell>
+        <mxCell id="box_8" value="&lt;b&gt;6. Dual Spectral Index Engine&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size: 9.5px;&quot;&gt;NDVI = (NIR - Red) / (NIR + Red)&lt;br/&gt;BSI = ((SWIR1+Red)-(NIR+Blue)) / ((SWIR1+Red)+(NIR+Blue))&lt;br/&gt;ΔNDVI = NDVI(T1) - NDVI(T0); ΔBSI = BSI(T1) - BSI(T0)&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=11;align=center;verticalAlign=middle;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="50" y="245" width="310" height="115" as="geometry" />
+        </mxCell>
+        <mxCell id="box_9" value="&lt;b&gt;7. 7-Class Categorical Engine&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size: 9.5px;&quot;&gt;0: Veg Decrease | 1: Veg Increase&lt;br/&gt;2: Bare-Soil Expansion | 3: Bare-Soil Reduction&lt;br/&gt;4: Other Spectral | 5: Stable | 6: Uncertain&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=11;align=center;verticalAlign=middle;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="50" y="400" width="310" height="125" as="geometry" />
+        </mxCell>
+        <mxCell id="box_10" value="&lt;b&gt;8. Metric Area Accounting&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size: 9.5px;&quot;&gt;Geodesic/Projected Area (ha &amp; km²)&lt;br/&gt;Pixel area = |Δx * Δy| / 10,000&lt;br/&gt;Total area strictly conserved across classes&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=11;align=center;verticalAlign=middle;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="425" y="400" width="310" height="125" as="geometry" />
+        </mxCell>
+        <mxCell id="box_11" value="&lt;b&gt;9. Scientific Export Center&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size: 9.5px;&quot;&gt;GeoTIFFs (Categorical, ΔNDVI, ΔBSI, Mask)&lt;br/&gt;PNG Maps • CSV Area Table • JSON Metadata&lt;br/&gt;Markdown Validation Report&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=11;align=center;verticalAlign=middle;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="800" y="400" width="310" height="125" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=10;endArrow=classic;endFill=1;startArrow=none;" edge="1" parent="1" source="box_3" target="box_4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=10;endArrow=classic;endFill=1;startArrow=none;" edge="1" parent="1" source="box_4" target="box_5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_14" value="Calibrated Reflectance" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=10;endArrow=classic;endFill=1;startArrow=none;" edge="1" parent="1" source="box_5" target="box_6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_15" value="Clear Pixels" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=10;endArrow=classic;endFill=1;startArrow=none;" edge="1" parent="1" source="box_6" target="box_7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_16" value="Harmonized Bands" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=10;endArrow=classic;endFill=1;startArrow=none;" edge="1" parent="1" source="box_7" target="box_8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_17" value="Spectral Differences" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=10;endArrow=classic;endFill=1;startArrow=none;" edge="1" parent="1" source="box_8" target="box_9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_18" value="Class Pixels" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=10;endArrow=classic;endFill=1;startArrow=none;" edge="1" parent="1" source="box_9" target="box_10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_19" value="Metric Totals" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=10;endArrow=classic;endFill=1;startArrow=none;" edge="1" parent="1" source="box_10" target="box_11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="box_20" value="&lt;b&gt;OPERATIONAL SPECIFICATION&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size: 9.5px;&quot;&gt;100% Offline • Zero GEE/Cloud Calls • Zero DB Mutations • Pure Node.js &amp; GeoTIFF Runtime&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=11;align=center;verticalAlign=middle;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="50" y="565" width="1060" height="45" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,15 @@
+Created At: 2026-09-29T04:04:59+05:30
+Completed At: 2026-09-29T04:05:02+05:30
+
+The command exited with code 0.
+Output:
+CONTENT OF STEP 27253
+{
+  "step_index": 27253,
+  "source": "MODEL",
+  "type": "GENERIC",
+  "status": "DONE",
+  "created_at": "2026-09-28T21:28:24Z",
+  "content": "Created At: 2026-09-29T02:58:24+05:30\nCompleted At: 2026-09-29T02:58:24+05:30\nThe following changes were made by the replace_file_content tool to: d:\\tn-enforcement-system\\tn-forest-monitoring\\server\\src\\scripts\\forensic_inspect_db.ts. If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.\n[diff_block_start]\n@@ -20,9 +20,12 @@\n   console.log(JSON.stringify(initialCounts, null, 2));\n \n   // SECTION 1: CHG-1790510572230-4759\n-  console.log('\\n=== RECORD CHG-1790510572230-4759 ===');\n+  console.log('\\n=== EXACT_RECORD_CHG-1790510572230-4759 ===');\n   const chg4759 = await ChangeDetectionModel.findOne({ changeId: 'CHG-1790510572230-4759' }).lean();\n   console.log(JSON.stringify(chg4759, null, 2));\n+  console.log('=== END_RECORD_CHG-1790510572230-4759 ===');\n+  await mongoose.disconnect();\n+  return;\n \n   // Also search for any change records around that zone or date\n   console.log('\\n=== ALL OPTICAL CHANGE RECORDS IN DB ===');\n[diff_block_end]\n\nPlease note that the above snippet only shows the MODIFIED lines from the last change. It shows up to 3 lines of unchanged lines before and after the modified lines. The actual file contents may have many more lines not shown."
+}
+

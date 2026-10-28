@@ -1,0 +1,31 @@
+{
+  "name": "tn-forest-monitoring",
+  "version": "0.1.0",
+  "private": true,
+  "description": "TN Forest Monitoring, Authorized Mining, E-Pass and Checkpoint Enforcement System",
+  "workspaces": [
+    "shared",
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "dev:client": "npm run dev -w client",
+    "dev:server": "npm run dev -w server",
+    "build:client": "npm run build -w client",
+    "build:server": "npm run build -w server",
+    "build:shared": "npm run build -w shared",
+    "build": "npm run build:shared && npm run build:server && npm run build:client",
+    "lint": "npm run lint -w server && npm run lint -w client",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md,css}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,md,css}\"",
+    "typecheck:server": "npm run typecheck -w server",
+    "typecheck:client": "npm run typecheck -w client",
+    "typecheck": "npm run typecheck:server && npm run typecheck:client"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.3.3"
+  }
+}

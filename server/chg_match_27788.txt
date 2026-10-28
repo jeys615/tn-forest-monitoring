@@ -1,0 +1,108 @@
+Created At: 2026-09-29T04:06:12+05:30
+Completed At: 2026-09-29T04:06:12+05:30
+File Path: `file:///d:/tn-enforcement-system/tn-forest-monitoring/server/step_27247_full.txt`
+Total Lines: 250
+Total Bytes: 8238
+Showing lines 1 to 100
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+1: Created At: 2026-09-29T02:57:52+05:30
+2: Completed At: 2026-09-29T02:57:59+05:30
+3: 
+4: The command exited with code 0.
+5: Output:
+6: <truncated 180 lines>
+7: - changeId: CHG-1790487696743-2109, sensorType: OPTICAL, source: SENTINEL_2, affectedArea: 0.98, changedArea: 0.98, auditStatus: undefined
+8: - changeId: CHG-1790510572230-4759, sensorType: OPTICAL, source: SENTINEL_2, affectedArea: 16.022, changedArea: 16.02, auditStatus: INVALID_FOR_PRODUCTION_CROSS_SENSOR
+9: - changeId: CHG-1790511626250-4641, sensorType: SAR, source: SENTINEL_1, affectedArea: 1.06, changedArea: 1.06, auditStatus: undefined
+10: - changeId: CHG-1790525317279-8405, sensorType: SAR, source: SENTINEL_1, affectedArea: 77.3, changedArea: 20450.57, auditStatus: INVALID_FOR_PRODUCTION_GEOMETRY
+11: 
+12: === METADATA RECORDS ===
+13: 
+14: --- Looking up ID: 6aa678502b4fe5808c7e8e2d ---
+15: {
+16:   "id": "6aa678502b4fe5808c7e8e2d",
+17:   "imageId": "LANDSAT/LC08/C02/T1_L2/LC08_143053_20150106",
+18:   "source": "LANDSAT_8",
+19:   "sensorType": "OPTICAL",
+20:   "platform": "Landsat 8",
+21:   "acquisitionDate": "2015-01-06T05:05:32.318Z",
+22:   "cloudCover": 0,
+23:   "localRasterPath": "D:/tn-enforcement-system/tn-forest-monitoring/server/storage/raster_temp/6aa679012b4fe5808c7e8ec7/ZONE-260913-7787_6aa679012b4fe5808c7e8ec7_BASELINE_Landsat8_20150106.tif",
+24:   "rasterWidth": 314,
+25:   "rasterHeight": 236,
+26:   "rasterCrs": "EPSG:32644",
+27:   "geeExportTaskId": "projects/monitoring-system-506515/operations/XO74HAF3GK336J76OADX2LWL",
+28:   "driveFileId": "1Sr78xDnoawa9kdVgFGy1D1xSi4_MG10G",
+29:   "fileExists": true,
+30:   "fileSizeBytes": 689804
+31: }
+32: 
+33: --- Looking up ID: 6aa6798c2b4fe5808c7e9038 ---
+34: {
+35:   "id": "6aa6798c2b4fe5808c7e9038",
+36:   "imageId": "COPERNICUS/S2_SR_HARMONIZED/20260909T050649_20260909T051600_T43PHM",
+37:   "source": "SENTINEL_2",
+38:   "sensorType": "OPTICAL",
+39:   "platform": "Sentinel-2A",
+40:   "acquisitionDate": "2026-09-09T05:25:57.347Z",
+41:   "cloudCover": 19.866832,
+42:   "localRasterPath": "D:\\tn-enforcement-system\\tn-forest-monitoring\\server\\storage\\raster_temp\\6aa6798c2b4fe5808c7e9038\\ZONE-260913-7787_6aa6798c2b4fe5808c7e9038_CURRENT_Sentinel2_20260909.tif",
+43:   "rasterWidth": 930,
+44:   "rasterHeight": 717,
+45:   "rasterCrs": "EPSG:32643",
+46:   "resolutionMeters": 10,
+47:   "pixelAreaM2": 100,
+48:   "geeExportTaskId": "projects/monitoring-system-506515/operations/IOURBULPWG6MD2WKPH6VCLQE",
+49:   "driveFileId": "1-JHsxCLIGmpYdfB1AgvTQtUPcyzMui0B",
+50:   "fileExists": true,
+51:   "fileSizeBytes": 6353232
+52: }
+53: 
+54: --- Looking up ID: 6ab5c628f979afc8c8714eba ---
+55: {
+56:   "id": "6ab5c628f979afc8c8714eba",
+57:   "imageId": "COPERNICUS/S2_SR_HARMONIZED/20260906T051241_20260906T051802_T43PHM",
+58:   "source": "SENTINEL_2",
+59:   "sensorType": "OPTICAL",
+60:   "platform": "Sentinel-2A",
+61:   "acquisitionDate": "2026-09-06T05:26:14.942Z",
+62:   "cloudCover": 13.23971,
+63:   "localRasterPath": "D:\\tn-enforcement-system\\tn-forest-monitoring\\server\\storage\\raster_temp\\6ab5c957f979afc8c8714fb4\\ZONE-260925-8986_6ab5c957f979afc8c8714fb4_BASELINE_Sentinel2_20260906.tif",
+64:   "rasterWidth": 2569,
+65:   "rasterHeight": 2237,
+66:   "rasterCrs": "EPSG:32643",
+67:   "geeExportTaskId": "projects/monitoring-system-506515/operations/VPVQM3ZVLIRXMKX7IARXK7MX",
+68:   "driveFileId": "1jcIsmqX4KhmsflU_T6d2k8BHzSR-9A4F",
+69:   "fileExists": true,
+70:   "fileSizeBytes": 49579275
+71: }
+72: 
+73: --- Looking up ID: 6ab8abf5667c98f4208d8f6a ---
+74: {
+75:   "id": "6ab8abf5667c98f4208d8f6a",
+76:   "imageId": "COPERNICUS/S2_SR_HARMONIZED/20260926T051241_20260926T051801_T43PHM",
+77:   "source": "SENTINEL_2",
+78:   "sensorType": "OPTICAL",
+79:   "platform": "Sentinel-2A",
+80:   "acquisitionDate": "2026-09-26T05:26:13.842Z",
+81:   "cloudCover": 13.360214,
+82:   "localRasterPath": "D:\\tn-enforcement-system\\tn-forest-monitoring\\server\\storage\\raster_temp\\6ab8abf5667c98f4208d8f6a\\ZONE-260925-8986_6ab8abf5667c98f4208d8f6a_CURRENT_Sentinel2_20260926.tif",
+83:   "rasterWidth": 2569,
+84:   "rasterHeight": 2237,
+85:   "rasterCrs": "EPSG:32643",
+86:   "resolutionMeters": 10,
+87:   "pixelAreaM2": 100,
+88:   "geeExportTaskId": "projects/monitoring-system-506515/operations/RO7KASBOVLHAYAQK6JWUHD7S",
+89:   "driveFileId": "13KEFnT6_mVzokEiwTwPVj-JBDuM8SPNx",
+90:   "fileExists": true,
+91:   "fileSizeBytes": 45426464,
+92:   "metadata": {
+93:     "spacecraftName": "Sentinel-2A",
+94:     "isRealTelemetry": true,
+95:     "bands": [
+96:       {
+97:         "id": "B1",
+98:         "name": "Coastal aerosol",
+99:         "resolutionMeters": 60,
+100:         "description": "443 nm aerosol optical thickness",
+The above content does NOT show the entire file contents. If you need to view any lines of the file which were not shown to complete your task, call this tool again to view those lines.

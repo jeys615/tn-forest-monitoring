@@ -1,0 +1,47 @@
+{
+  "name": "@tn-forest/server",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src/ --ext .ts",
+    "clean:demo": "tsx src/scripts/clearDemoData.ts",
+    "clean:baselines": "tsx src/scripts/cleanInvalidBaselines.ts",
+    "seed:dev-users": "tsx src/seeds/runSeedDevUsers.ts",
+    "diagnose:gee": "tsx src/scripts/diagnoseGeeDiscovery.ts",
+    "diagnose:drive": "tsx src/scripts/diagnoseDrive.ts",
+    "pipeline:real-export": "tsx src/scripts/executeRealBaselinePipeline.ts",
+    "verify:crs": "tsx src/scripts/verifyCrsAndAreaCalculation.ts",
+    "test:zone-isolation": "tsx src/tests/zone-scoped-isolation.test.ts"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-rate-limit": "^8.7.0",
+    "geotiff": "^3.0.5",
+    "google-auth-library": "^11.0.2",
+    "googleapis": "^176.0.0",
+    "helmet": "^8.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.9.5",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/jsonwebtoken": "^9.0.7",
+    "@types/node": "^22.10.5",
+    "@typescript-eslint/eslint-plugin": "^8.19.1",
+    "@typescript-eslint/parser": "^8.19.1",
+    "eslint": "^8.57.1",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3"
+  }
+}

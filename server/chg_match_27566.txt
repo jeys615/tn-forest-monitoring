@@ -1,0 +1,15 @@
+Created At: 2026-09-29T03:47:54+05:30
+Completed At: 2026-09-29T03:47:58+05:30
+
+The command exited with code 0.
+Output:
+{"_id":"6aa679af2b4fe5808c7e910d","changeId":"CHG-1789295023854-2895","observationId":"6aa6798c2b4fe5808c7e9038","baselineId":"6aa679012b4fe5808c7e8ec7","affectedAreaPercentage":4.5}
+{"_id":"6ab5c26cf979afc8c8714cfe","changeId":"CHG-1790296684819-7147","observationId":"6aa6798c2b4fe5808c7e9038","affectedAreaPercentage":0.01}
+{"_id":"6ab63c2d5437ad453a51d97e","changeId":"CHG-1790327853567-2332","observationId":"6aa6798c2b4fe5808c7e9038","baselineId":"6ab5c957f979afc8c8714fb4","affectedAreaPercentage":0.89}
+{"_id":"6ab70049d8260a30adf61a6a","changeId":"CHG-1790378057185-2192","observationId":"6aa6798c2b4fe5808c7e9038","baselineId":"6ab70044d8260a30adf61a1f","affectedAreaPercentage":0.97}
+{"_id":"6ab70070d8260a30adf61ace","changeId":"CHG-1790378096022-8089","observationId":"6ab70049d8260a30adf61a91","baselineId":"6ab70049d8260a30adf61a71","affectedAreaPercentage":2.12}
+{"_id":"6ab8ac90667c98f4208d8f9b","changeId":"CHG-1790487696743-2109","observationId":"6ab8abf5667c98f4208d8f6a","baselineId":"6ab5c957f979afc8c8714fb4","affectedAreaPercentage":0.98}
+{"_id":"6ab905ec65d99f53e6ce728c","changeId":"CHG-1790510572230-4759","observationId":"6ab8abf5667c98f4208d8f6a","baselineId":"6aa679012b4fe5808c7e8ec7","affectedAreaPercentage":16.022,"auditStatus":"INVALID_FOR_PRODUCTION_CROSS_SENSOR"}
+{"_id":"6ab90a0a65d99f53e6ce7555","changeId":"CHG-1790511626250-4641","observationId":"6ab8a897667c98f4208d8bc0","baselineId":"6ab8dab06f0c75ad0b423200","affectedAreaPercentage":1.06,"calculationMethod":"SAR_ZONAL_SUMMARY","spatialCalculation":"ZONAL_STATISTICS"}
+{"_id":"6ab93f85b3450b3f69802ec4","changeId":"CHG-1790525317279-8405","observationId":"6ab8a897667c98f4208d8bc0","baselineId":"6ab8dab06f0c75ad0b423200","affectedAreaPercentage":77.3,"calculationMethod":"SAR_PIXEL_DIFFERENCE","spatialCalculation":"PIXEL_GRID","auditStatus":"INVALID_FOR_PRODUCTION_GEOMETRY"}
+
