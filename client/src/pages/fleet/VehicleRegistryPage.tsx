@@ -470,7 +470,7 @@ export const VehicleRegistryPage: React.FC = () => {
                 <input
                   type="text"
                   style={formInp}
-                  placeholder="e.g. TN-38-BZ-4412"
+                  placeholder="e.g. KA-01-AB-1234"
                   value={formData.registrationNumber}
                   onChange={(e) => setFormData({ ...formData, registrationNumber: e.target.value.toUpperCase() })}
                   required
@@ -581,7 +581,7 @@ export const VehicleRegistryPage: React.FC = () => {
                 <input
                   type="text"
                   style={formInp}
-                  placeholder="e.g. GPS-TN-2026-9042"
+                  placeholder="e.g. GPS-SYS-2026-9042"
                   value={formData.gpsTrackerId}
                   onChange={(e) => setFormData({ ...formData, gpsTrackerId: e.target.value.toUpperCase() })}
                 />
@@ -722,7 +722,7 @@ export const VehicleRegistryPage: React.FC = () => {
                 <textarea
                   rows={2}
                   style={formInp}
-                  placeholder="e.g. 14B Bypass Road, Namakkal, Tamil Nadu"
+                  placeholder="e.g. 14B Industrial Bypass Road, Sector 4"
                   value={companyFormData.address}
                   onChange={(e) => setCompanyFormData({ ...companyFormData, address: e.target.value })}
                 />

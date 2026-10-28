@@ -182,7 +182,7 @@ export const ZoneContextHeader: React.FC<ZoneContextHeaderProps> = ({
               textTransform: 'uppercase',
             }}
           >
-            {/* GOVT OF TAMIL NADU generalized to SATELLITE MONITORING */}
+            {/* SATELLITE MONITORING */}
             <span>SATELLITE MONITORING</span>
             <span>/</span>
             <span>MONITORING</span>

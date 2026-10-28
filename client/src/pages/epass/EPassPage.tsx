@@ -494,7 +494,7 @@ export const EPassPage: React.FC = () => {
                     {p.permitNumber || p.lesseeName || 'Permit Lease'}
                   </td>
                   <td style={{ padding: '12px 16px', fontSize: FONT.sizeSm, fontWeight: FONT.weightMedium }}>
-                    {p.vehicleRegistrationNumber || 'TN-XX-XXXX'}
+                    {p.vehicleRegistrationNumber || 'XX-00-XXXX'}
                   </td>
                   <td style={{ padding: '12px 16px', fontSize: FONT.sizeSm }}>
                     {p.driverName || 'Verified Driver'}

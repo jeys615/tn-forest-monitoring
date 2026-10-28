@@ -621,7 +621,7 @@ export const DriverRegistryPage: React.FC = () => {
                 <input
                   type="text"
                   style={formInp}
-                  placeholder="e.g. TN-38-2018-0094123"
+                  placeholder="e.g. DL-04-2018-0094123"
                   value={driverFormData.licenseNumber}
                   onChange={(e) =>
                     setDriverFormData({ ...driverFormData, licenseNumber: e.target.value.toUpperCase() })
@@ -802,7 +802,7 @@ export const DriverRegistryPage: React.FC = () => {
                 <input
                   type="text"
                   style={formInp}
-                  placeholder="e.g. 33AABCK1234F1Z5 or TN-TC-2026-042"
+                  placeholder="e.g. 33AABCK1234F1Z5 or REG-2026-042"
                   value={companyFormData.registrationNumber}
                   onChange={(e) =>
                     setCompanyFormData({ ...companyFormData, registrationNumber: e.target.value.toUpperCase() })
@@ -839,7 +839,7 @@ export const DriverRegistryPage: React.FC = () => {
                 <input
                   type="text"
                   style={formInp}
-                  placeholder="e.g. Salem Industrial Estate, Salem, Tamil Nadu"
+                  placeholder="e.g. Industrial Area, Phase 2, Central District"
                   value={companyFormData.address}
                   onChange={(e) => setCompanyFormData({ ...companyFormData, address: e.target.value })}
                 />

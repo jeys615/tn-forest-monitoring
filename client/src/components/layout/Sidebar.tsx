@@ -245,19 +245,20 @@ const Sidebar: React.FC = () => {
       >
         <div
           style={{
-            width: '34px',
-            height: '34px',
-            borderRadius: '6px',
-            backgroundColor: '#1B4332',
+            width: '36px',
+            height: '36px',
+            borderRadius: '8px',
+            backgroundColor: '#0F291E',
             border: '1px solid #2D6A4F',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            color: '#52B788',
             flexShrink: 0,
+            overflow: 'hidden',
+            padding: '2px',
           }}
         >
-          <Icon.Leaf />
+          <img src="/logo.svg" alt="Satellite Logo" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
         </div>
         <div style={{ minWidth: 0, flex: 1 }}>
           <div
@@ -269,7 +270,7 @@ const Sidebar: React.FC = () => {
               lineHeight: 1.2,
             }}
           >
-            TN FOREST MONITORING
+            SATELLITE MONITORING
           </div>
           <div
             style={{
@@ -281,7 +282,7 @@ const Sidebar: React.FC = () => {
               fontWeight: 600,
             }}
           >
-            GOVERNMENT OF TAMIL NADU
+            GEOSPATIAL PLATFORM
           </div>
         </div>
       </div>

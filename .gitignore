@@ -53,6 +53,7 @@ temp-images/
 tmp/
 temp/
 *.tmp
+~$*
 
 # Docker volumes
 mongo-data/

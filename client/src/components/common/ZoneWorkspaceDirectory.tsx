@@ -107,7 +107,7 @@ export const ZoneWorkspaceDirectory: React.FC<ZoneWorkspaceDirectoryProps> = ({
               marginBottom: '6px',
             }}
           >
-            {/* GOVT OF TAMIL NADU generalized to SATELLITE MONITORING */}
+            {/* SATELLITE MONITORING */}
             <span>SATELLITE MONITORING</span>
             <span>/</span>
             <span>{department}</span>

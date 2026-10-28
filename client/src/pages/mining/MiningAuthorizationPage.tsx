@@ -465,7 +465,7 @@ export const MiningAuthorizationPage: React.FC = () => {
                 <input
                   type="text"
                   style={formInp}
-                  placeholder="e.g. TN-MIN-2026-088"
+                  placeholder="e.g. MIN-PERMIT-2026-088"
                   value={formData.permitNumber}
                   onChange={(e) => setFormData({ ...formData, permitNumber: e.target.value.toUpperCase() })}
                   required

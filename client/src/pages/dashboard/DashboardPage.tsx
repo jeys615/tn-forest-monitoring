@@ -245,7 +245,7 @@ const DashboardPage: React.FC = () => {
           {greeting}, {user?.name?.split(' ')[0] ?? 'Officer'}
         </h1>
         <p style={{ fontSize: FONT.sizeMd, color: COLORS.textMuted, marginTop: SPACE.xs }}>
-          TN Forest &amp; Resource Monitoring System — Executive Geospatial Overview
+          Satellite Based Monitoring System — Geospatial Intelligence &amp; Monitoring Overview
         </p>
       </div>
 

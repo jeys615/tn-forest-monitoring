@@ -1294,7 +1294,7 @@ export const EnforcementCasePage: React.FC = () => {
                                     type="text"
                                     value={actionForm.officialOrderReference}
                                     onChange={(e) => setActionForm({ ...actionForm, officialOrderReference: e.target.value })}
-                                    placeholder="e.g. TN-FD/MINING/2026/042"
+                                    placeholder="e.g. ENF/MINING/2026/042"
                                     className="ws-input"
                                   />
                                 </div>
