@@ -269,7 +269,7 @@ const Sidebar: React.FC = () => {
               lineHeight: 1.2,
             }}
           >
-            SATELLITE MONITORING
+            TN FOREST MONITORING
           </div>
           <div
             style={{
@@ -281,7 +281,7 @@ const Sidebar: React.FC = () => {
               fontWeight: 600,
             }}
           >
-            MONITORING WORKSTATION
+            GOVERNMENT OF TAMIL NADU
           </div>
         </div>
       </div>

@@ -259,7 +259,7 @@ export const OfflineChangeDetectionPage: React.FC = () => {
     } catch (err: any) {
       let friendlyMsg = err?.message || 'Unknown upload failure';
       if (err.name === 'TypeError' && (err.message.includes('fetch') || err.message.includes('NetworkError'))) {
-        friendlyMsg = 'Cannot connect to backend server. Please verify the backend is running at http://localhost:5000.';
+        friendlyMsg = 'Cannot connect to backend server. Please verify network connectivity and server status.';
       }
       setUploadError(friendlyMsg);
       alert(`Upload failed: ${friendlyMsg}`);

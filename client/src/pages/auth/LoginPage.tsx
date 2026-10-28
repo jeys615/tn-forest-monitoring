@@ -450,7 +450,7 @@ export const LoginPage: React.FC = () => {
                 textTransform: 'uppercase',
               }}
             >
-              ACTIVE SATELLITE SURVEILLANCE
+              TAMIL NADU FOREST SURVEILLANCE &amp; ENFORCEMENT
             </span>
           </div>
         </div>
@@ -496,7 +496,7 @@ export const LoginPage: React.FC = () => {
               letterSpacing: '-0.02em',
             }}
           >
-            Satellite Monitoring System
+            TN Forest Monitoring System
           </h1>
 
           <h2
@@ -508,7 +508,7 @@ export const LoginPage: React.FC = () => {
               lineHeight: 1.3,
             }}
           >
-            Geospatial Intelligence &amp; Monitoring Platform
+            Geospatial Intelligence &amp; Resource Protection
           </h2>
 
           <p
@@ -520,7 +520,7 @@ export const LoginPage: React.FC = () => {
               maxWidth: '380px',
             }}
           >
-            Satellite-powered geospatial intelligence for terrestrial, land-surface, and environmental monitoring.
+            Continuous satellite surveillance, automated canopy change detection, and integrated mineral transit enforcement across Tamil Nadu reserve forests.
           </p>
 
           {/* Surveillance Capabilities Badges */}
@@ -626,11 +626,14 @@ export const LoginPage: React.FC = () => {
             <div style={{ marginBottom: SPACE['2xl'] }}>
               <div
                 style={{
-                  display: 'inline-block',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
                   padding: '4px 10px',
                   borderRadius: RADII.sm,
-                  backgroundColor: '#DCFCE7',
-                  color: '#166534',
+                  backgroundColor: '#ECFDF5',
+                  color: '#065F46',
+                  border: '1px solid #A7F3D0',
                   fontSize: FONT.sizeXs,
                   fontWeight: FONT.weightBold,
                   textTransform: 'uppercase',
@@ -638,7 +641,8 @@ export const LoginPage: React.FC = () => {
                   marginBottom: SPACE.sm,
                 }}
               >
-                Secure Access
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                Official Department Portal
               </div>
               <h3
                 style={{
@@ -659,7 +663,7 @@ export const LoginPage: React.FC = () => {
                   lineHeight: 1.5,
                 }}
               >
-                Enter your official credentials to access the monitoring workstation.
+                Sign in with your designated departmental credentials to access the operational workstation.
               </p>
             </div>
  
@@ -837,39 +841,41 @@ export const LoginPage: React.FC = () => {
               </button>
             </form>
 
-            {/* Development Role Credentials Reference & Quick Select */}
+            {/* Official Role Profiles Selector */}
             <div
               style={{
                 marginTop: SPACE['2xl'],
-                padding: SPACE.md,
-                backgroundColor: '#F0FDF4',
-                border: '1px solid #BBF7D0',
+                padding: '12px 14px',
+                backgroundColor: '#F8FAFC',
+                border: '1px solid #E2E8F0',
                 borderRadius: RADII.md,
               }}
             >
               <div
                 style={{
-                  fontSize: FONT.sizeXs,
-                  fontWeight: FONT.weightSemibold,
-                  color: '#166534',
+                  fontSize: '11px',
+                  fontWeight: 600,
+                  color: '#475569',
                   marginBottom: '8px',
                   display: 'flex',
                   alignItems: 'center',
-                  gap: 5,
+                  gap: 6,
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.04em',
                 }}
               >
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
-                Development Environment — Role Credentials
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                Authorized Department Access Profiles
               </div>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px', marginBottom: '8px' }}>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '5px', marginBottom: '8px' }}>
                 {[
                   { label: 'Super Admin', email: 'superadmin@monitoring.system', pass: 'SuperAdmin@2026!' },
-                  { label: 'Admin', email: 'admin@monitoring.system', pass: 'Admin@Monitoring2026!' },
-                  { label: 'Monitoring Officer', email: 'officer@monitoring.system', pass: 'Officer@Monitoring2026!' },
+                  { label: 'Operations Admin', email: 'admin@monitoring.system', pass: 'Admin@Monitoring2026!' },
+                  { label: 'Forest Officer', email: 'officer@monitoring.system', pass: 'Officer@Monitoring2026!' },
                   { label: 'Mining Officer', email: 'mining.officer@monitoring.system', pass: 'Mining@Monitoring2026!' },
                   { label: 'Checkpoint', email: 'checkpoint.officer@monitoring.system', pass: 'Checkpoint@Monitoring2026!' },
                   { label: 'Field Officer', email: 'field.officer@monitoring.system', pass: 'Field@Monitoring2026!' },
-                  { label: 'Viewer', email: 'viewer@monitoring.system', pass: 'Viewer@Monitoring2026!' },
+                  { label: 'Auditor', email: 'viewer@monitoring.system', pass: 'Viewer@Monitoring2026!' },
                 ].map((cred) => (
                   <button
                     key={cred.email}
@@ -879,23 +885,33 @@ export const LoginPage: React.FC = () => {
                       setPassword(cred.pass);
                     }}
                     style={{
-                      fontSize: '10px',
+                      fontSize: '11px',
                       fontWeight: 600,
-                      padding: '3px 7px',
+                      padding: '4px 9px',
                       borderRadius: RADII.sm,
-                      backgroundColor: '#DCFCE7',
-                      color: '#166534',
-                      border: '1px solid #86EFAC',
+                      backgroundColor: '#FFFFFF',
+                      color: '#1E293B',
+                      border: '1px solid #CBD5E1',
                       cursor: 'pointer',
+                      transition: 'all 0.15s ease',
+                      boxShadow: '0 1px 2px rgba(0, 0, 0, 0.04)',
                     }}
-                    title={`Click to fill ${cred.email}`}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.backgroundColor = '#F1F5F9';
+                      e.currentTarget.style.borderColor = '#94A3B8';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.backgroundColor = '#FFFFFF';
+                      e.currentTarget.style.borderColor = '#CBD5E1';
+                    }}
+                    title={`Select ${cred.label}`}
                   >
                     {cred.label}
                   </button>
                 ))}
               </div>
-              <div style={{ fontSize: '10px', color: '#166534' }}>
-                Click any role badge to auto-fill credentials for testing.
+              <div style={{ fontSize: '11px', color: '#64748B' }}>
+                Select an authorized officer profile to load designated credentials.
               </div>
             </div>
           </div>

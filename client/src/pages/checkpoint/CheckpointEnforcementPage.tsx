@@ -588,7 +588,7 @@ export const CheckpointEnforcementPage: React.FC = () => {
                       <textarea
                         rows={4}
                         style={{ ...formInp, fontFamily: 'monospace', fontSize: FONT.sizeSm }}
-                        placeholder='Paste full canonical QR JSON or enter pass number e.g. "EP-2026-10492812"'
+                        placeholder='Scan QR code payload or enter e-pass number (e.g. EP-2026-10492812)'
                         value={scanInput}
                         onChange={(e) => setScanInput(e.target.value)}
                         required

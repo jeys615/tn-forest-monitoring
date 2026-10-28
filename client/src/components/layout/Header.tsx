@@ -72,7 +72,7 @@ const Header: React.FC = () => {
       {/* ── Left: Breadcrumb / Page Title / Context ── */}
       <div style={{ display: 'flex', alignItems: 'center', gap: '12px', minWidth: 0 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '11px', color: COLORS.textMuted }}>
-          <span style={{ fontWeight: 600, color: COLORS.primaryDark }}>SATELLITE MONITORING</span>
+          <span style={{ fontWeight: 600, color: COLORS.primaryDark }}>TN FOREST MONITORING</span>
           <span>/</span>
           <span style={{ textTransform: 'uppercase', letterSpacing: '0.04em', fontWeight: 500 }}>
             {routeMeta.category}

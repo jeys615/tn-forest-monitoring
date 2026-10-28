@@ -1714,12 +1714,10 @@ export const BaselinePage: React.FC = () => {
                           padding: SPACE.xs,
                           backgroundColor: '#FEE2E2',
                           borderRadius: RADII.sm,
-                          fontFamily: 'monospace',
+                          fontFamily: FONT.family,
                         }}
                       >
-                        Notice: Drive API returned 403 (ACCESS_TOKEN_SCOPE_INSUFFICIENT). Run the following in terminal to authorize Google Drive:
-                        <br />
-                        <b>gcloud auth login --enable-gdrive-access --update-adc</b>
+                        Notice: Remote cloud export authorization is pending. Contact the system administrator to verify service credentials.
                       </div>
                     )}
                   </div>
