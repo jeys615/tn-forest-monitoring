@@ -739,58 +739,13 @@ export const LoginPage: React.FC = () => {
             Multi-constellation orbital surveillance, automated canopy loss detection, and multispectral environmental compliance intelligence across all operational zones.
           </p>
 
-          {/* Tactical Mission Telemetry HUD Strip */}
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(3, 1fr)',
-              gap: '10px',
-              marginTop: SPACE.xl,
-              padding: '12px',
-              backgroundColor: 'rgba(10, 30, 20, 0.65)',
-              borderRadius: RADII.md,
-              border: '1px solid rgba(82, 183, 136, 0.25)',
-              backdropFilter: 'blur(6px)',
-            }}
-          >
-            <div>
-              <div style={{ fontSize: '9px', color: '#94A3B8', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
-                CONSTELLATION
-              </div>
-              <div style={{ fontSize: '12px', fontWeight: 700, color: '#A7F3D0', marginTop: '2px' }}>
-                SENTINEL &amp; LANDSAT
-              </div>
-              <div style={{ fontSize: '9.5px', color: '#6EE7B7' }}>5-Day Global Revisit</div>
-            </div>
-
-            <div>
-              <div style={{ fontSize: '9px', color: '#94A3B8', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
-                PAYLOAD SENSORS
-              </div>
-              <div style={{ fontSize: '12px', fontWeight: 700, color: '#FCD34D', marginTop: '2px' }}>
-                MSI 13-BAND · SAR
-              </div>
-              <div style={{ fontSize: '9.5px', color: '#FDE68A' }}>10m Resolution</div>
-            </div>
-
-            <div>
-              <div style={{ fontSize: '9px', color: '#94A3B8', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
-                GIS PIPELINE
-              </div>
-              <div style={{ fontSize: '12px', fontWeight: 700, color: '#67E8F9', marginTop: '2px' }}>
-                CLOUD GEE ENGINE
-              </div>
-              <div style={{ fontSize: '9.5px', color: '#A5F3FC' }}>Automated Analysis</div>
-            </div>
-          </div>
-
           {/* Surveillance Capabilities Badges */}
           <div
             style={{
               display: 'flex',
               flexWrap: 'wrap',
               gap: '8px',
-              marginTop: SPACE.lg,
+              marginTop: SPACE.xl,
             }}
           >
             {[
