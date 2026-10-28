@@ -29,8 +29,12 @@ export const LoginPage: React.FC = () => {
       navigate('/', { replace: true });
     } catch (err: unknown) {
       let msg = 'Login failed. Please check your credentials.';
-      if (axios.isAxiosError(err) && err.response?.data?.message) {
-        msg = err.response.data.message;
+      if (axios.isAxiosError(err)) {
+        if (err.response?.data?.message) {
+          msg = err.response.data.message;
+        } else if (!err.response && (err.code === 'ERR_NETWORK' || err.message?.includes('Network Error'))) {
+          msg = 'Unable to connect to the backend server. Please verify backend API status and CORS settings.';
+        }
       }
       setError(msg);
     } finally {
