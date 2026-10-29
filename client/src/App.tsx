@@ -23,6 +23,7 @@ const EPassPage = lazy(() => import('./pages/epass/EPassPage'));
 const MiningAuthorizationPage = lazy(() => import('./pages/mining/MiningAuthorizationPage'));
 const VehicleRegistryPage = lazy(() => import('./pages/fleet/VehicleRegistryPage'));
 const DriverRegistryPage = lazy(() => import('./pages/fleet/DriverRegistryPage'));
+const TransporterPortalPage = lazy(() => import('./pages/transporter/TransporterPortalPage'));
 const CheckpointEnforcementPage = lazy(() => import('./pages/checkpoint/CheckpointEnforcementPage'));
 const ReconciliationPage = lazy(() =>
   import('./pages/reconciliation/ReconciliationPage').then((m) => ({ default: m.ReconciliationPage || m.default }))
@@ -73,6 +74,7 @@ function App() {
 
             {/* Transport & E-Pass Management Routes */}
             <Route element={<ProtectedRoute requiredPermission={Permission.EPASS_READ} />}>
+              <Route path="/transporter-portal" element={<TransporterPortalPage />} />
               <Route path="/epass" element={<EPassPage />} />
               <Route path="/mining-authorizations" element={<MiningAuthorizationPage />} />
               <Route path="/vehicles" element={<VehicleRegistryPage />} />

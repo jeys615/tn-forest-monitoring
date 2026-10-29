@@ -10,6 +10,7 @@ export enum UserRole {
   CHECKPOINT_OFFICER = 'CHECKPOINT_OFFICER',
   FIELD_OFFICER = 'FIELD_OFFICER',
   VIEWER = 'VIEWER',
+  TRANSPORTER = 'TRANSPORTER',
 }
 
 export enum UserStatus {
@@ -62,6 +63,8 @@ export interface UserDto {
   email: string;
   phone?: string;
   role: UserRole;
+  companyId?: string;
+  companyName?: string;
   permissions: string[];
   status: UserStatus;
   lastLoginAt?: string;
@@ -2160,6 +2163,14 @@ export interface TransportCompanyDto {
     email?: string;
     address?: string;
   };
+  miningZoneDetails?: {
+    zoneName?: string;
+    leasePermitNumber?: string;
+    mineralType?: string;
+    authorizedCapacityTonnes?: number;
+    validityPeriod?: string;
+    locationDetails?: string;
+  };
   status: TransportCompanyStatus;
   createdAt: string;
   updatedAt: string;
@@ -2173,7 +2184,45 @@ export interface CreateTransportCompanyRequest {
     email?: string;
     address?: string;
   };
+  miningZoneDetails?: {
+    zoneName?: string;
+    leasePermitNumber?: string;
+    mineralType?: string;
+    authorizedCapacityTonnes?: number;
+    validityPeriod?: string;
+    locationDetails?: string;
+  };
   status?: TransportCompanyStatus;
+}
+
+export interface RegisterCompanyRequest {
+  companyName: string;
+  registrationNumber: string;
+  contactPerson: string;
+  email: string;
+  password: string;
+  phone?: string;
+  address?: string;
+  miningZoneDetails?: {
+    zoneName?: string;
+    leasePermitNumber?: string;
+    mineralType?: string;
+    authorizedCapacityTonnes?: number;
+    validityPeriod?: string;
+    locationDetails?: string;
+  };
+  initialVehicle?: {
+    registrationNumber?: string;
+    vehicleType?: string;
+    tareWeight?: number;
+    grossVehicleWeight?: number;
+    gpsTrackerId?: string;
+  };
+  initialDriver?: {
+    name?: string;
+    licenseNumber?: string;
+    phone?: string;
+  };
 }
 
 export interface VehicleDto {

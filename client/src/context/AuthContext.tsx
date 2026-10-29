@@ -1,6 +1,6 @@
 /* eslint-disable react-refresh/only-export-components */
 import { createContext, useState, useEffect, type ReactNode } from 'react';
-import type { UserDto, LoginRequest } from '@tn-forest/shared/types';
+import type { UserDto, LoginRequest, RegisterCompanyRequest } from '@tn-forest/shared/types';
 import { authService } from '../services/auth.service';
 import { getStoredToken, setStoredToken } from '../config/api';
 
@@ -10,6 +10,7 @@ export interface AuthContextType {
   isAuthenticated: boolean;
   isLoading: boolean;
   login: (credentials: LoginRequest) => Promise<void>;
+  registerCompany: (data: RegisterCompanyRequest) => Promise<void>;
   logout: () => Promise<void>;
   refreshUser: () => Promise<void>;
 }
@@ -62,6 +63,13 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     setUser(result.user);
   };
 
+  const registerCompany = async (data: RegisterCompanyRequest): Promise<void> => {
+    const result = await authService.registerCompany(data);
+    setStoredToken(result.token);
+    setToken(result.token);
+    setUser(result.user);
+  };
+
   const logout = async (): Promise<void> => {
     try {
       await authService.logout();
@@ -89,6 +97,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         isAuthenticated: !!user && !!token,
         isLoading,
         login,
+        registerCompany,
         logout,
         refreshUser,
       }}

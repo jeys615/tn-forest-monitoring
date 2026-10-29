@@ -9,7 +9,7 @@ export const vehicleRouter = Router();
 vehicleRouter.use(requireAuth);
 vehicleRouter.post(
   '/',
-  requireRole(UserRole.SUPER_ADMIN, UserRole.ADMIN, UserRole.MINING_OFFICER, UserRole.FOREST_OFFICER),
+  requireRole(UserRole.SUPER_ADMIN, UserRole.ADMIN, UserRole.MINING_OFFICER, UserRole.FOREST_OFFICER, UserRole.TRANSPORTER),
   transportFleetController.createVehicle,
 );
 vehicleRouter.get('/', transportFleetController.getAllVehicles);
@@ -20,7 +20,7 @@ export const driverRouter = Router();
 driverRouter.use(requireAuth);
 driverRouter.post(
   '/',
-  requireRole(UserRole.SUPER_ADMIN, UserRole.ADMIN, UserRole.MINING_OFFICER, UserRole.FOREST_OFFICER),
+  requireRole(UserRole.SUPER_ADMIN, UserRole.ADMIN, UserRole.MINING_OFFICER, UserRole.FOREST_OFFICER, UserRole.TRANSPORTER),
   transportFleetController.createDriver,
 );
 driverRouter.get('/', transportFleetController.getAllDrivers);
@@ -31,8 +31,14 @@ export const transportCompanyRouter = Router();
 transportCompanyRouter.use(requireAuth);
 transportCompanyRouter.post(
   '/',
-  requireRole(UserRole.SUPER_ADMIN, UserRole.ADMIN, UserRole.MINING_OFFICER, UserRole.FOREST_OFFICER),
+  requireRole(UserRole.SUPER_ADMIN, UserRole.ADMIN, UserRole.MINING_OFFICER, UserRole.FOREST_OFFICER, UserRole.TRANSPORTER),
   transportFleetController.createTransportCompany,
 );
+transportCompanyRouter.get('/my-company', transportFleetController.getMyCompany);
 transportCompanyRouter.get('/', transportFleetController.getAllTransportCompanies);
 transportCompanyRouter.get('/:id', transportFleetController.getTransportCompanyById);
+transportCompanyRouter.put(
+  '/:id',
+  requireRole(UserRole.SUPER_ADMIN, UserRole.ADMIN, UserRole.MINING_OFFICER, UserRole.TRANSPORTER),
+  transportFleetController.updateTransportCompany,
+);

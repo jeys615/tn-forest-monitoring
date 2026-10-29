@@ -15,6 +15,7 @@ router.post(
     UserRole.ADMIN,
     UserRole.MINING_OFFICER,
     UserRole.FOREST_OFFICER,
+    UserRole.TRANSPORTER,
   ),
   miningAuthorizationController.createAuthorization,
 );
@@ -29,6 +30,7 @@ router.put(
     UserRole.ADMIN,
     UserRole.MINING_OFFICER,
     UserRole.FOREST_OFFICER,
+    UserRole.TRANSPORTER,
   ),
   miningAuthorizationController.updateAuthorization,
 );

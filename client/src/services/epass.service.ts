@@ -135,4 +135,22 @@ export const epassService = {
     );
     return response.data.data!;
   },
+
+  getMyCompany: async (): Promise<TransportCompanyDto> => {
+    const response = await apiClient.get<ApiResponse<TransportCompanyDto>>(
+      '/transport-companies/my-company',
+    );
+    return response.data.data!;
+  },
+
+  updateTransportCompany: async (
+    id: string,
+    data: Partial<CreateTransportCompanyRequest>,
+  ): Promise<TransportCompanyDto> => {
+    const response = await apiClient.put<ApiResponse<TransportCompanyDto>>(
+      `/transport-companies/${id}`,
+      data,
+    );
+    return response.data.data!;
+  },
 };

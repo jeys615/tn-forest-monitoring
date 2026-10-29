@@ -81,6 +81,60 @@ export class TransportFleetController {
     }
   };
 
+  updateTransportCompany = async (
+    req: Request,
+    res: Response,
+    next: NextFunction,
+  ): Promise<void> => {
+    try {
+      const doc = await this.fleetService.updateTransportCompany(req.params.id as string, req.body);
+      res.status(HTTP_STATUS.OK).json({
+        success: true,
+        message: 'Transport company updated successfully',
+        data: doc,
+        timestamp: new Date().toISOString(),
+      });
+    } catch (err) {
+      next(err);
+    }
+  };
+
+  getMyCompany = async (
+    req: Request,
+    res: Response,
+    next: NextFunction,
+  ): Promise<void> => {
+    try {
+      const user = req.user;
+      let companyId = (user as any)?.companyId;
+      if (!companyId) {
+        // Fallback: check if any company was created by this user or return first company
+        const all = await this.fleetService.getAllTransportCompanies();
+        companyId = all.length > 0 ? all[0].id : undefined;
+      }
+
+      if (!companyId) {
+        res.status(HTTP_STATUS.OK).json({
+          success: true,
+          message: 'No company found for user',
+          data: null,
+          timestamp: new Date().toISOString(),
+        });
+        return;
+      }
+
+      const doc = await this.fleetService.getTransportCompanyById(companyId);
+      res.status(HTTP_STATUS.OK).json({
+        success: true,
+        message: 'My company retrieved successfully',
+        data: doc,
+        timestamp: new Date().toISOString(),
+      });
+    } catch (err) {
+      next(err);
+    }
+  };
+
   // ---------------------------------------------------------------------------
   // Vehicles
   // ---------------------------------------------------------------------------

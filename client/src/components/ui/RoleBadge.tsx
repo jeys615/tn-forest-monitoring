@@ -41,6 +41,11 @@ const ROLE_STYLES: Record<string, { color: string; bg: string; label: string }> 
     bg: '#F3F4F6',
     label: 'Viewer',
   },
+  [UserRole.TRANSPORTER]: {
+    color: '#0369A1',
+    bg: '#F0F9FF',
+    label: 'Transporter / Fleet',
+  },
 };
 
 const RoleBadge: React.FC<RoleBadgeProps> = ({ role }) => {

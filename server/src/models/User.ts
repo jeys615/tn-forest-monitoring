@@ -1,4 +1,4 @@
-import { Schema, model, type Document } from 'mongoose';
+import { Schema, model, type Document, type Types } from 'mongoose';
 import { UserRole, UserStatus, Permission } from '@tn-forest/shared/types';
 
 export interface IUser extends Document {
@@ -8,6 +8,7 @@ export interface IUser extends Document {
   phone?: string;
   passwordHash: string;
   role: UserRole;
+  companyId?: Types.ObjectId;
   permissions: string[];
   status: UserStatus;
   lastLoginAt?: Date;
@@ -51,6 +52,11 @@ const userSchema = new Schema<IUser>(
       default: UserRole.VIEWER,
       required: true,
     },
+    companyId: {
+      type: Schema.Types.ObjectId,
+      ref: 'TransportCompany',
+      index: true,
+    },
     permissions: {
       type: [String],
       enum: Object.values(Permission),
@@ -81,6 +87,7 @@ userSchema.methods.toUserDto = function () {
     email: this.email,
     phone: this.phone,
     role: this.role,
+    companyId: this.companyId ? this.companyId.toString() : undefined,
     permissions: this.permissions,
     status: this.status,
     lastLoginAt: this.lastLoginAt ? this.lastLoginAt.toISOString() : undefined,

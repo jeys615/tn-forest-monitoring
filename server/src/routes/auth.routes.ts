@@ -10,6 +10,7 @@ const router = Router();
 const controller = new AuthController();
 
 router.post('/login', authRateLimiter, validateRequest({ body: loginSchema }), asyncHandler(controller.login));
+router.post('/register-company', authRateLimiter, asyncHandler(controller.registerCompany));
 router.get('/me', requireAuth, asyncHandler(controller.me));
 router.post('/logout', requireAuth, asyncHandler(controller.logout));
 router.post(

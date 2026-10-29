@@ -15,6 +15,10 @@ export class TransportCompanyRepository {
     return await TransportCompanyModel.findById(id);
   }
 
+  async updateById(id: string | Types.ObjectId, data: Partial<ITransportCompany>): Promise<ITransportCompany | null> {
+    return await TransportCompanyModel.findByIdAndUpdate(id, { $set: data }, { new: true });
+  }
+
   async findByRegistrationNumber(registrationNumber: string): Promise<ITransportCompany | null> {
     return await TransportCompanyModel.findOne({ registrationNumber });
   }

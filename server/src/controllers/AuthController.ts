@@ -56,4 +56,14 @@ export class AuthController {
       timestamp: new Date().toISOString(),
     });
   };
+
+  registerCompany = async (req: Request, res: Response): Promise<void> => {
+    const result = await this.authService.registerCompany(req.body);
+    res.status(HTTP_STATUS.CREATED).json({
+      success: true,
+      message: 'Company and Transporter account registered successfully',
+      data: result,
+      timestamp: new Date().toISOString(),
+    });
+  };
 }

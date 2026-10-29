@@ -60,11 +60,30 @@ export class TransportFleetService {
       registrationNumber: data.registrationNumber.trim().toUpperCase(),
       companyName: data.companyName.trim(),
       contactDetails: data.contactDetails,
+      miningZoneDetails: data.miningZoneDetails,
       status: data.status || TransportCompanyStatus.ACTIVE,
       createdBy: userId ? new Types.ObjectId(userId) : undefined,
     });
 
     return this.toCompanyDto(created);
+  }
+
+  async updateTransportCompany(
+    id: string,
+    data: Partial<CreateTransportCompanyRequest>,
+  ): Promise<TransportCompanyDto> {
+    const updateData: Record<string, unknown> = {};
+    if (data.companyName) updateData.companyName = data.companyName.trim();
+    if (data.registrationNumber) updateData.registrationNumber = data.registrationNumber.trim().toUpperCase();
+    if (data.contactDetails) updateData.contactDetails = data.contactDetails;
+    if (data.miningZoneDetails) updateData.miningZoneDetails = data.miningZoneDetails;
+    if (data.status) updateData.status = data.status;
+
+    const updated = await this.companyRepo.updateById(id, updateData);
+    if (!updated) {
+      throw new AppError(`Transport company "${id}" not found`, HTTP_STATUS.NOT_FOUND);
+    }
+    return this.toCompanyDto(updated);
   }
 
   async getAllTransportCompanies(filter: {
@@ -240,6 +259,14 @@ export class TransportFleetService {
       registrationNumber: d.registrationNumber as string,
       companyName: d.companyName as string,
       contactDetails: d.contactDetails as { phone: string; email?: string; address?: string },
+      miningZoneDetails: d.miningZoneDetails as {
+        zoneName?: string;
+        leasePermitNumber?: string;
+        mineralType?: string;
+        authorizedCapacityTonnes?: number;
+        validityPeriod?: string;
+        locationDetails?: string;
+      } | undefined,
       status: d.status as TransportCompanyStatus,
       createdAt: d.createdAt instanceof Date ? d.createdAt.toISOString() : (d.createdAt as string),
       updatedAt: d.updatedAt instanceof Date ? d.updatedAt.toISOString() : (d.updatedAt as string),

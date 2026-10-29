@@ -11,6 +11,15 @@ export interface ITransportCompany extends Document {
     email?: string;
     address?: string;
   };
+  miningZoneDetails?: {
+    zoneName?: string;
+    leasePermitNumber?: string;
+    mineralType?: string;
+    authorizedCapacityTonnes?: number;
+    validityPeriod?: string;
+    locationDetails?: string;
+  };
+  userId?: Types.ObjectId;
   status: TransportCompanyStatus;
   createdBy?: Types.ObjectId;
   createdAt: Date;
@@ -41,6 +50,19 @@ const transportCompanySchema = new Schema<ITransportCompany>(
       phone: { type: String, trim: true },
       email: { type: String, trim: true, lowercase: true },
       address: { type: String, trim: true },
+    },
+    miningZoneDetails: {
+      zoneName: { type: String, trim: true },
+      leasePermitNumber: { type: String, trim: true },
+      mineralType: { type: String, trim: true },
+      authorizedCapacityTonnes: { type: Number, min: 0 },
+      validityPeriod: { type: String, trim: true },
+      locationDetails: { type: String, trim: true },
+    },
+    userId: {
+      type: Schema.Types.ObjectId,
+      ref: 'User',
+      index: true,
     },
     status: {
       type: String,

@@ -123,6 +123,13 @@ export const DEFAULT_ROLE_PERMISSIONS: Record<UserRole, Permission[]> = {
     Permission.ENFORCEMENT_CASE_READ,
     Permission.INTELLIGENCE_READ,
   ],
+  [UserRole.TRANSPORTER]: [
+    Permission.USER_READ,
+    Permission.AREA_READ,
+    Permission.EPASS_READ,
+    Permission.EPASS_CREATE,
+    Permission.CHECKPOINT_READ,
+  ],
 };
 
 // ============================================================
