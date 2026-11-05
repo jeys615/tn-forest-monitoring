@@ -20,7 +20,7 @@ import {
 } from '@tn-forest/shared/types';
 import { Types, type Schema } from 'mongoose';
 import fs from 'fs';
-import { GeeSatelliteProvider } from './gee/providers/GeeSatelliteProvider.js';
+import { resolveSatelliteProvider } from './gee/providers/satelliteProviderFactory.js';
 import type { ISatelliteProvider } from './gee/providers/ISatelliteProvider.js';
 import { GeeExportService, type GeeExportResult } from './gee/GeeExportService.js';
 import { GeeTaskService } from './gee/GeeTaskService.js';
@@ -38,7 +38,7 @@ export class SatelliteAcquisitionService {
   constructor(provider?: ISatelliteProvider) {
     this.satelliteRepo = new SatelliteMetadataRepository();
     this.zoneRepo = new ZoneRepository();
-    this.provider = provider || new GeeSatelliteProvider();
+    this.provider = resolveSatelliteProvider(provider);
     this.geeExportService = new GeeExportService();
     this.geeTaskService = new GeeTaskService();
     this.driveService = new GoogleDriveService();

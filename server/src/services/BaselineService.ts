@@ -1181,7 +1181,7 @@ export class BaselineService {
         : `SatelliteMetadata record not found for ID ${satelliteMetadataId}`,
     });
 
-    // GATE 2: Authentic GEE Scene Asset Identification (no deterministic fake patterns)
+    // GATE 2: Authentic GEE Scene Asset Identification (no deterministic/fake pattern)
     const isSynthetic = Boolean(
       satMeta?.imageId &&
         (satMeta.imageId.includes('T44PMT') || satMeta.imageId.includes('_144053_')),

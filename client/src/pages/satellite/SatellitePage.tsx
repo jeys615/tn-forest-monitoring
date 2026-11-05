@@ -481,10 +481,10 @@ const SatellitePage: React.FC = () => {
       setAcquisitionLogs((prev) => [
         ...prev,
         isSar
-          ? `[${new Date().toLocaleTimeString()}] Searching real GEE collection COPERNICUS/S1_GRD (All-Weather C-SAR)...`
+          ? `[${new Date().toLocaleTimeString()}] Searching GEE collection COPERNICUS/S1_GRD (All-Weather C-SAR)...`
           : formData.source
-          ? `[${new Date().toLocaleTimeString()}] Searching real GEE collection for ${formData.source}...`
-          : `[${new Date().toLocaleTimeString()}] Searching real GEE optical collections (Sentinel-2, Landsat-8, Landsat-9)...`,
+          ? `[${new Date().toLocaleTimeString()}] Searching GEE collection for ${formData.source}...`
+          : `[${new Date().toLocaleTimeString()}] Searching GEE optical collections (Sentinel-2, Landsat-8, Landsat-9)...`,
       ]);
 
       const response = await satelliteService.searchImages({
@@ -498,8 +498,8 @@ const SatellitePage: React.FC = () => {
 
       if (!response.images || response.images.length === 0) {
         const noImagesMsg = isSar
-          ? 'No real Sentinel-1 SAR imagery found for the selected period. Try a wider date range.'
-          : `No real optical imagery found for the selected period under cloud threshold ${formData.maxCloudCover}%. Try a wider date range.`;
+          ? 'No Sentinel-1 SAR imagery found for the selected period. Try a wider date range.'
+          : `No optical imagery found for the selected period under cloud threshold ${formData.maxCloudCover}%. Try a wider date range.`;
         setAcquisitionLogs((prev) => [
           ...prev,
           `[${new Date().toLocaleTimeString()}] ${noImagesMsg}`,
@@ -509,13 +509,15 @@ const SatellitePage: React.FC = () => {
       }
 
       setCandidateImages(response.images);
+      const isSimulated = response.images.some((img) => (img as any).isRealTelemetry === false);
+      const telemetryType = isSimulated ? 'simulated' : 'real';
       setAcquisitionLogs((prev) => [
         ...prev,
-        `[${new Date().toLocaleTimeString()}] GEE search resolved! Found ${response.totalFound} candidate observations.`,
+        `[${new Date().toLocaleTimeString()}] GEE search resolved! Found ${response.totalFound} candidate observations (${telemetryType}).`,
         `[${new Date().toLocaleTimeString()}] Select a candidate observation below to acquire into the database catalog.`,
       ]);
       setSuccessMsg(
-        `Found ${response.totalFound} real ${isSar ? 'Sentinel-1 SAR' : 'optical'} observations. Select an observation to acquire into the catalog.`,
+        `Found ${response.totalFound} ${isSar ? 'Sentinel-1 SAR' : 'optical'} observations (${telemetryType}). Select an observation to acquire into the catalog.`,
       );
     } catch (err: unknown) {
       let msg = extractApiErrorMessage(err, 'Failed to search satellite catalog');
@@ -523,9 +525,9 @@ const SatellitePage: React.FC = () => {
         msg.includes('GEE_NO_IMAGES_FOUND') ||
         (formData.sensorType === 'SAR' && msg.toLowerCase().includes('no real sentinel-1 sar imagery found'))
       ) {
-        msg = 'No real Sentinel-1 SAR imagery found for the selected period. Try a wider date range.';
+        msg = 'No Sentinel-1 SAR imagery found for the selected period. Try a wider date range.';
       }
-      setAcquisitionLogs((prev) => [...prev, `[${new Date().toLocaleTimeString()}] ${msg}`]);
+      setAcquisitionLogs((prev) => [...prev, `[${new Date().toLocaleTimeString()}] ❌ ${msg}`]);
       setError(msg);
     } finally {
       setIsSearching(false);

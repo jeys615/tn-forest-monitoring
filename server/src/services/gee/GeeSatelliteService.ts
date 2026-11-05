@@ -12,6 +12,7 @@ import {
   type SatelliteSearchRequest,
   type SatelliteSearchResponse,
 } from '@tn-forest/shared/types';
+import { resolveSatelliteProvider } from './providers/satelliteProviderFactory.js';
 import { Types } from 'mongoose';
 import { normalizeDateRange } from '../../utils/dateNormalization.js';
 
@@ -23,7 +24,7 @@ export class GeeSatelliteService {
   constructor(provider?: ISatelliteProvider) {
     this.zoneRepo = new ZoneRepository();
     this.tempAreaRepo = new TemporaryAreaRepository();
-    this.provider = provider || new GeeSatelliteProvider();
+    this.provider = resolveSatelliteProvider(provider);
   }
 
   public setProvider(provider: ISatelliteProvider): void {

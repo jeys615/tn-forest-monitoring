@@ -131,6 +131,18 @@ export class GeeSatelliteProvider implements ISatelliteProvider {
       this.searchLandsatImages(geometry, { ...options, source: SatelliteSource.LANDSAT_9 }),
     ]);
 
+    if (s2Res.status === 'rejected' && l8Res.status === 'rejected' && l9Res.status === 'rejected') {
+      const err = s2Res.reason || l8Res.reason || l9Res.reason;
+      console.error(`[GEE] All optical collection searches failed:`, err);
+      if (err instanceof AppError) {
+        throw err;
+      }
+      throw new AppError(
+        `Failed to search Google Earth Engine optical collections: ${err instanceof Error ? err.message : String(err)}`,
+        HTTP_STATUS.SERVICE_UNAVAILABLE,
+      );
+    }
+
     const allImages: (RealSentinel2ImageDto | RealLandsatImageDto)[] = [];
     if (s2Res.status === 'fulfilled') {
       allImages.push(...s2Res.value);
