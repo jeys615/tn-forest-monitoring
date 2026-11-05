@@ -57,13 +57,9 @@ export const LoginPage: React.FC = () => {
 
   const DEMO_ROLES = [
     { label: 'Super Admin', email: 'superadmin@monitoring.system', pass: 'SuperAdmin@2026!' },
-    { label: 'Admin', email: 'admin@monitoring.system', pass: 'Admin@Monitoring2026!' },
-    { label: 'Transporter / Fleet', email: 'transporter@monitoring.system', pass: 'Transporter@2026!' },
     { label: 'Monitoring Officer', email: 'officer@monitoring.system', pass: 'Officer@Monitoring2026!' },
-    { label: 'Mining Officer', email: 'mining.officer@monitoring.system', pass: 'Mining@Monitoring2026!' },
     { label: 'Checkpoint', email: 'checkpoint.officer@monitoring.system', pass: 'Checkpoint@Monitoring2026!' },
-    { label: 'Field Officer', email: 'field.officer@monitoring.system', pass: 'Field@Monitoring2026!' },
-    { label: 'Viewer', email: 'viewer@monitoring.system', pass: 'Viewer@Monitoring2026!' },
+    { label: 'Transporter', email: 'transporter@monitoring.system', pass: 'Transporter@2026!' },
   ];
 
   return (
